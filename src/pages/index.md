@@ -1,56 +1,99 @@
 ---
 templateKey: index-page
-title: Great coffee with a conscience
+title: Taking your leadership to the next level
 image: /img/home-jumbotron.jpg
-heading: Great coffee with a conscience
-subheading: Support sustainable farming while enjoying a cup
+heading:
+subheading: Executive Coaching | Team Coaching | Organization Development
+description: >
+  It is our aim to support you in gaining deeper insights and knowledge —for you to thrive, inspire and live out the contribution that is excited to emerge.
 mainpitch:
-  title: Why Kaldi
+  image: /img/teamMeeting.jpg
+  title: Why Resilient?
   description: >
-    Kaldi is the coffee store for everyone who believes that great coffee
-    shouldn't just taste good, it should do good too. We source all of our beans
-    directly from small scale sustainable farmers and make sure part of the
-    profits are reinvested in their communities.
-description: >-
-  Kaldi is the ultimate spot for coffee lovers who want to learn about their
-  java’s origin and support the farmers that grew it. We take coffee production,
-  roasting and brewing seriously and we’re glad to pass that knowledge to
-  anyone.
-intro:
+    Our Mission is to support leaders, teams, and organizations to embody the skills necessary to consistently reach higher goals, quickly recover from setbacks, and face new challenges with wisdom and perseverance.
+philosophy:
+  image: /img/coaching-soma-onto.png
+  title: Our core philosophy
+  paragraph1: >
+    At Resilient Leadership, we believe that you are here to do more than survive. You are a leader, and as such, you will be challenged, you will be put in uncomfortable circumstances and you will upset the status quo. But the question is, who are you being while you are leading?
+  paragraph2: >
+    Your success as a leader will not be measured by how well you maintained the status quo. It will be measured by the contributions you made. In order to be the biggest contribution available within you, you need to be courageous, wise and resilient.
+  quote: >
+    “Do not judge me by my success, judge me by how many times I fell down and got back up again.”       
+    ~Nelson Mandela
+results:
+  image: /img/resilient-success.png
+  title: We believe that you can
+  listItems:
+    - text: >
+        Lead from a place of courage, wisdom and embodied strength.
+    - text: >
+        Lead in such a way that your teams want to follow you on their own volition.
+    - text: >
+        Live your contribution to your organization out so fully that others are inspired and empowered by your presence.
+    - text: >
+        Lead a life that is personally fulfilling, professionally rewarding and positively contributes to the world at large.
+services:
   blurbs:
-    - image: /img/coffee.png
+    - image: /img/resilient-leadership-executive-coaching.jpg
+      title: Executive Coaching
       text: >
-        We sell green and roasted coffee beans that are sourced directly from
-        independent farmers and farm cooperatives. We’re proud to offer a
-        variety of coffee beans grown with great care for the environment and
-        local communities. Check our post or contact us directly for current
-        availability.
-    - image: /img/coffee-gear.png
+        Face challenges with courage, wisdom and resilience. Recover from setbacks with ease and perseverance. For emerging leaders and seasoned executives ready to take their leadership to the next level.
+      link: /executive-coaching
+    - image: /img/resilient-leadership-team-coaching.jpg
+      title: Team Coaching
       text: >
-        We offer a small, but carefully curated selection of brewing gear and
-        tools for every taste and experience level. No matter if you roast your
-        own beans or just bought your first french press, you’ll find a gadget
-        to fall in love with in our shop.
-    - image: /img/tutorials.png
+        For teams, departments and groups ready to set higher goals, collaborate more effectively and face bigger challenges with ease and fulfillment.
+      link: /team-coaching
+    - image: /img/resilient-leadership-organization-development.jpg
+      title: Organization Development
       text: >
-        Love a great cup of coffee, but never knew how to make one? Bought a
-        fancy new Chemex but have no clue how to use it? Don't worry, we’re here
-        to help. You can schedule a custom 1-on-1 consultation with our baristas
-        to learn anything you want to know about coffee roasting and brewing.
-        Email us or call the store for details.
-    - image: /img/meeting-space.png
+        For organizations that are ready to make informed choices, grounded in accurate assessments. Develop the skills and capacity to effectively deliver promises and mission.
+      link: /organization-development
+    - image: /img/resilient-leadership-360-assessment.jpg
+      title: 360◦ Feedback
       text: >
-        We believe that good coffee has the power to bring people together.
-        That’s why we decided to turn a corner of our shop into a cozy meeting
-        space where you can hang out with fellow coffee lovers and learn about
-        coffee making techniques. All of the artwork on display there is for
-        sale. The full price you pay goes to the artist.
+        Clear, grounded feedback on your strengths, challenges and leadership weaknesses. A plan for developing new skills and improving your leadership capacity. Personalized coaching to put the information into action.
+      link: /360-feedback
+    - image: /img/resilient-leadership-surveys.jpg
+      title: Surveys & Assessments
+      text: >
+        Understand the processes, systems and information your organization needs to reach peak effectiveness and efficiency. Tools to insure that you not only understand where the gaps are but how to fill them effectively.
+      link: /surveys-assessments
   heading: What we offer
   description: >
     Kaldi is the ultimate spot for coffee lovers who want to learn about their
     java’s origin and support the farmers that grew it. We take coffee
-    production, roasting and brewing seriously and we’re glad to pass that
-    knowledge to anyone. This is an edit via identity...
+    production, roasting and brewing seriously and we’re glad to pass that knowledge to anyone. This is an edit via identity...
+callToAction:
+  title: Let’s Have A Conversation
+  paragraph1: > 
+    We believe that we are all RESILIENT by design and through building our capacity, and learning to move effectively with change, we can overcome any obstacle.
+  paragraph2: >
+    We believe that through awareness, there is an opportunity for more productive action. By building skills in effective communication, you and your team can face challenges with greater resiliency, and deliver more reliable results.
+  paragraph3: >
+    In 45 minutes, we’ll uncover your current gaps in leadership, re-center on your top strengths, and guide you through your potential and how our coaching expertise can help create new possibilities.
+  paragraph4: > 
+    Our request Come to us with your biggest concerns and a willingness to share openly– so our solutions will have the biggest impact in your organization and your life.
+  paragraph5: >
+    Our promise You’ll walk away able to see more possibilities for your team and your leadership.
+testimonialSection:
+  image: /img/testimonialsBackground.jpg
+  testimonials:  
+    - text1: >
+        "Before meeting Charlene, I lived in a perpetual state of self-imposed high expectation and self-criticism. The ability to live in the moment was beyond me. She helped me realize that significant events from my past shaped how I deal with life today.
+      text2: >
+        I am now able to identify the tendencies that cause me to be overly critical of myself… My approach to both work and home life has improved tremendously."
+      author: >
+        Nate Breed    
+        VP of Finance
+    - text1: >
+        "My coaching with Charlene has changed my life personally, professionally and socially.
+      text2: >
+        I was traveling through life with unrealistic expectations and carrying a sense of failure. … Charlene has an incredible way of holding me accountable with honesty and connecting me with what really matters."
+      author: >
+        Chad Henline   
+        Director of Operations
 main:
   heading: Great coffee with no compromises
   description: >

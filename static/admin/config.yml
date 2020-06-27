@@ -39,7 +39,7 @@ collections:
           - {label: Image, name: image, widget: image}
           - {label: Heading, name: heading, widget: string}
           - {label: Subheading, name: subheading, widget: string}
-          - {label: Mainpitch, name: mainpitch, widget: object, fields: [{label: Title, name: title, widget: string}, {label: Description, name: description, widget: text}]}
+          - {label: Mainpitch, name: mainpitch, widget: object, fields: [{label: Title, name: title, widget: string}, {label: Description, name: description, widget: text}, {label: Image, name: image, widget: image}]}
           - {label: Description, name: description, widget: string}
           - {label: Intro, name: intro, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Blurbs, name: blurbs, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}]}
           - {label: Main, name: main, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Image1, name: image1, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image2, name: image2, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image3, name: image3, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}]}
@@ -50,6 +50,79 @@ collections:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
+      - file: "src/pages/surveys-assessments/index.md"
+        label: "Surveys and Assessments"
+        name: "Surveys & Assessments"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "surveys-assessments-page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: Image, name: image, widget: image}
+          - {label: Heading, name: heading, widget: string}
+          - {label: Audience, name: audience, widget: string}
+          - {label: Objectives, name: objectives, widget: string}
+          - {label: "Body", name: "body", widget: "markdown"}
+      - file: "src/pages/360-feedback/index.md"
+        label: "360 Feedback"
+        name: "360 Feedback"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "360-feedback-page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: Image, name: image, widget: image}
+          - {label: Heading, name: heading, widget: string}
+          - {label: Audience, name: audience, widget: string}
+          - {label: Objectives, name: objectives, widget: string}
+          - {label: Summary, name: summary, widget: string}
+          - {label: ProcessTitle, name: processTitle, widget: string}
+          - {label: Process, name: process, widget: string}
+          - {label: OutcomesTitle, name: outcomesTitle, widget: string}
+          - {label: Outcomes, name: outcomes, widget: list, fields: [{label: Text, name: text, widget: string}]}
+      - file: "src/pages/executive-coaching/index.md"
+        label: "Executive Coaching"
+        name: "Executive Coaching"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "executive-coaching-page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: Image, name: image, widget: image}
+          - {label: Heading, name: heading, widget: string}
+          - {label: Audience, name: audience, widget: string}
+          - {label: Summary1, name: summary1, widget: string}
+          - {label: Summary2, name: summary2, widget: string}
+          - {label: ProcessTitle, name: processTitle, widget: string}
+          - {label: Process, name: process, widget: string}
+          - {label: OutcomesTitle, name: outcomesTitle, widget: string}
+          - {label: Outcomes, name: outcomes, widget: list, fields: [{label: Text, name: text, widget: string}]}
+      - file: "src/pages/team-coaching/index.md"
+        label: "Team Coaching"
+        name: "Team Coaching"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "team-coaching-page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: Image, name: image, widget: image}
+          - {label: Heading, name: heading, widget: string}
+          - {label: Audience, name: audience, widget: string}
+          - {label: Summary1, name: summary1, widget: string}
+          - {label: Summary2, name: summary2, widget: string}
+          - {label: ProcessTitle, name: processTitle, widget: string}
+          - {label: ProcessBold, name: processBold, widget: string}
+          - {label: Process1, name: process1, widget: string}
+          - {label: Process2, name: process2, widget: string}
+          - {label: OutcomesTitle, name: outcomesTitle, widget: string}
+          - {label: Outcomes, name: outcomes, widget: list, fields: [{label: Text, name: text, widget: string}]}
+      - file: "src/pages/organization-development/index.md"
+        label: "Organization Development"
+        name: "Organization Development"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "organization-development-page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: Image, name: image, widget: image}
+          - {label: Heading, name: heading, widget: string}
+          - {label: Audience, name: audience, widget: string}
+          - {label: Summary1, name: summary1, widget: string}
+          - {label: Summary2, name: summary2, widget: string}
+          - {label: ProcessTitle, name: processTitle, widget: string}
+          - {label: Process, name: process, widget: string}
+          - {label: OutcomesTitle, name: outcomesTitle, widget: string}
+          - {label: Outcomes, name: outcomes, widget: list, fields: [{label: Text, name: text, widget: string}]}
       - file: "src/pages/products/index.md"
         label: "Products Page"
         name: "products"
