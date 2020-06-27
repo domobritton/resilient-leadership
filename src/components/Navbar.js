@@ -127,6 +127,7 @@ const MobileMenu = styled.div`
     padding: 0.5rem 0;
     display: block;
     position: absolute;
+    z-index: 1;
     opacity: 0;
     transform: translate3d(0, -100%, 0);
     &.is-active {

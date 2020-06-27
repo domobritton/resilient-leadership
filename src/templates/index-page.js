@@ -8,8 +8,13 @@ import { css } from '@emotion/core';
 import Layout from '../components/Layout';
 import Features from '../components/Features';
 import leadership from '../img/leadership.svg';
-
-const Wrapper = styled.main``;
+import {
+  Wrapper,
+  HeroTitleBox,
+  HeroTitle,
+  FlexRow,
+  linkStyle,
+} from '../components/styles';
 
 const InnerWrapper = styled.div`
   display: flex;
@@ -22,13 +27,16 @@ const InnerWrapper = styled.div`
 
 const Section = styled.section`
   display: flex;
-  padding: 4rem 0;
+  padding: 4rem 1rem;
 `;
 
 const MainPitchColumn = styled.div`
   width: 33%;
   min-width: 300px;
   position: relative;
+  @media (max-width: 768px) {
+    position: absolute;
+  }
 `;
 
 const MainPitchBox = styled.div`
@@ -42,6 +50,9 @@ const MainPitchBox = styled.div`
 
 const mainImageStyle = css`
   width: 67%;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const mainPitchTitleStyle = css`
@@ -49,6 +60,11 @@ const mainPitchTitleStyle = css`
   color: #fba100 !important;
   margin-bottom: 1.5rem;
   line-height: 1;
+  @media (max-width: 768px) {
+    margin: 2rem;
+    position: relative;
+    z-index: 1;
+  }
 `;
 
 const PhiloImageBox = styled.div`
@@ -91,10 +107,6 @@ const ListItem = styled.li`
   }
 `;
 
-const FlexRow = styled.div`
-  display: flex;
-`;
-
 const ResultsTitle = styled.h3`
   font-size: 2.25em !important;
   color: #fba100 !important;
@@ -126,23 +138,6 @@ const TestimonialCard = styled.div`
   }
   &:not(:last-of-type) {
     margin-right: 0.625rem;
-  }
-`;
-
-const linkStyle = css`
-  padding: 0.65rem;
-  background-color: #fba100;
-  color: #ffffff;
-  font-size: 1.25em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 12rem;
-  cursor: pointer;
-  margin-top: 2rem;
-  &:hover {
-    background-color: #ffb42f;
-    color: #ffffff;
   }
 `;
 
@@ -184,34 +179,13 @@ export const IndexPageTemplate = ({
           backgroundImage: `url(${
             !!image.childImageSharp ? image.childImageSharp.fluid.src : image
           })`,
-          backgroundPosition: `left bottom`,
+          backgroundPosition: `center center`,
           backgroundAttachment: `fixed`,
           height: 650,
         }}
       >
-        <div
-          style={{
-            display: 'flex',
-            height: '150px',
-            lineHeight: '1',
-            justifyContent: 'space-around',
-            alignItems: 'left',
-            flexDirection: 'column',
-          }}
-        >
-          <h1
-            className='has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen'
-            style={{
-              boxShadow:
-                'rgb(251,161,0) 0.5rem 0px 0px, rgb(251,161,0) -0.5rem 0px 0px',
-              backgroundColor: 'rgb(251,161,0)',
-              color: 'white',
-              lineHeight: '1',
-              padding: '0.25em',
-            }}
-          >
-            {title}
-          </h1>
+        <HeroTitleBox>
+          <HeroTitle>{title}</HeroTitle>
           <h3
             className='has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen'
             style={{
@@ -226,7 +200,7 @@ export const IndexPageTemplate = ({
           >
             {subheading}
           </h3>
-        </div>
+        </HeroTitleBox>
       </div>
       <Wrapper>
         <InnerWrapper>
@@ -288,6 +262,7 @@ export const IndexPageTemplate = ({
         </InnerWrapper>
         <Section
           css={css`
+            padding: 4rem 2rem;
             display: flex;
             flex-direction: column;
             background-color: #907d8e;

@@ -1,86 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
-import { css } from '@emotion/core';
-import styled from '@emotion/styled';
 import Layout from '../components/Layout';
-
-const Wrapper = styled.main``;
-
-const InnerWrapper = styled.div`
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 1rem;
-`;
-
-const Section = styled.section`
-  padding: 4rem 0;
-`;
-
-const FlexRow = styled.div`
-  display: flex;
-`;
-
-const Column = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const leftColumn = css`
-  color: #a6a6a6;
-  flex: 1;
-`;
-
-const rightColumn = css`
-  padding-left: 1.25rem;
-  flex: 2;
-`;
-
-const Heading = styled.h2`
-  font-size: 2em !important;
-  color: #fba100 !important;
-  margin-bottom: 1.5rem;
-`;
-
-const Title = styled.h3`
-  font-size: 1.75em;
-  font-weight: 700;
-  color: #65737d;
-`;
-
-const Paragraph = styled.p`
-  margin-bottom: 1.5rem;
-`;
-
-const List = styled.ul`
-  margin-left: 1.25rem;
-  list-style-type: circle;
-`;
-
-const ListItem = styled.li`
-  font-size: 1.125em;
-  :not(:last-of-type) {
-    margin-bottom: 1rem;
-  }
-`;
-
-const linkStyle = css`
-  padding: 0.65rem;
-  background-color: #fba100;
-  color: #ffffff;
-  font-size: 1.25em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 12rem;
-  cursor: pointer;
-  margin-top: 2rem;
-  &:hover {
-    background-color: #ffb42f;
-    color: #ffffff;
-  }
-`;
+import {
+  Wrapper,
+  InnerWrapper,
+  HeroTitleBox,
+  HeroTitle,
+  Section,
+  FlexRow,
+  Column,
+  leftColumn,
+  rightColumn,
+  Heading,
+  Title,
+  Paragraph,
+  List,
+  ListItem,
+  linkStyle,
+} from '../components/styles';
 
 export const TeamCoachingPageTemplate = ({
   title,
@@ -104,35 +42,14 @@ export const TeamCoachingPageTemplate = ({
           backgroundImage: `url(${
             !!image.childImageSharp ? image.childImageSharp.fluid.src : image
           })`,
-          backgroundPosition: `left bottom`,
+          backgroundPosition: `center center`,
           backgroundAttachment: `fixed`,
           height: 500,
         }}
       >
-        <div
-          style={{
-            display: 'flex',
-            height: '150px',
-            lineHeight: '1',
-            justifyContent: 'space-around',
-            alignItems: 'left',
-            flexDirection: 'column',
-          }}
-        >
-          <h1
-            className='has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen'
-            style={{
-              boxShadow:
-                'rgb(251,161,0) 0.5rem 0px 0px, rgb(251,161,0) -0.5rem 0px 0px',
-              backgroundColor: 'rgb(251,161,0)',
-              color: 'white',
-              lineHeight: '1',
-              padding: '0.25em',
-            }}
-          >
-            {title}
-          </h1>
-        </div>
+        <HeroTitleBox>
+          <HeroTitle>{title}</HeroTitle>
+        </HeroTitleBox>
       </div>
       <Wrapper>
         <InnerWrapper>
