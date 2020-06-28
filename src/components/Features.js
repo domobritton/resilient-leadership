@@ -8,15 +8,28 @@ import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 const Section = styled.section`
   display: flex;
   flex-direction: column;
-  padding: 4rem 0;
+  padding: 4rem 1rem;
+  align-items: center;
+  background: rgb(144, 125, 142);
+  background: linear-gradient(
+    0deg,
+    rgba(101, 115, 125, 1) 0%,
+    rgba(116, 154, 182, 1) 100%
+  );
 `;
 
 const Box = styled.div`
   padding: 2rem;
   display: flex;
-  background-color: #909d9f;
+  width: 100%;
+  max-width: 1100px;
+  background-color: #dfdfdf;
   &:not(:last-of-type) {
     margin-bottom: 3rem;
+  }
+  @media (max-width: 650px) {
+    flex-direction: column;
+    padding: 2rem 1rem;
   }
 `;
 
@@ -30,10 +43,14 @@ const Card = styled.div`
   min-width: 300px;
   padding-right: 1.25rem;
   text-align: left;
-  color: white;
+  color: #4a4a4a;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @media (max-width: 650px) {
+    padding-right: 0;
+    width: 100%;
+  }
 `;
 
 const CardTitle = styled.h3`
@@ -46,6 +63,9 @@ const CardTitle = styled.h3`
 const ImageBox = styled.div`
   width: 50%;
   cursor: pointer;
+  @media (max-width: 650px) {
+    width: 100%;
+  }
 `;
 
 const linkStyle = css`
@@ -61,6 +81,11 @@ const linkStyle = css`
   &:hover {
     background-color: #ffb42f;
     color: #ffffff;
+  }
+  @media (max-width: 650px) {
+    margin: 0 auto;
+    min-width: 225px;
+    margin-bottom: 1rem;
   }
 `;
 

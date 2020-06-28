@@ -6,28 +6,18 @@ import logo from '../img/logo.png';
 
 const animateMenu = keyframes`
   0% {
-    opacity: 0;
     transform: translate3d(0, -100%, 0);
   }
-  20% {
-    opacity: 1;
-  }
   100% {
-    opacity: 1;
     transform: translate3d(0, 0%, 0);
   }
 `;
 
 const animateOut = keyframes`
   0% {
-    opacity: 1;
     transform: translate3d(0, 0%, 0);
   }
-  20% {
-    opacity: 1;
-  }
   100% {
-    opacity: 0;
     transform: translate3d(0, -100%, 0);
   }
 `;
@@ -128,7 +118,6 @@ const MobileMenu = styled.div`
     display: block;
     position: absolute;
     z-index: 1;
-    opacity: 0;
     transform: translate3d(0, -100%, 0);
     &.is-active {
       animation: ${animateMenu} forwards 750ms ease-in-out;
@@ -153,7 +142,6 @@ const MobileMenuWrapper = styled.div`
   @media (max-width: 1250px) {
     display: flex;
     padding: 0 1em;
-    opacity: 0;
     transform: translate3d(0, -100%, 0);
     &.is-active {
       animation: ${animateMenu} forwards 750ms ease-in-out;

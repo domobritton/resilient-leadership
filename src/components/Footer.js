@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from '@emotion/styled';
-
+import { css } from '@emotion/core';
 import logo from '../img/logo.png';
 import facebook from '../img/social/facebook.svg';
 import instagram from '../img/social/instagram.svg';
@@ -10,15 +10,21 @@ import vimeo from '../img/social/vimeo.svg';
 
 const StyledMobileResilient = styled(Link)`
   display: flex;
-  height: 60px;
+  height: 65px;
   justify-content: center;
   align-items: center;
+`;
+
+const footerStyle = css`
+  background-color: #252525;
+  color: #ffffff;
+  padding: 3rem 0rem 1rem;
 `;
 
 const Footer = class extends React.Component {
   render() {
     return (
-      <footer className='footer has-background-black has-text-white-ter'>
+      <footer css={footerStyle}>
         <StyledMobileResilient to='/' title='Resilient Leadership'>
           <img
             src={logo}
@@ -26,8 +32,8 @@ const Footer = class extends React.Component {
             style={{ width: 300, height: 43 }}
           />
         </StyledMobileResilient>
-        <div className='content has-text-centered has-background-black has-text-white-ter'>
-          <div className='container has-background-black has-text-white-ter'>
+        <div className='content has-text-centered'>
+          <div className='container'>
             <div style={{ maxWidth: '100vw' }} className='columns'>
               <div className='column is-4'>
                 <section className='menu'>

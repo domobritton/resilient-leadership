@@ -37,6 +37,11 @@ const MainPitchColumn = styled.div`
   @media (max-width: 768px) {
     position: absolute;
   }
+  @media (max-width: 650px) {
+    position: relative;
+    width: 100%;
+    padding: 0 1rem 1rem;
+  }
 `;
 
 const MainPitchBox = styled.div`
@@ -46,6 +51,12 @@ const MainPitchBox = styled.div`
   padding: 1.5rem;
   width: 400px;
   margin-left: 20%;
+  @media (max-width: 650px) {
+    margin-left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 0;
+  }
 `;
 
 const mainImageStyle = css`
@@ -65,6 +76,9 @@ const mainPitchTitleStyle = css`
     position: relative;
     z-index: 1;
   }
+  @media (max-width: 650px) {
+    margin: 0 0 1.5rem;
+  }
 `;
 
 const PhiloImageBox = styled.div`
@@ -74,11 +88,10 @@ const PhiloImageBox = styled.div`
 const philoImage = css`
   width: 65%;
   margin: 0 auto;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
-
-const PhiloColumn = styled.div``;
-
-const philoColumnRight = css``;
 
 const PhiloTitle = styled.h3`
   font-size: 2.25em !important;
@@ -95,6 +108,9 @@ const ResultsColumn = styled.div`
 
 const List = styled.ul`
   padding-left: 6.25rem;
+  @media (max-width: 650px) {
+    padding-left: 0;
+  }
 `;
 
 const ListItem = styled.li`
@@ -117,6 +133,14 @@ const ResultsTitle = styled.h3`
   padding-left: 10px;
   width: 100%;
   line-height: 1.5;
+
+  @media (max-width: 650px) {
+    margin-bottom: 1rem;
+    border-bottom: none;
+    margin-left: 0;
+    padding-left: 0;
+    width: auto;
+  }
 `;
 
 const CallToActionTitle = styled.h3`
@@ -138,6 +162,16 @@ const TestimonialCard = styled.div`
   }
   &:not(:last-of-type) {
     margin-right: 0.625rem;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+    :nth-of-type(n + 2) {
+      margin-left: 0;
+      margin-top: 1rem;
+    }
+    &:not(:last-of-type) {
+      margin-right: 0;
+    }
   }
 `;
 
@@ -207,6 +241,14 @@ export const IndexPageTemplate = ({
           <Section
             css={css`
               border-bottom: 1px solid #749ab6;
+              @media (max-width: 768px) {
+                border-bottom: none;
+                padding: 0;
+              }
+              @media (max-width: 650px) {
+                flex-direction: column;
+                padding-top: 4rem;
+              }
             `}
           >
             <MainPitchColumn>
@@ -228,12 +270,10 @@ export const IndexPageTemplate = ({
               flex-direction: column;
             `}
           >
-            <PhiloColumn css={philoColumnRight}>
-              <PhiloTitle>{philosophy.title}</PhiloTitle>
-              <p>{philosophy.paragraph1}</p>
-              <p>{philosophy.paragraph2}</p>
-              {/* <QuoteBox>{philosophy.quote}</QuoteBox> */}
-            </PhiloColumn>
+            <PhiloTitle>{philosophy.title}</PhiloTitle>
+            <p>{philosophy.paragraph1}</p>
+            <p>{philosophy.paragraph2}</p>
+            {/* <QuoteBox>{philosophy.quote}</QuoteBox> */}
             <PhiloImageBox>
               <Img
                 fluid={philosophy.image.childImageSharp.fluid}
@@ -243,7 +283,17 @@ export const IndexPageTemplate = ({
           </Section>
           <Section>
             <ResultsColumn>
-              <FlexRow>
+              <FlexRow
+                css={css`
+                  @media (max-width: 768px) {
+                    flex-direction: row;
+                  }
+                  @media (max-width: 650px) {
+                    flex-direction: column;
+                    align-items: center;
+                  }
+                `}
+              >
                 <img
                   src={leadership}
                   alt='you will be a more effective leader'
@@ -258,11 +308,10 @@ export const IndexPageTemplate = ({
               </List>
             </ResultsColumn>
           </Section>
-          <Features gridItems={services.blurbs} />
         </InnerWrapper>
+        <Features gridItems={services.blurbs} />
         <Section
           css={css`
-            padding: 4rem 2rem;
             display: flex;
             flex-direction: column;
             background-color: #907d8e;
