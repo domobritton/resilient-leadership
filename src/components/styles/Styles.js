@@ -9,6 +9,7 @@ export const HeroTitleBox = styled.div`
   line-height: 1;
   justify-content: space-around;
   flex-direction: column;
+  padding: 0 1rem;
 `;
 
 export const HeroTitle = styled.h1`
@@ -111,5 +112,9 @@ export const linkStyle = css`
   &:hover {
     background-color: #ffb42f;
     color: #ffffff;
+  }
+  @media (max-width: 768px) {
+    margin: 2rem auto 0;
+    max-width: 160px;
   }
 `;

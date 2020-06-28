@@ -226,6 +226,8 @@ export const IndexPageTemplate = ({
           })`,
           backgroundPosition: `center center`,
           backgroundAttachment: `fixed`,
+          width: `100%`,
+          minWidth: `auto`,
           height: 650,
         }}
       >

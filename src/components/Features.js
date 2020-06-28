@@ -90,8 +90,8 @@ const linkStyle = css`
   }
   @media (max-width: 650px) {
     margin: 0 auto;
-    min-width: 225px;
-    margin-bottom: 1rem;
+    min-width: 160px;
+    margin-bottom: 1.5rem;
   }
 `;
 
