@@ -14,11 +14,10 @@ import {
   HeroTitle,
   FlexRow,
   linkStyle,
+  Paragraph,
 } from '../components/styles';
 
 const InnerWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
   width: 100%;
   max-width: 1100px;
   position: relative;
@@ -98,6 +97,9 @@ const PhiloTitle = styled.h3`
   color: #fba100 !important;
   margin-bottom: 1.5rem;
   line-height: 1;
+  @media (max-width: 650px) {
+    text-align: center;
+  }
 `;
 
 const ResultsColumn = styled.div`
@@ -139,7 +141,8 @@ const ResultsTitle = styled.h3`
     border-bottom: none;
     margin-left: 0;
     padding-left: 0;
-    width: auto;
+    width: 75%;
+    text-align: center;
   }
 `;
 
@@ -148,6 +151,9 @@ const CallToActionTitle = styled.h3`
   color: #fba100 !important;
   margin-bottom: 1.5rem;
   line-height: 1;
+  @media (max-width: 650px) {
+    text-align: center;
+  }
 `;
 
 const TestimonialCard = styled.div`
@@ -173,6 +179,10 @@ const TestimonialCard = styled.div`
       margin-right: 0;
     }
   }
+  @media (max-width: 650px) {
+    padding: 1rem;
+    min-width: auto;
+  }
 `;
 
 export const IndexPageTemplate = ({
@@ -195,7 +205,8 @@ export const IndexPageTemplate = ({
       ? testimonialSection.image.childImageSharp.fluid.src
       : testimonialSection.image});
     position: absolute;
-    width: 100%;
+    width: auto;
+    min-width: 100%;
     min-height: 100%;
     height: auto;
     top: 50%;
@@ -254,8 +265,8 @@ export const IndexPageTemplate = ({
             <MainPitchColumn>
               <h3 css={mainPitchTitleStyle}>{mainpitch.title}</h3>
               <MainPitchBox>
-                <p>{mainpitch.description}</p>
-                <p>{description}</p>
+                <Paragraph>{mainpitch.description}</Paragraph>
+                <Paragraph>{description}</Paragraph>
               </MainPitchBox>
             </MainPitchColumn>
             <Img
@@ -271,8 +282,8 @@ export const IndexPageTemplate = ({
             `}
           >
             <PhiloTitle>{philosophy.title}</PhiloTitle>
-            <p>{philosophy.paragraph1}</p>
-            <p>{philosophy.paragraph2}</p>
+            <Paragraph>{philosophy.paragraph1}</Paragraph>
+            <Paragraph>{philosophy.paragraph2}</Paragraph>
             {/* <QuoteBox>{philosophy.quote}</QuoteBox> */}
             <PhiloImageBox>
               <Img
@@ -320,61 +331,67 @@ export const IndexPageTemplate = ({
         >
           <InnerWrapper>
             <CallToActionTitle>{callToAction.title}</CallToActionTitle>
-            <p>
+            <Paragraph>
               We believe that we are all <b>RESILIENT</b> by design and through
               building our capacity, and learning to move effectively with
               change, we can overcome any obstacle.
-            </p>
-            <p>
+            </Paragraph>
+            <Paragraph>
               We believe that through awareness, there is an opportunity for
               more productive action. By building skills in effective
               communication, you and your team can face challenges with greater
               resiliency, and deliver more reliable results.
-            </p>
-            <p>
+            </Paragraph>
+            <Paragraph>
               In 45 minutes, we’ll uncover your current gaps in leadership,
               re-center on your top strengths, and guide you through your
               potential and how our coaching expertise can help create new
               possibilities.
-            </p>
-            <p>
+            </Paragraph>
+            <Paragraph>
               <b>Our request: </b>
               Come to us with your biggest concerns and a willingness to share
               openly– so our solutions will have the biggest impact in your
               organization and your life.
-            </p>
-            <p>
+            </Paragraph>
+            <Paragraph>
               <b>Our promise: </b>
               You’ll walk away able to see more possibilities for your team and
               your leadership.
-            </p>
+            </Paragraph>
             <Link to='/contact-us' css={linkStyle}>
               Get in touch
             </Link>
           </InnerWrapper>
         </Section>
-        <BackgroundWrapper>
-          <TestimonialBackground />
-          <Section
-            css={css`
-              margin: 0 auto;
-              width: 100%;
-              max-width: 1100px;
-              flex-direction: column;
-            `}
-          >
-            <CallToActionTitle>What our clients say about us</CallToActionTitle>
-            <FlexRow>
-              {testimonialSection.testimonials.map((testimonial, idx) => (
-                <TestimonialCard key={idx}>
-                  <p>{testimonial.text1}</p>
-                  <p>{testimonial.text2}</p>
-                  <p>{testimonial.author}</p>
-                </TestimonialCard>
-              ))}
-            </FlexRow>
-          </Section>
-        </BackgroundWrapper>
+        <Section
+          css={css`
+            flex-direction: column;
+            padding: 0;
+          `}
+        >
+          <BackgroundWrapper>
+            <TestimonialBackground />
+            <InnerWrapper
+              css={css`
+                padding: 4rem 1rem;
+              `}
+            >
+              <CallToActionTitle>
+                What our clients say about us
+              </CallToActionTitle>
+              <FlexRow>
+                {testimonialSection.testimonials.map((testimonial, idx) => (
+                  <TestimonialCard key={idx}>
+                    <Paragraph>{testimonial.text1}</Paragraph>
+                    <Paragraph>{testimonial.text2}</Paragraph>
+                    <Paragraph css={css`margin-bottom: 0;`}>{testimonial.author}</Paragraph>
+                  </TestimonialCard>
+                ))}
+              </FlexRow>
+            </InnerWrapper>
+          </BackgroundWrapper>
+        </Section>
       </Wrapper>
     </div>
   );

@@ -36,11 +36,14 @@ const Box = styled.div`
 const Text = styled.p`
   font-size: 1.375em;
   margin-bottom: 1.25rem;
+  @media (max-width: 650px) {
+    font-size: 1em;
+  }
 `;
 
 const Card = styled.div`
   width: 50%;
-  min-width: 300px;
+  min-width: 250px;
   padding-right: 1.25rem;
   text-align: left;
   color: #4a4a4a;
@@ -58,6 +61,9 @@ const CardTitle = styled.h3`
   color: #fba100;
   margin-bottom: 1.5rem;
   line-height: 1;
+  @media (max-width: 650px) {
+    text-align: center;
+  }
 `;
 
 const ImageBox = styled.div`

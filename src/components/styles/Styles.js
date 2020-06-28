@@ -79,6 +79,10 @@ export const Title = styled.h3`
 
 export const Paragraph = styled.p`
   margin-bottom: 1.5rem;
+  font-size: 1.125em;
+  @media (max-width: 650px) {
+    font-size: 1em;
+  }
 `;
 
 export const List = styled.ul`
