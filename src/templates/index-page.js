@@ -226,8 +226,9 @@ export const IndexPageTemplate = ({
           })`,
           backgroundPosition: `center center`,
           backgroundAttachment: `fixed`,
+          backgroundRepeat: `no-repeat`,
+          backgroundSize: `cover`,
           width: `100%`,
-          minWidth: `auto`,
           height: 650,
         }}
       >
@@ -361,7 +362,7 @@ export const IndexPageTemplate = ({
               You’ll walk away able to see more possibilities for your team and
               your leadership.
             </Paragraph>
-            <Link to='/contact-us' css={linkStyle}>
+            <Link to='/contact' css={linkStyle}>
               Get in touch
             </Link>
           </InnerWrapper>
@@ -533,6 +534,7 @@ export const pageQuery = graphql`
             }
             title
             text
+            link
           }
           heading
           description

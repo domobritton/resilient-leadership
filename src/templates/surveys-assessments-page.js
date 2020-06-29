@@ -64,7 +64,7 @@ export const SurveysAssessmentsTemplate = ({
                 <PageContent className='content' content={content} />
               </Column>
             </FlexRow>
-            <Link to='/contact-us' css={linkStyle}>
+            <Link to='/contact' css={linkStyle}>
               Get in touch
             </Link>
           </Section>

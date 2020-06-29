@@ -39,23 +39,49 @@ const Footer = class extends React.Component {
                 <section className='menu'>
                   <ul className='menu-list'>
                     <li>
-                      <Link to='/' className='navbar-item'>
+                      <Link className='navbar-item' to='/executive-coaching'>
+                        Executive Coaching
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className='navbar-item' to='/team-coaching'>
+                        Team Coaching
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className='navbar-item' to='/360-feedback'>
+                        360◦ Feedback
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className='navbar-item' to='/organization-development'>
+                        Change Management
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className='navbar-item' to='/surveys-assessments'>
+                        Surveys & Assessments
+                      </Link>
+                    </li>
+                  </ul>
+                </section>
+              </div>
+              <div className='column is-4'>
+                <section>
+                  <ul className='menu-list'>
+                    <li>
+                      <Link className='navbar-item' to='/'>
                         Home
                       </Link>
                     </li>
                     <li>
                       <Link className='navbar-item' to='/about'>
-                        Executive Coaching
+                        About
                       </Link>
                     </li>
                     <li>
-                      <Link className='navbar-item' to='/products'>
-                        Team Coaching
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className='navbar-item' to='/contact/examples'>
-                        Surveys & Assessments
+                      <Link className='navbar-item' to='/contact'>
+                        Contact
                       </Link>
                     </li>
                     <li>
@@ -67,32 +93,6 @@ const Footer = class extends React.Component {
                       >
                         Admin
                       </a>
-                    </li>
-                  </ul>
-                </section>
-              </div>
-              <div className='column is-4'>
-                <section>
-                  <ul className='menu-list'>
-                    <li>
-                      <Link className='navbar-item' to='/blog'>
-                      360◦ Feedback
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className='navbar-item' to='/blog'>
-                      Change Management
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className='navbar-item' to='/contact'>
-                        About
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className='navbar-item' to='/contact'>
-                        Contact
-                      </Link>
                     </li>
                   </ul>
                 </section>

@@ -73,7 +73,7 @@ export const OrganizationDevelopmentPageTemplate = ({
                 </List>
               </Column>
             </FlexRow>
-            <Link to='/contact-us' css={linkStyle}>
+            <Link to='/contact' css={linkStyle}>
               Get in touch
             </Link>
           </Section>
