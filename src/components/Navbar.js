@@ -230,7 +230,6 @@ const Navbar = class extends React.Component {
     );
   };
   render() {
-    console.log(this.state.navBarActiveClass);
     return (
       <>
         <Nav role='navigation' aria-label='main-navigation'>

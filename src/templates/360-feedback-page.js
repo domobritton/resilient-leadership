@@ -1,116 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
-import {
-  Wrapper,
-  InnerWrapper,
-  HeroTitleBox,
-  HeroTitle,
-  Section,
-  FlexRow,
-  Column,
-  leftColumn,
-  rightColumn,
-  Heading,
-  Title,
-  Paragraph,
-  List,
-  ListItem,
-  linkStyle,
-} from '../components/styles';
-
-export const FeedbackPageTemplate = ({
-  title,
-  image,
-  heading,
-  audience,
-  objectives,
-  summary,
-  processTitle,
-  process,
-  outcomesTitle,
-  outcomes,
-}) => {
-  return (
-    <>
-      <div
-        className='full-width-image margin-top-0'
-        style={{
-          backgroundImage: `url(${
-            !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-          })`,
-          backgroundPosition: `center center`,
-          backgroundAttachment: `fixed`,
-          height: 500,
-        }}
-      >
-        <HeroTitleBox>
-          <HeroTitle>{title}</HeroTitle>
-        </HeroTitleBox>
-      </div>
-      <Wrapper>
-        <InnerWrapper>
-          <Section>
-            <FlexRow>
-              <Column css={leftColumn}>
-                <Heading>{heading}</Heading>
-                <p>
-                  <b>Audience</b>
-                </p>
-                <p>{audience}</p>
-                <p>
-                  <b>Objectives</b>
-                </p>
-                <p>{objectives}</p>
-              </Column>
-              <Column css={rightColumn}>
-                <p>{summary}</p>
-                <Title>{processTitle}</Title>
-                <Paragraph>{process}</Paragraph>
-                <Title>{outcomesTitle}</Title>
-                <List>
-                  {outcomes.map(({ text }, idx) => (
-                    <ListItem key={idx}>{text}</ListItem>
-                  ))}
-                </List>
-              </Column>
-            </FlexRow>
-            <Link to='/contact' css={linkStyle}>
-              Get in touch
-            </Link>
-          </Section>
-        </InnerWrapper>
-      </Wrapper>
-    </>
-  );
-};
-
-FeedbackPageTemplate.propTypes = {
-  title: PropTypes.string.isRequired,
-  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  heading: PropTypes.string,
-  audience: PropTypes.string,
-  objectives: PropTypes.string,
-  summary: PropTypes.string,
-  processTitle: PropTypes.string,
-  process: PropTypes.string,
-  outcomesTitle: PropTypes.string,
-  outcomes: PropTypes.array,
-};
+import Service from '../components/Service';
 
 const FeedbackPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
 
   return (
     <Layout>
-      <FeedbackPageTemplate
+      <Service
         title={frontmatter.title}
         image={frontmatter.image}
         heading={frontmatter.heading}
         audience={frontmatter.audience}
         objectives={frontmatter.objectives}
-        summary={frontmatter.summary}
+        summary1={frontmatter.summary}
         processTitle={frontmatter.processTitle}
         process={frontmatter.process}
         outcomesTitle={frontmatter.outcomesTitle}

@@ -1,12 +1,22 @@
-import React from 'react'
-import Link from 'gatsby-link'
-import Layout from '../../components/Layout'
+import React from 'react';
+// import Link from 'gatsby-link';
+import { navigateTo } from 'gatsby-link';
+import { css } from '@emotion/core';
+import Layout from '../../components/Layout';
 
 export default class Index extends React.Component {
+  componentDidMount() {
+    navigateTo('/');
+  }
   render() {
     return (
       <Layout>
-        <section className="section">
+        <div
+          css={css`
+            height: 100vh;
+          `}
+        />
+        {/* <section className="section">
           <div className="container">
             <div className="content">
               <h1>Hi people</h1>
@@ -43,8 +53,8 @@ export default class Index extends React.Component {
               </p>
             </div>
           </div>
-        </section>
+        </section> */}
       </Layout>
-    )
+    );
   }
 }
