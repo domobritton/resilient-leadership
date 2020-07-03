@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
+import PreviewCompatibleImage from './PreviewCompatibleImage';
 
 const Section = styled.section`
   display: flex;
@@ -95,9 +95,9 @@ const linkStyle = css`
   }
 `;
 
-const FeatureGrid = ({ gridItems }) => (
+const Services = ({ services }) => (
   <Section>
-    {gridItems.map((item) => (
+    {services.map((item) => (
       <React.Fragment key={item.text}>
         <Box>
           <Card>
@@ -120,8 +120,8 @@ const FeatureGrid = ({ gridItems }) => (
   </Section>
 );
 
-FeatureGrid.propTypes = {
-  gridItems: PropTypes.arrayOf(
+Services.propTypes = {
+  services: PropTypes.arrayOf(
     PropTypes.shape({
       image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
       text: PropTypes.string,
@@ -129,4 +129,4 @@ FeatureGrid.propTypes = {
   ),
 };
 
-export default FeatureGrid;
+export default Services;

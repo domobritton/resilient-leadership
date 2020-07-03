@@ -102,6 +102,7 @@ const NavBarMenu = styled.div`
   display: flex;
   justify-content: center;
   height: 100%;
+  box-shadow: 0 8px 16px rgba(43, 37, 35, 0.1);
   @media (max-width: 1250px) {
     display: none;
   }
@@ -244,7 +245,7 @@ const Navbar = class extends React.Component {
                 />
               </Link>
               <Burger
-                className={`burger ${this.state.navBarActiveClass}`}
+                className={`${this.state.navBarActiveClass}`}
                 data-target='navMenu'
                 onClick={() => this.toggleHamburger()}
               >

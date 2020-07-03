@@ -20,12 +20,27 @@ export const HeroTitle = styled.h1`
   padding: 0.25em;
   font-size: 3em;
   font-weight: 700;
+  text-align: center;
   @media (max-width: 768px) {
     font-size: 2em;
   }
   @media (max-width: 420px) {
     padding: 1em;
     text-align: center;
+  }
+`;
+
+export const HeroSubtitle = styled.h2`
+  box-shadow: rgb(251, 161, 0) 0.5rem 0px 0px, rgb(251, 161, 0) -0.5rem 0px 0px;
+  background-color: rgb(251, 161, 0);
+  color: white;
+  line-height: 1;
+  padding: 0.25em;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.5em;
+  @media (max-width: 768px) {
+    font-size: 1.25em;
   }
 `;
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 import {
   Wrapper,
@@ -34,68 +35,70 @@ const Service = ({
   outcomesTitle,
   outcomes,
 }) => {
+  const Hero = styled.section`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(${!!image.childImageSharp
+      ? image.childImageSharp.fluid.src
+      : image});
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 500px;
+  `;
   return (
-    <>
-      <div
-        className='full-width-image margin-top-0'
-        style={{
-          backgroundImage: `url(${
-            !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-          })`,
-          backgroundPosition: `center center`,
-          backgroundAttachment: `fixed`,
-          height: 500,
-        }}
-      >
+    <Wrapper>
+      <Hero>
         <HeroTitleBox>
           <HeroTitle>{title}</HeroTitle>
         </HeroTitleBox>
-      </div>
-      <Wrapper>
-        <InnerWrapper>
-          <Section>
-            <FlexRow>
-              <Column css={leftColumn}>
-                <Heading>{heading}</Heading>
-                <p>
-                  <b>Audience</b>
-                </p>
-                <p>{audience}</p>
-                {objectives && (
-                  <>
-                    <p>
-                      <b>Objectives</b>
-                    </p>
-                    <p>{objectives}</p>
-                  </>
-                )}
-              </Column>
-              <Column css={rightColumn}>
-                <p>{summary1}</p>
-                {summary2 && <p>{summary2}</p>}
-                <Title>{processTitle}</Title>
-                {processBold && (
-                  <p>
-                    <b>{processBold}:</b>
-                  </p>
-                )}
-                <Paragraph>{process1}</Paragraph>
-                {process2 && <Paragraph>{process2}</Paragraph>}
-                <Title>{outcomesTitle}</Title>
-                <List>
-                  {outcomes.map(({ text }, idx) => (
-                    <ListItem key={idx}>{text}</ListItem>
-                  ))}
-                </List>
-              </Column>
-            </FlexRow>
-            <Link to='/contact' css={linkStyle}>
-              Get in touch
-            </Link>
-          </Section>
-        </InnerWrapper>
-      </Wrapper>
-    </>
+      </Hero>
+      <InnerWrapper>
+        <Section>
+          <FlexRow>
+            <Column css={leftColumn}>
+              <Heading>{heading}</Heading>
+              <Paragraph>
+                <b>Audience</b>
+              </Paragraph>
+              <Paragraph>{audience}</Paragraph>
+              {objectives && (
+                <>
+                  <Paragraph>
+                    <b>Objectives</b>
+                  </Paragraph>
+                  <Paragraph>{objectives}</Paragraph>
+                </>
+              )}
+            </Column>
+            <Column css={rightColumn}>
+              <Paragraph>{summary1}</Paragraph>
+              {summary2 && <Paragraph>{summary2}</Paragraph>}
+              <Title>{processTitle}</Title>
+              {processBold && (
+                <Paragraph>
+                  <b>{processBold}:</b>
+                </Paragraph>
+              )}
+              <Paragraph>{process1}</Paragraph>
+              {process2 && <Paragraph>{process2}</Paragraph>}
+              <Title>{outcomesTitle}</Title>
+              <List>
+                {outcomes.map(({ text }, idx) => (
+                  <ListItem key={idx}>{text}</ListItem>
+                ))}
+              </List>
+            </Column>
+          </FlexRow>
+          <Link to='/contact' css={linkStyle}>
+            Get in touch
+          </Link>
+        </Section>
+      </InnerWrapper>
+    </Wrapper>
   );
 };
 

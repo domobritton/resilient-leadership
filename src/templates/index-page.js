@@ -6,12 +6,13 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import Layout from '../components/Layout';
-import Features from '../components/Features';
+import Services from '../components/Services';
 import leadership from '../img/leadership.svg';
 import {
   Wrapper,
   HeroTitleBox,
   HeroTitle,
+  HeroSubtitle,
   FlexRow,
   linkStyle,
   Paragraph,
@@ -197,6 +198,21 @@ export const IndexPageTemplate = ({
   callToAction,
   testimonialSection,
 }) => {
+  const Hero = styled.section`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(${!!image.childImageSharp
+      ? image.childImageSharp.fluid.src
+      : image});
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 650px;
+  `;
+
   const BackgroundWrapper = styled.section`
     position: relative;
   `;
@@ -217,186 +233,163 @@ export const IndexPageTemplate = ({
     z-index: -1;
   `;
   return (
-    <div>
-      <div
-        className='full-width-image margin-top-0'
-        style={{
-          backgroundImage: `url(${
-            !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-          })`,
-          backgroundPosition: `center center`,
-          backgroundAttachment: `fixed`,
-          backgroundRepeat: `no-repeat`,
-          backgroundSize: `cover`,
-          width: `100%`,
-          height: 650,
-        }}
-      >
+    <Wrapper>
+      <Hero>
         <HeroTitleBox>
           <HeroTitle>{title}</HeroTitle>
-          <h3
-            className='has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen'
-            style={{
-              boxShadow:
-                'rgb(251,161,0) 0.5rem 0px 0px, rgb(251,161,0) -0.5rem 0px 0px',
-              backgroundColor: 'rgb(251,161,0)',
-              color: 'white',
-              lineHeight: '1',
-              padding: '0.25em',
-              textAlign: 'center',
-            }}
-          >
+          <HeroSubtitle>
             {subheading}
-          </h3>
+          </HeroSubtitle>
         </HeroTitleBox>
-      </div>
-      <Wrapper>
-        <InnerWrapper>
-          <Section
-            css={css`
-              border-bottom: 1px solid #749ab6;
-              @media (max-width: 768px) {
-                border-bottom: none;
-                padding: 0;
-              }
-              @media (max-width: 650px) {
-                flex-direction: column;
-                padding-top: 4rem;
-              }
-            `}
-          >
-            <MainPitchColumn>
-              <h3 css={mainPitchTitleStyle}>{mainpitch.title}</h3>
-              <MainPitchBox>
-                <Paragraph>{mainpitch.description}</Paragraph>
-                <Paragraph>{description}</Paragraph>
-              </MainPitchBox>
-            </MainPitchColumn>
-            <Img
-              fluid={mainpitch.image.childImageSharp.fluid}
-              css={mainImageStyle}
-            />
-            <div className='tile'></div>
-          </Section>
-          <Section
-            css={css`
-              display: flex;
+      </Hero>
+      <InnerWrapper>
+        <Section
+          css={css`
+            border-bottom: 1px solid #749ab6;
+            @media (max-width: 768px) {
+              border-bottom: none;
+              padding: 0;
+            }
+            @media (max-width: 650px) {
               flex-direction: column;
-            `}
-          >
-            <PhiloTitle>{philosophy.title}</PhiloTitle>
-            <Paragraph>{philosophy.paragraph1}</Paragraph>
-            <Paragraph>{philosophy.paragraph2}</Paragraph>
-            {/* <QuoteBox>{philosophy.quote}</QuoteBox> */}
-            <PhiloImageBox>
-              <Img
-                fluid={philosophy.image.childImageSharp.fluid}
-                css={philoImage}
-              />
-            </PhiloImageBox>
-          </Section>
-          <Section>
-            <ResultsColumn>
-              <FlexRow
-                css={css`
-                  @media (max-width: 768px) {
-                    flex-direction: row;
-                  }
-                  @media (max-width: 650px) {
-                    flex-direction: column;
-                    align-items: center;
-                  }
-                `}
-              >
-                <img
-                  src={leadership}
-                  alt='you will be a more effective leader'
-                  style={{ width: 100 }}
-                />
-                <ResultsTitle>{results.title}</ResultsTitle>
-              </FlexRow>
-              <List>
-                {results.listItems.map((item, idx) => (
-                  <ListItem key={idx}>{item.text}</ListItem>
-                ))}
-              </List>
-            </ResultsColumn>
-          </Section>
-        </InnerWrapper>
-        <Features gridItems={services.blurbs} />
+              padding-top: 4rem;
+            }
+          `}
+        >
+          <MainPitchColumn>
+            <h3 css={mainPitchTitleStyle}>{mainpitch.title}</h3>
+            <MainPitchBox>
+              <Paragraph>{mainpitch.description}</Paragraph>
+              <Paragraph>{description}</Paragraph>
+            </MainPitchBox>
+          </MainPitchColumn>
+          <Img
+            fluid={mainpitch.image.childImageSharp.fluid}
+            css={mainImageStyle}
+          />
+        </Section>
         <Section
           css={css`
             display: flex;
             flex-direction: column;
-            background-color: #907d8e;
-            color: #ffffff;
           `}
         >
-          <InnerWrapper>
-            <CallToActionTitle>{callToAction.title}</CallToActionTitle>
-            <Paragraph>
-              We believe that we are all <b>RESILIENT</b> by design and through
-              building our capacity, and learning to move effectively with
-              change, we can overcome any obstacle.
-            </Paragraph>
-            <Paragraph>
-              We believe that through awareness, there is an opportunity for
-              more productive action. By building skills in effective
-              communication, you and your team can face challenges with greater
-              resiliency, and deliver more reliable results.
-            </Paragraph>
-            <Paragraph>
-              In 45 minutes, we’ll uncover your current gaps in leadership,
-              re-center on your top strengths, and guide you through your
-              potential and how our coaching expertise can help create new
-              possibilities.
-            </Paragraph>
-            <Paragraph>
-              <b>Our request: </b>
-              Come to us with your biggest concerns and a willingness to share
-              openly– so our solutions will have the biggest impact in your
-              organization and your life.
-            </Paragraph>
-            <Paragraph>
-              <b>Our promise: </b>
-              You’ll walk away able to see more possibilities for your team and
-              your leadership.
-            </Paragraph>
-            <Link to='/contact' css={linkStyle}>
-              Get in touch
-            </Link>
-          </InnerWrapper>
+          <PhiloTitle>{philosophy.title}</PhiloTitle>
+          <Paragraph>{philosophy.paragraph1}</Paragraph>
+          <Paragraph>{philosophy.paragraph2}</Paragraph>
+          {/* <QuoteBox>{philosophy.quote}</QuoteBox> */}
+          <PhiloImageBox>
+            <Img
+              fluid={philosophy.image.childImageSharp.fluid}
+              css={philoImage}
+            />
+          </PhiloImageBox>
         </Section>
-        <Section
-          css={css`
-            flex-direction: column;
-            padding: 0;
-          `}
-        >
-          <BackgroundWrapper>
-            <TestimonialBackground />
-            <InnerWrapper
+        <Section>
+          <ResultsColumn>
+            <FlexRow
               css={css`
-                padding: 4rem 1rem;
+                @media (max-width: 768px) {
+                  flex-direction: row;
+                }
+                @media (max-width: 650px) {
+                  flex-direction: column;
+                  align-items: center;
+                }
               `}
             >
-              <CallToActionTitle>
-                What our clients say about us
-              </CallToActionTitle>
-              <FlexRow>
-                {testimonialSection.testimonials.map((testimonial, idx) => (
-                  <TestimonialCard key={idx}>
-                    <Paragraph>{testimonial.text1}</Paragraph>
-                    <Paragraph>{testimonial.text2}</Paragraph>
-                    <Paragraph css={css`margin-bottom: 0;`}>{testimonial.author}</Paragraph>
-                  </TestimonialCard>
-                ))}
-              </FlexRow>
-            </InnerWrapper>
-          </BackgroundWrapper>
+              <img
+                src={leadership}
+                alt='you will be a more effective leader'
+                style={{ width: 100 }}
+              />
+              <ResultsTitle>{results.title}</ResultsTitle>
+            </FlexRow>
+            <List>
+              {results.listItems.map((item, idx) => (
+                <ListItem key={idx}>{item.text}</ListItem>
+              ))}
+            </List>
+          </ResultsColumn>
         </Section>
-      </Wrapper>
-    </div>
+      </InnerWrapper>
+      <Services services={services.blurbs} />
+      <Section
+        css={css`
+          display: flex;
+          flex-direction: column;
+          background-color: #907d8e;
+          color: #ffffff;
+        `}
+      >
+        <InnerWrapper>
+          <CallToActionTitle>{callToAction.title}</CallToActionTitle>
+          <Paragraph>
+            We believe that we are all <b>RESILIENT</b> by design and through
+            building our capacity, and learning to move effectively with change,
+            we can overcome any obstacle.
+          </Paragraph>
+          <Paragraph>
+            We believe that through awareness, there is an opportunity for more
+            productive action. By building skills in effective communication,
+            you and your team can face challenges with greater resiliency, and
+            deliver more reliable results.
+          </Paragraph>
+          <Paragraph>
+            In 45 minutes, we’ll uncover your current gaps in leadership,
+            re-center on your top strengths, and guide you through your
+            potential and how our coaching expertise can help create new
+            possibilities.
+          </Paragraph>
+          <Paragraph>
+            <b>Our request: </b>
+            Come to us with your biggest concerns and a willingness to share
+            openly– so our solutions will have the biggest impact in your
+            organization and your life.
+          </Paragraph>
+          <Paragraph>
+            <b>Our promise: </b>
+            You’ll walk away able to see more possibilities for your team and
+            your leadership.
+          </Paragraph>
+          <Link to='/contact' css={linkStyle}>
+            Get in touch
+          </Link>
+        </InnerWrapper>
+      </Section>
+      <Section
+        css={css`
+          flex-direction: column;
+          padding: 0;
+        `}
+      >
+        <BackgroundWrapper>
+          <TestimonialBackground />
+          <InnerWrapper
+            css={css`
+              padding: 4rem 1rem;
+            `}
+          >
+            <CallToActionTitle>What our clients say about us</CallToActionTitle>
+            <FlexRow>
+              {testimonialSection.testimonials.map((testimonial, idx) => (
+                <TestimonialCard key={idx}>
+                  <Paragraph>{testimonial.text1}</Paragraph>
+                  <Paragraph>{testimonial.text2}</Paragraph>
+                  <Paragraph
+                    css={css`
+                      margin-bottom: 0;
+                    `}
+                  >
+                    {testimonial.author}
+                  </Paragraph>
+                </TestimonialCard>
+              ))}
+            </FlexRow>
+          </InnerWrapper>
+        </BackgroundWrapper>
+      </Section>
+    </Wrapper>
   );
 };
 
