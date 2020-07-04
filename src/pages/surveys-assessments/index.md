@@ -3,7 +3,9 @@ templateKey: 'surveys-assessments-page'
 path: /surveys-assessments
 title: Surveys & Assessments
 image: /img/resilient-leadership-surveys.jpg
-heading: Organizational Growth Team Development Individual Improvement
+heading1: Organizational Growth
+heading2: Team Development
+heading3: Individual Improvement
 audience: Executives and emerging leaders
 objectives: Enhance leadership skills and gain new insights
 ---

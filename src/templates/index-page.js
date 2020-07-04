@@ -37,7 +37,7 @@ const MainPitchColumn = styled.div`
   @media (max-width: 768px) {
     position: absolute;
   }
-  @media (max-width: 650px) {
+  @media (max-width: 768px) {
     position: relative;
     width: 100%;
     padding: 0 1rem 1rem;
@@ -51,7 +51,7 @@ const MainPitchBox = styled.div`
   padding: 1.5rem;
   width: 400px;
   margin-left: 20%;
-  @media (max-width: 650px) {
+  @media (max-width: 768px) {
     margin-left: 0;
     width: 100%;
     background-color: #ffffff;
@@ -72,12 +72,8 @@ const mainPitchTitleStyle = css`
   margin-bottom: 1.5rem;
   line-height: 1;
   @media (max-width: 768px) {
-    margin: 2rem;
-    position: relative;
-    z-index: 1;
-  }
-  @media (max-width: 650px) {
-    margin: 0 0 1.5rem;
+    margin: 0 auto 1.5rem;
+    text-align: center;
   }
 `;
 
@@ -98,7 +94,7 @@ const PhiloTitle = styled.h3`
   color: #fba100 !important;
   margin-bottom: 1.5rem;
   line-height: 1;
-  @media (max-width: 650px) {
+  @media (max-width: 768px) {
     text-align: center;
   }
 `;
@@ -111,7 +107,7 @@ const ResultsColumn = styled.div`
 
 const List = styled.ul`
   padding-left: 6.25rem;
-  @media (max-width: 650px) {
+  @media (max-width: 768px) {
     padding-left: 0;
   }
 `;
@@ -137,7 +133,7 @@ const ResultsTitle = styled.h3`
   width: 100%;
   line-height: 1.5;
 
-  @media (max-width: 650px) {
+  @media (max-width: 768px) {
     margin-bottom: 1rem;
     border-bottom: none;
     margin-left: 0;
@@ -152,7 +148,7 @@ const CallToActionTitle = styled.h3`
   color: #fba100 !important;
   margin-bottom: 1.5rem;
   line-height: 1;
-  @media (max-width: 650px) {
+  @media (max-width: 768px) {
     text-align: center;
   }
 `;
@@ -180,7 +176,7 @@ const TestimonialCard = styled.div`
       margin-right: 0;
     }
   }
-  @media (max-width: 650px) {
+  @media (max-width: 768px) {
     padding: 1rem;
     min-width: auto;
   }
@@ -210,7 +206,19 @@ export const IndexPageTemplate = ({
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    height: 650px;
+    height: 768px;
+    z-index: -1;
+    position: relative;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(144, 125, 142, 0.17);
+      z-index: -1;
+    }
   `;
 
   const BackgroundWrapper = styled.section`
@@ -237,9 +245,7 @@ export const IndexPageTemplate = ({
       <Hero>
         <HeroTitleBox>
           <HeroTitle>{title}</HeroTitle>
-          <HeroSubtitle>
-            {subheading}
-          </HeroSubtitle>
+          <HeroSubtitle>{subheading}</HeroSubtitle>
         </HeroTitleBox>
       </Hero>
       <InnerWrapper>
@@ -250,7 +256,7 @@ export const IndexPageTemplate = ({
               border-bottom: none;
               padding: 0;
             }
-            @media (max-width: 650px) {
+            @media (max-width: 768px) {
               flex-direction: column;
               padding-top: 4rem;
             }
@@ -292,7 +298,7 @@ export const IndexPageTemplate = ({
                 @media (max-width: 768px) {
                   flex-direction: row;
                 }
-                @media (max-width: 650px) {
+                @media (max-width: 768px) {
                   flex-direction: column;
                   align-items: center;
                 }
@@ -528,6 +534,7 @@ export const pageQuery = graphql`
             title
             text
             link
+            linkText
           }
           heading
           description

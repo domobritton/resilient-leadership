@@ -3,7 +3,7 @@ templateKey: 'team-coaching-page'
 path: /team-coaching
 title: Team Coaching
 image: /img/resilient-leadership-team-coaching.jpg
-heading: Leadership Coaching For Teams
+heading1: Leadership Coaching For Teams
 audience: Executives and emerging leaders
 summary1: Your team needs to engage more collaboratively, work more effectively and produce reliable outcomes. Group dynamics are getting in the way of results and the team isn’t as focused or energized as they could be.
 summary2: You want to support your team to get over the territorial issues and work together on common goals and collective outcomes. Your team is hungry to resolve the discord and move in unison toward a shared vision. Even if they cannot see what is preventing them from reaching their potential, you can see what is possible on the other side. You know this is a high performing team just waiting to emerge.

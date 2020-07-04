@@ -12,12 +12,12 @@ const OrganizationDevelopmentPage = ({ data }) => {
       <Service
         title={frontmatter.title}
         image={frontmatter.image}
-        heading={frontmatter.heading}
+        heading1={frontmatter.heading1}
         audience={frontmatter.audience}
         summary1={frontmatter.summary1}
         summary2={frontmatter.summary2}
         processTitle={frontmatter.processTitle}
-        process={frontmatter.process}
+        process1={frontmatter.process1}
         outcomesTitle={frontmatter.outcomesTitle}
         outcomes={frontmatter.outcomes}
       />
@@ -43,12 +43,12 @@ export const organizationDevelopmentPageQuery = graphql`
             }
           }
         }
-        heading
+        heading1
         audience
         summary1
         summary2
         processTitle
-        process
+        process1
         outcomesTitle
         outcomes {
           text

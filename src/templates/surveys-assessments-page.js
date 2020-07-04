@@ -20,7 +20,9 @@ import {
 export const SurveysAssessmentsTemplate = ({
   title,
   image,
-  heading,
+  heading1,
+  heading2,
+  heading3,
   audience,
   objectives,
   content,
@@ -50,7 +52,21 @@ export const SurveysAssessmentsTemplate = ({
           <Section>
             <FlexRow>
               <Column css={leftColumn}>
-                <Heading>{heading}</Heading>
+                <Heading>
+                  {heading1}
+                  {heading2 && (
+                    <>
+                      <br />
+                      {heading2}
+                    </>
+                  )}
+                  {heading3 && (
+                    <>
+                      <br />
+                      {heading3}
+                    </>
+                  )}
+                </Heading>
                 <p>
                   <b>Audience</b>
                 </p>
@@ -77,7 +93,9 @@ export const SurveysAssessmentsTemplate = ({
 SurveysAssessmentsTemplate.propTypes = {
   title: PropTypes.string.isRequired,
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  heading: PropTypes.string,
+  heading1: PropTypes.string,
+  heading2: PropTypes.string,
+  heading3: PropTypes.string,
   audience: PropTypes.string,
   objectives: PropTypes.string,
   content: PropTypes.string,
@@ -94,7 +112,9 @@ const SurveysAssessments = ({ data }) => {
         title={post.frontmatter.title}
         image={post.frontmatter.image}
         content={post.html}
-        heading={post.frontmatter.heading}
+        heading1={post.frontmatter.heading1}
+        heading2={post.frontmatter.heading2}
+        heading3={post.frontmatter.heading3}
         audience={post.frontmatter.audience}
         objectives={post.frontmatter.objectives}
       />
@@ -121,7 +141,9 @@ export const surveysAssessmentsQuery = graphql`
             }
           }
         }
-        heading
+        heading1
+        heading2
+        heading3
         audience
         objectives
       }

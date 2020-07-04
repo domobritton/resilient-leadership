@@ -13,11 +13,10 @@ export const HeroTitleBox = styled.div`
 `;
 
 export const HeroTitle = styled.h1`
-  box-shadow: rgb(251, 161, 0) 0.5rem 0px 0px, rgb(251, 161, 0) -0.5rem 0px 0px;
-  background-color: rgb(251, 161, 0);
+  background-color: #fba100;
   color: #ffffff;
   line-height: 1;
-  padding: 0.25em;
+  padding: 0.25em 0.5em;
   font-size: 3em;
   font-weight: 700;
   text-align: center;
@@ -31,8 +30,7 @@ export const HeroTitle = styled.h1`
 `;
 
 export const HeroSubtitle = styled.h2`
-  box-shadow: rgb(251, 161, 0) 0.5rem 0px 0px, rgb(251, 161, 0) -0.5rem 0px 0px;
-  background-color: rgb(251, 161, 0);
+  background-color: #fba100;
   color: white;
   line-height: 1;
   padding: 0.25em;
@@ -121,7 +119,6 @@ export const linkStyle = css`
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 12rem;
   cursor: pointer;
   margin-top: 2rem;
   &:hover {

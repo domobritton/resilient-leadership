@@ -12,7 +12,7 @@ const TeamCoachingPage = ({ data }) => {
       <Service
         title={frontmatter.title}
         image={frontmatter.image}
-        heading={frontmatter.heading}
+        heading1={frontmatter.heading1}
         audience={frontmatter.audience}
         summary1={frontmatter.summary1}
         summary2={frontmatter.summary2}
@@ -45,7 +45,7 @@ export const teamCoachingPageQuery = graphql`
             }
           }
         }
-        heading
+        heading1
         audience
         summary1
         summary2

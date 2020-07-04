@@ -23,7 +23,9 @@ import {
 const Service = ({
   title,
   image,
-  heading,
+  heading1,
+  heading2,
+  heading3,
   audience,
   objectives,
   summary1,
@@ -60,7 +62,21 @@ const Service = ({
         <Section>
           <FlexRow>
             <Column css={leftColumn}>
-              <Heading>{heading}</Heading>
+              <Heading>
+                {heading1}
+                {heading2 && (
+                  <>
+                    <br />
+                    {heading2}
+                  </>
+                )}
+                {heading3 && (
+                  <>
+                    <br />
+                    {heading3}
+                  </>
+                )}
+              </Heading>
               <Paragraph>
                 <b>Audience</b>
               </Paragraph>
@@ -78,12 +94,10 @@ const Service = ({
               <Paragraph>{summary1}</Paragraph>
               {summary2 && <Paragraph>{summary2}</Paragraph>}
               <Title>{processTitle}</Title>
-              {processBold && (
-                <Paragraph>
-                  <b>{processBold}:</b>
-                </Paragraph>
-              )}
-              <Paragraph>{process1}</Paragraph>
+              <Paragraph>
+                {processBold && <b>{processBold}: </b>}
+                {process1}
+              </Paragraph>
               {process2 && <Paragraph>{process2}</Paragraph>}
               <Title>{outcomesTitle}</Title>
               <List>
@@ -105,7 +119,9 @@ const Service = ({
 Service.propTypes = {
   title: PropTypes.string.isRequired,
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  heading: PropTypes.string,
+  heading1: PropTypes.string,
+  heading2: PropTypes.string,
+  heading3: PropTypes.string,
   audience: PropTypes.string,
   objectives: PropTypes.string,
   summary1: PropTypes.string,

@@ -42,7 +42,9 @@ collections:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "surveys-assessments-page"}
           - {label: "Title", name: "title", widget: "string"}
           - {label: Image, name: image, widget: image}
-          - {label: Heading, name: heading, widget: string}
+          - {label: Heading1, name: heading1, widget: string}
+          - {label: Heading2, name: heading2, widget: string}
+          - {label: Heading3, name: heading3, widget: string}
           - {label: Audience, name: audience, widget: string}
           - {label: Objectives, name: objectives, widget: string}
           - {label: "Body", name: "body", widget: "markdown"}
@@ -53,7 +55,9 @@ collections:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "360-feedback-page"}
           - {label: "Title", name: "title", widget: "string"}
           - {label: Image, name: image, widget: image}
-          - {label: Heading, name: heading, widget: string}
+          - {label: Heading1, name: heading1, widget: string}
+          - {label: Heading2, name: heading2, widget: string}
+          - {label: Heading3, name: heading3, widget: string}
           - {label: Audience, name: audience, widget: string}
           - {label: Objectives, name: objectives, widget: string}
           - {label: Summary, name: summary, widget: string}
@@ -68,7 +72,7 @@ collections:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "executive-coaching-page"}
           - {label: "Title", name: "title", widget: "string"}
           - {label: Image, name: image, widget: image}
-          - {label: Heading, name: heading, widget: string}
+          - {label: Heading1, name: heading1, widget: string}
           - {label: Audience, name: audience, widget: string}
           - {label: Summary1, name: summary1, widget: string}
           - {label: Summary2, name: summary2, widget: string}
@@ -83,7 +87,7 @@ collections:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "team-coaching-page"}
           - {label: "Title", name: "title", widget: "string"}
           - {label: Image, name: image, widget: image}
-          - {label: Heading, name: heading, widget: string}
+          - {label: Heading1, name: heading1, widget: string}
           - {label: Audience, name: audience, widget: string}
           - {label: Summary1, name: summary1, widget: string}
           - {label: Summary2, name: summary2, widget: string}
@@ -100,7 +104,7 @@ collections:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "organization-development-page"}
           - {label: "Title", name: "title", widget: "string"}
           - {label: Image, name: image, widget: image}
-          - {label: Heading, name: heading, widget: string}
+          - {label: Heading1, name: heading1, widget: string}
           - {label: Audience, name: audience, widget: string}
           - {label: Summary1, name: summary1, widget: string}
           - {label: Summary2, name: summary2, widget: string}

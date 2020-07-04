@@ -2,7 +2,7 @@
 templateKey: index-page
 title: Taking your leadership to the next level
 image: /img/home-jumbotron.jpg
-heading:
+heading: hello
 subheading: Executive Coaching | Team Coaching | Organization Development
 description: >
   It is our aim to support you in gaining deeper insights and knowledge —for you to thrive, inspire and live out the contribution that is excited to emerge.
@@ -40,26 +40,31 @@ services:
       text: >
         Face challenges with courage, wisdom and resilience. Recover from setbacks with ease and perseverance. For emerging leaders and seasoned executives ready to take their leadership to the next level.
       link: /executive-coaching
+      linkText: More info about leadership coaching
     - image: /img/resilient-leadership-team-coaching.jpg
       title: Team Coaching
       text: >
         For teams, departments and groups ready to set higher goals, collaborate more effectively and face bigger challenges with ease and fulfillment.
       link: /team-coaching
+      linkText: Read more about our coaching for teams
     - image: /img/resilient-leadership-organization-development.jpg
-      title: Organization Development
+      title: Change Management
       text: >
         For organizations that are ready to make informed choices, grounded in accurate assessments. Develop the skills and capacity to effectively deliver promises and mission.
       link: /organization-development
+      linkText: Learn about our program
     - image: /img/resilient-leadership-360-assessment.jpg
       title: 360◦ Feedback
       text: >
         Clear, grounded feedback on your strengths, challenges and leadership weaknesses. A plan for developing new skills and improving your leadership capacity. Personalized coaching to put the information into action.
       link: /360-feedback
+      linkText: Discover our approach
     - image: /img/resilient-leadership-surveys.jpg
       title: Surveys & Assessments
       text: >
         Understand the processes, systems and information your organization needs to reach peak effectiveness and efficiency. Tools to insure that you not only understand where the gaps are but how to fill them effectively.
       link: /surveys-assessments
+      linkText: Read more about assessments
   heading: What we offer
   description: >
     Kaldi is the ultimate spot for coffee lovers who want to learn about their

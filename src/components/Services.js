@@ -27,7 +27,7 @@ const Box = styled.div`
   &:not(:last-of-type) {
     margin-bottom: 3rem;
   }
-  @media (max-width: 650px) {
+  @media (max-width: 768px) {
     flex-direction: column;
     padding: 2rem 1rem;
   }
@@ -36,7 +36,7 @@ const Box = styled.div`
 const Text = styled.p`
   font-size: 1.375em;
   margin-bottom: 1.25rem;
-  @media (max-width: 650px) {
+  @media (max-width: 768px) {
     font-size: 1em;
   }
 `;
@@ -50,7 +50,7 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  @media (max-width: 650px) {
+  @media (max-width: 768px) {
     padding-right: 0;
     width: 100%;
   }
@@ -61,7 +61,7 @@ const CardTitle = styled.h3`
   color: #fba100;
   margin-bottom: 1.5rem;
   line-height: 1;
-  @media (max-width: 650px) {
+  @media (max-width: 768px) {
     text-align: center;
   }
 `;
@@ -69,7 +69,7 @@ const CardTitle = styled.h3`
 const ImageBox = styled.div`
   width: 50%;
   cursor: pointer;
-  @media (max-width: 650px) {
+  @media (max-width: 768px) {
     width: 100%;
   }
 `;
@@ -82,15 +82,13 @@ const linkStyle = css`
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 12rem;
   cursor: pointer;
   &:hover {
     background-color: #ffb42f;
     color: #ffffff;
   }
-  @media (max-width: 650px) {
+  @media (max-width: 768px) {
     margin: 0 auto;
-    min-width: 160px;
     margin-bottom: 1.5rem;
   }
 `;
@@ -106,7 +104,7 @@ const Services = ({ services }) => (
               <Text>{item.text}</Text>
             </div>
             <Link to={item.link} css={linkStyle}>
-              Learn more
+              {item.linkText}
             </Link>
           </Card>
           <ImageBox>

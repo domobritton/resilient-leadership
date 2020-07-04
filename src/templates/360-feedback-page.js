@@ -12,12 +12,14 @@ const FeedbackPage = ({ data }) => {
       <Service
         title={frontmatter.title}
         image={frontmatter.image}
-        heading={frontmatter.heading}
+        heading1={frontmatter.heading1}
+        heading2={frontmatter.heading2}
+        heading3={frontmatter.heading3}
         audience={frontmatter.audience}
         objectives={frontmatter.objectives}
         summary1={frontmatter.summary}
         processTitle={frontmatter.processTitle}
-        process={frontmatter.process}
+        process1={frontmatter.process1}
         outcomesTitle={frontmatter.outcomesTitle}
         outcomes={frontmatter.outcomes}
       />
@@ -43,12 +45,14 @@ export const feedbackPageQuery = graphql`
             }
           }
         }
-        heading
+        heading1
+        heading2
+        heading3
         audience
         objectives
         summary
         processTitle
-        process
+        process1
         outcomesTitle
         outcomes {
           text
