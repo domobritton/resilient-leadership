@@ -1,5 +1,4 @@
 import React from 'react';
-import { navigate } from 'gatsby-link';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import Layout from '../../components/Layout';
@@ -103,6 +102,15 @@ const Button = styled.button`
   }
 `;
 
+const ThankyouBox = styled.div`
+  background-color: #749ab6;
+  color: white;
+  padding: 1rem;
+  font-size: 1.25em;
+  text-align: center;
+  margin-top: 4rem;
+`;
+
 function encode(data) {
   return Object.keys(data)
     .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
@@ -110,10 +118,7 @@ function encode(data) {
 }
 
 export default class Index extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { isValidated: false };
-  }
+  state = { isValidated: false, isComplete: false };
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
@@ -130,11 +135,14 @@ export default class Index extends React.Component {
         ...this.state,
       }),
     })
-      .then(() => navigate(form.getAttribute('action')))
+      .then(() => {
+        this.setState({ isComplete: true });
+      })
       .catch((error) => alert(error));
   };
 
   render() {
+    const { isComplete } = this.state;
     return (
       <Layout>
         <Section
@@ -200,6 +208,11 @@ export default class Index extends React.Component {
                 </Button>
               </Column>
             </form>
+            {isComplete && (
+              <ThankyouBox>
+                Thank you for reaching out! We will be be in touch soon.
+              </ThankyouBox>
+            )}
           </InnerWrapper>
         </Section>
       </Layout>

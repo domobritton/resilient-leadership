@@ -121,12 +121,12 @@ export const linkStyle = css`
   align-items: center;
   cursor: pointer;
   margin-top: 2rem;
+  max-width: 250px;
   &:hover {
     background-color: #ffb42f;
     color: #ffffff;
   }
   @media (max-width: 768px) {
     margin: 2rem auto 0;
-    max-width: 160px;
   }
 `;

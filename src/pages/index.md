@@ -46,7 +46,7 @@ services:
       text: >
         For teams, departments and groups ready to set higher goals, collaborate more effectively and face bigger challenges with ease and fulfillment.
       link: /team-coaching
-      linkText: Read more about our coaching for teams
+      linkText: Read more about team coaching
     - image: /img/resilient-leadership-organization-development.jpg
       title: Change Management
       text: >

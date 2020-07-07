@@ -14,7 +14,7 @@ const Section = styled.section`
   background: linear-gradient(
     0deg,
     rgba(101, 115, 125, 1) 0%,
-    rgba(116, 154, 182, 1) 100%
+    rgba(58, 48, 66, 1) 100%
   );
 `;
 
@@ -83,6 +83,7 @@ const linkStyle = css`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  max-width: 350px;
   &:hover {
     background-color: #ffb42f;
     color: #ffffff;
@@ -90,6 +91,12 @@ const linkStyle = css`
   @media (max-width: 768px) {
     margin: 0 auto;
     margin-bottom: 1.5rem;
+    min-width: 305px;
+  }
+  @media (max-width: 420px) {
+    font-size: 1em;
+    min-width: auto;
+    width: 100%;
   }
 `;
 

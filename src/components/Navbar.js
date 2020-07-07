@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import { css, keyframes } from '@emotion/core';
 import styled from '@emotion/styled';
 import logo from '../img/logo.png';
+import Burger from './Burger';
+import Menu from './Menu';
 
 const animateMenu = keyframes`
   0% {
@@ -26,7 +28,7 @@ const Nav = styled.nav`
   background-color: #ffffff;
   position: relative;
   z-index: 30;
-  min-height: 3.25rem;
+  box-shadow: 0 8px 16px rgba(43, 37, 35, 0.1);
   @media (min-width: 1025px) {
     display: flex;
     align-items: stretch;
@@ -39,17 +41,17 @@ const Container = styled.div`
   flex-grow: 1;
   margin: 0 auto;
   position: relative;
-  @media (max-width: 1250px) {
+  @media (max-width: 768px) {
     display: block;
   }
 `;
 
 const Wrapper = styled.div`
   display: none;
-  @media (max-width: 1250px) {
+  @media (max-width: 768px) {
     display: flex;
     justify-content: space-between;
-    padding-left: 1rem;
+    padding: 0.5rem 1rem;
     align-items: center;
   }
 `;
@@ -59,105 +61,85 @@ const Links = styled.div`
   align-items: center;
   width: 100%;
   justify-content: space-between;
-  @media (max-width: 1250px) {
+  @media (max-width: 768px) {
     flex-direction: column;
   }
 `;
 
-const Burger = styled.div`
-  color: #4a4a4a;
-  cursor: pointer;
-  display: block;
-  height: 3.25rem;
-  position: relative;
-  width: 3.25rem;
-  margin-left: auto;
-  > span {
-    background-color: currentColor;
-    display: block;
-    height: 1px;
-    left: calc(50% - 8px);
-    position: absolute;
-    transform-origin: center;
-    transition-duration: 86ms;
-    transition-property: background-color, opacity, transform;
-    transition-timing-function: ease-out;
-    width: 16px;
-    &:nth-child(1) {
-      top: calc(50% - 6px);
-    }
-    &:nth-child(2) {
-      top: calc(50% - 1px);
-    }
-    &:nth-child(3) {
-      top: calc(50% + 4px);
-    }
-  }
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-  }
-`;
-
 const NavBarMenu = styled.div`
-  display: flex;
-  justify-content: center;
-  height: 100%;
-  box-shadow: 0 8px 16px rgba(43, 37, 35, 0.1);
-  @media (max-width: 1250px) {
+  padding: 0 1em;
+  @media (max-width: 768px) {
     display: none;
   }
 `;
 
 const MobileMenu = styled.div`
   display: none;
-  @media (max-width: 1250px) {
+  @media (max-width: 768px) {
     width: 100%;
     height: auto;
     background-color: #ffffff;
-    box-shadow: 0 8px 16px rgba(43, 37, 35, 0.1);
     padding: 0.5rem 0;
     display: block;
     position: absolute;
     z-index: 1;
     transform: translate3d(0, -100%, 0);
-    &.is-active {
-      animation: ${animateMenu} forwards 750ms ease-in-out;
-    }
-    &.is-not-active {
-      animation: ${animateOut} forwards 750ms ease-in-out;
-    }
-  }
-`;
-
-const MenuWrapper = styled.div`
-  display: flex;
-  width: 100%;
-  padding: 0 1em;
-  @media (max-width: 1250px) {
-    display: none;
   }
 `;
 
 const MobileMenuWrapper = styled.div`
   display: none;
-  @media (max-width: 1250px) {
+  @media (max-width: 768px) {
     display: flex;
     padding: 0 1em;
     transform: translate3d(0, -100%, 0);
-    &.is-active {
-      animation: ${animateMenu} forwards 750ms ease-in-out;
-    }
-    &.is-not-active {
-      animation: ${animateOut} forwards 750ms ease-in-out;
+  }
+`;
+
+const ResilientLogo = styled(Link)`
+  display: flex;
+  flex: 2 0 0;
+  padding: 0.25rem 0;
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const Image = styled.img`
+  height: 43px;
+  @media (max-width: 420px) {
+    height: 35px;
+  }
+`;
+
+const DesktopWrapper = styled.ul`
+  display: inline-flex;
+  justify-content: space-between;
+  line-height: 51px;
+  align-items: center;
+  flex: 1 0 0;
+  min-width: 375px;
+  li:hover {
+    background-color: #dce0d9;
+  }
+  li.drop-down:hover {
+    > ul {
+      display: inline-block;
     }
   }
 `;
 
-const StyledMobileResilient = styled(Link)`
-  display: flex;
-  @media (max-width: 1250px) {
-    display: none;
-  }
+const ListItem = styled.li`
+  padding: 0 1rem;
+`;
+
+const DropDown = styled.ul`
+  display: none;
+  position: absolute;
+  top: 51px;
+  right: 0;
+  white-space: nowrap;
+  background-color: #ffffff;
 `;
 
 const titleStyle = css`
@@ -169,11 +151,15 @@ const linkStyle = css`
   font-weight: 700;
   color: #4a4a4a;
   cursor: pointer;
-  @media (max-width: 1250px) {
+  letter-spacing: 0.25rem;
+  text-decoration: none;
+  display: inline-block;
+  @media (max-width: 768px) {
     padding: 0.5rem 0;
   }
 `;
-const Menu = () => (
+
+const menuItems = (
   <Links>
     <Link to='/executive-coaching' css={linkStyle}>
       Executive Coaching
@@ -184,9 +170,6 @@ const Menu = () => (
     <Link to='/organization-development' css={linkStyle}>
       Change Management
     </Link>
-    <StyledMobileResilient to='/' title='Resilient Leadership'>
-      <img src={logo} alt='Resilient Leadership' style={{ width: '300px' }} />
-    </StyledMobileResilient>
     <Link to='/360-feedback' css={linkStyle}>
       360˚ Feedback
     </Link>
@@ -202,73 +185,91 @@ const Menu = () => (
   </Links>
 );
 
-const Navbar = class extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      active: false,
-      navBarActiveClass: '',
-    };
-  }
+const desktopItems = (
+  <Links>
+    <ResilientLogo to='/' title='Resilient Leadership'>
+      <Image src={logo} alt='Resilient Leadership' />
+    </ResilientLogo>
+    <DesktopWrapper>
+      <ListItem
+        className='drop-down'
+        css={[linkStyle, { position: 'relative' }]}
+      >
+        Services +
+        <DropDown>
+          <ListItem>
+            <Link to='/executive-coaching' css={linkStyle}>
+              Executive Coaching
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Link to='/team-coaching' css={linkStyle}>
+              Team Coaching
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Link to='/organization-development' css={linkStyle}>
+              Change Management
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Link to='/360-feedback' css={linkStyle}>
+              360˚ Feedback
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Link to='/surveys-assessments' css={linkStyle}>
+              Surveys & Assessments
+            </Link>
+          </ListItem>
+        </DropDown>
+      </ListItem>
+      <ListItem>
+        <Link to='/about' css={linkStyle}>
+          About
+        </Link>
+      </ListItem>
+      <ListItem
+        css={css`
+          padding-right: 0px;
+        `}
+      >
+        <Link to='/contact' css={linkStyle}>
+          Contact
+        </Link>
+      </ListItem>
+    </DesktopWrapper>
+  </Links>
+);
 
-  toggleHamburger = () => {
-    // toggle the active boolean in the state
-    this.setState(
-      {
-        active: !this.state.active,
-      },
-      // after state has been updated,
-      () => {
-        // set the class in state for the navbar accordingly
-        this.state.active
-          ? this.setState({
-              navBarActiveClass: 'is-active',
-            })
-          : this.setState({
-              navBarActiveClass: 'is-not-active',
-            });
-      }
-    );
-  };
-  render() {
-    return (
-      <>
-        <Nav role='navigation' aria-label='main-navigation'>
-          <Container>
-            {/* Hamburger menu */}
-            <Wrapper>
-              <Link to='/' title='Logo' css={titleStyle}>
-                <img
-                  src={logo}
-                  alt='Resilient Leadership'
-                  style={{ height: 40 }}
-                />
-              </Link>
-              <Burger
-                className={`${this.state.navBarActiveClass}`}
-                data-target='navMenu'
-                onClick={() => this.toggleHamburger()}
-              >
-                <span />
-                <span />
-                <span />
-              </Burger>
-            </Wrapper>
-            <NavBarMenu>
-              <MenuWrapper>
-                <Menu />
-              </MenuWrapper>
-            </NavBarMenu>
-          </Container>
-        </Nav>
-        <MobileMenu id='navMenu' className={`${this.state.navBarActiveClass}`}>
-          <MobileMenuWrapper className={`${this.state.navBarActiveClass}`}>
-            <Menu />
-          </MobileMenuWrapper>
-        </MobileMenu>
-      </>
-    );
-  }
+const Navbar = () => {
+  const [open, setOpen] = useState(false);
+
+  const animation = open ? animateMenu : animateOut;
+  const animationStyle = css`
+    animation: ${animation} forwards 750ms ease-in-out;
+  `;
+
+  return (
+    <>
+      <Nav role='navigation' aria-label='main-navigation'>
+        <Container>
+          <Wrapper>
+            <Link to='/' title='Logo' css={titleStyle}>
+              <Image src={logo} alt='Resilient Leadership' />
+            </Link>
+            <Burger open={open} setOpen={setOpen} />
+          </Wrapper>
+          <NavBarMenu>{desktopItems}</NavBarMenu>
+        </Container>
+      </Nav>
+      <MobileMenu css={animationStyle}>
+        <MobileMenuWrapper css={animationStyle}>
+          <Menu open={open} setOpen={setOpen} menuItems={menuItems} />
+        </MobileMenuWrapper>
+      </MobileMenu>
+    </>
+  );
 };
 
 export default Navbar;

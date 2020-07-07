@@ -45,7 +45,7 @@ const MainPitchColumn = styled.div`
 `;
 
 const MainPitchBox = styled.div`
-  background-color: #f5f5f5;
+  background-color: #DCE0D9;
   position: relative;
   z-index: 1;
   padding: 1.5rem;
@@ -115,7 +115,7 @@ const List = styled.ul`
 const ListItem = styled.li`
   font-size: 1.375em;
   padding: 1rem 1.25rem;
-  background-color: #749ab6;
+  background-color: #808f85;
   color: #ffffff;
   :not(:last-of-type) {
     margin-bottom: 1rem;
@@ -155,7 +155,7 @@ const CallToActionTitle = styled.h3`
 
 const TestimonialCard = styled.div`
   padding: 3rem;
-  background-color: #65737d;
+  background-color: #808f85;
   font-size: 1.25em;
   color: #ffffff;
   width: 50%;
@@ -251,7 +251,7 @@ export const IndexPageTemplate = ({
       <InnerWrapper>
         <Section
           css={css`
-            border-bottom: 1px solid #749ab6;
+            border-bottom: 1px solid #808f85;
             @media (max-width: 768px) {
               border-bottom: none;
               padding: 0;
@@ -324,8 +324,6 @@ export const IndexPageTemplate = ({
         css={css`
           display: flex;
           flex-direction: column;
-          background-color: #907d8e;
-          color: #ffffff;
         `}
       >
         <InnerWrapper>
@@ -358,7 +356,7 @@ export const IndexPageTemplate = ({
             You’ll walk away able to see more possibilities for your team and
             your leadership.
           </Paragraph>
-          <Link to='/contact' css={linkStyle}>
+          <Link to='/contact' css={[linkStyle, { maxWidth: 250 }]}>
             Get in touch
           </Link>
         </InnerWrapper>
