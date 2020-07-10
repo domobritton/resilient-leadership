@@ -34,7 +34,9 @@ collections:
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
           - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
+          - {label: "HeroImage", name: "heroImage", widget: image}
+          - {label: "CallToActionImg", name: "callToActionImg", widget: image}
+          - {label: "Bios", name: "bios", width: list, fields: [{label: Image, name: image, widget: image}, {label: Name, name: name, widget: string}, {label: Text, name: text, widget: list, fields: [{label: Paragraph, name: paragraph, widget: string}]}, {label: SocialLinks, name: socialLinks, widget: list, fields: [{label: Href, name: href, widget: string}]}]}
       - file: "src/pages/surveys-assessments/index.md"
         label: "Surveys and Assessments"
         name: "Surveys & Assessments"
