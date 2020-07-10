@@ -6,8 +6,8 @@ const StyledBurger = styled.button`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 2rem;
-  height: 2rem;
+  width: 24px;
+  height: 24px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -19,7 +19,7 @@ const StyledBurger = styled.button`
   }
 
   div {
-    width: 2rem;
+    width: 24px;
     height: 2px;
     background: #000000;
     border-radius: 10px;

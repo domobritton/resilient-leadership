@@ -18,16 +18,12 @@ export const StyledMenu = styled.nav`
 `;
 
 const Menu = ({ open, menuItems }) => {
-  return (
-    <StyledMenu open={open}>
-      {menuItems}
-    </StyledMenu>
-  );
+  return <StyledMenu open={open}>{menuItems}</StyledMenu>;
 };
 
 Menu.propTypes = {
   open: bool.isRequired,
-  menuItems: PropTypes.elementType,
+  menuItems: PropTypes.object,
 };
 
 export default Menu;

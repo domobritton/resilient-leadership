@@ -2,11 +2,9 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import logo from '../img/logo.png';
-import facebook from '../img/social/facebook.svg';
-import instagram from '../img/social/instagram.svg';
-import twitter from '../img/social/twitter.svg';
-import vimeo from '../img/social/vimeo.svg';
 
 import { FlexRow } from './styles';
 
@@ -38,14 +36,12 @@ const Column = styled.div`
 `;
 
 const Social = styled.a`
-  padding: 0.5em 0.5em 0.3em 0.5em;
   border-radius: 1em;
-  background-color: #DCE0D9;
   margin: 0.5em;
-  width: 1em;
-  height: 1em;
-  vertical-align: middle;
   display: inline;
+  > svg > path {
+    fill: #fba100;
+  }
 `;
 
 const MenuList = styled.ul`
@@ -62,7 +58,7 @@ const MenuList = styled.ul`
     cursor: pointer;
     line-height: 1.5;
     &:hover {
-      background-color: #DCE0D9;
+      background-color: #dce0d9;
     }
   }
 `;
@@ -109,42 +105,29 @@ const Footer = () => {
               <li>
                 <Link to='/contact'>Contact</Link>
               </li>
-              <li>
+              {/* <li>
                 <a href='/admin/' target='_blank' rel='noopener noreferrer'>
                   Admin
                 </a>
-              </li>
+              </li> */}
             </MenuList>
           </Column>
           <Column>
-            <Social title='facebook' href='https://facebook.com'>
-              <img
-                src={facebook}
-                alt='Facebook'
-                style={{ width: '1em', height: '1em' }}
-              />
+            <Social
+              title='facebook'
+              href='https://facebook.com'
+              target='__blank'
+              rel='noopener noreferrer'
+            >
+              <FontAwesomeIcon icon={faFacebook} size='2x' />
             </Social>
-            <Social title='twitter' href='https://twitter.com'>
-              <img
-                className='fas fa-lg'
-                src={twitter}
-                alt='Twitter'
-                style={{ width: '1em', height: '1em' }}
-              />
-            </Social>
-            <Social title='instagram' href='https://instagram.com'>
-              <img
-                src={instagram}
-                alt='Instagram'
-                style={{ width: '1em', height: '1em' }}
-              />
-            </Social>
-            <Social title='vimeo' href='https://vimeo.com'>
-              <img
-                src={vimeo}
-                alt='Vimeo'
-                style={{ width: '1em', height: '1em' }}
-              />
+            <Social
+              title='linkedIn'
+              href='https://twitter.com'
+              target='__blank'
+              rel='noopener noreferrer'
+            >
+              <FontAwesomeIcon icon={faLinkedin} size='2x' />
             </Social>
           </Column>
         </FlexRow>

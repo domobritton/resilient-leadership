@@ -1,10 +1,20 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
+import { createMedia } from '@artsy/fresnel';
 import { css, keyframes } from '@emotion/core';
 import styled from '@emotion/styled';
 import logo from '../img/logo.png';
 import Burger from './Burger';
 import Menu from './Menu';
+
+const { MediaContextProvider, Media } = createMedia({
+  breakpoints: {
+    sm: 0,
+    md: 769,
+    lg: 1024,
+    xl: 1192,
+  },
+});
 
 const animateMenu = keyframes`
   0% {
@@ -47,10 +57,10 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-  display: none;
+  // display: none;
   @media (max-width: 768px) {
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     padding: 0.5rem 1rem;
     align-items: center;
   }
@@ -69,12 +79,12 @@ const Links = styled.div`
 const NavBarMenu = styled.div`
   padding: 0 1em;
   @media (max-width: 768px) {
-    display: none;
+    // display: none;
   }
 `;
 
 const MobileMenu = styled.div`
-  display: none;
+  // display: none;
   @media (max-width: 768px) {
     width: 100%;
     height: auto;
@@ -88,7 +98,7 @@ const MobileMenu = styled.div`
 `;
 
 const MobileMenuWrapper = styled.div`
-  display: none;
+  // display: none;
   @media (max-width: 768px) {
     display: flex;
     padding: 0 1em;
@@ -101,7 +111,7 @@ const ResilientLogo = styled(Link)`
   flex: 2 0 0;
   padding: 0.25rem 0;
   @media (max-width: 768px) {
-    display: none;
+    // display: none;
   }
 `;
 
@@ -143,7 +153,10 @@ const DropDown = styled.ul`
 `;
 
 const titleStyle = css`
-  display: flex;
+  position: relative;
+  display: inline-flex;
+  margin: 0 auto;
+  right: 1rem;
 `;
 
 const linkStyle = css`
@@ -229,11 +242,7 @@ const desktopItems = (
           About
         </Link>
       </ListItem>
-      <ListItem
-        css={css`
-          padding-right: 0px;
-        `}
-      >
+      <ListItem>
         <Link to='/contact' css={linkStyle}>
           Contact
         </Link>
@@ -251,24 +260,30 @@ const Navbar = () => {
   `;
 
   return (
-    <>
+    <MediaContextProvider>
       <Nav role='navigation' aria-label='main-navigation'>
         <Container>
-          <Wrapper>
-            <Link to='/' title='Logo' css={titleStyle}>
-              <Image src={logo} alt='Resilient Leadership' />
-            </Link>
-            <Burger open={open} setOpen={setOpen} />
-          </Wrapper>
-          <NavBarMenu>{desktopItems}</NavBarMenu>
+          <Media lessThan="md">
+            <Wrapper>
+              <Burger open={open} setOpen={setOpen} />
+              <Link to='/' title='Logo' css={titleStyle}>
+                <Image src={logo} alt='Resilient Leadership' />
+              </Link>
+            </Wrapper>
+          </Media>
+          <Media greaterThanOrEqual='md'>
+            <NavBarMenu>{desktopItems}</NavBarMenu>
+          </Media>
         </Container>
       </Nav>
-      <MobileMenu css={animationStyle}>
-        <MobileMenuWrapper css={animationStyle}>
-          <Menu open={open} setOpen={setOpen} menuItems={menuItems} />
-        </MobileMenuWrapper>
-      </MobileMenu>
-    </>
+      <Media lessThan="md">
+        <MobileMenu css={animationStyle}>
+          <MobileMenuWrapper css={animationStyle}>
+            <Menu open={open} setOpen={setOpen} menuItems={menuItems} />
+          </MobileMenuWrapper>
+        </MobileMenu>
+      </Media>
+    </MediaContextProvider>
   );
 };
 

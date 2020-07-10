@@ -51,6 +51,7 @@ export const InnerWrapper = styled.div`
 
 export const Section = styled.section`
   padding: 4rem 0;
+  border-bottom: 1px solid #a6a6a6;
 `;
 
 export const FlexRow = styled.div`
