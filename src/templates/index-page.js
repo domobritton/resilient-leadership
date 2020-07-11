@@ -13,7 +13,7 @@ import {
   HeroTitleBox,
   HeroTitle,
   HeroSubtitle,
-  FlexRow,
+  FlexWithDirection,
   linkStyle,
   Paragraph,
 } from '../components/styles';
@@ -45,7 +45,7 @@ const MainPitchColumn = styled.div`
 `;
 
 const MainPitchBox = styled.div`
-  background-color: #DCE0D9;
+  background-color: #dce0d9;
   position: relative;
   z-index: 1;
   padding: 1.5rem;
@@ -251,7 +251,7 @@ export const IndexPageTemplate = ({
       <InnerWrapper>
         <Section
           css={css`
-            border-bottom: 1px solid #808f85;
+            border-bottom: 1px solid #4C3B4D;
             @media (max-width: 768px) {
               border-bottom: none;
               padding: 0;
@@ -293,7 +293,7 @@ export const IndexPageTemplate = ({
         </Section>
         <Section>
           <ResultsColumn>
-            <FlexRow
+            <FlexWithDirection
               css={css`
                 @media (max-width: 768px) {
                   flex-direction: row;
@@ -310,7 +310,7 @@ export const IndexPageTemplate = ({
                 style={{ width: 100 }}
               />
               <ResultsTitle>{results.title}</ResultsTitle>
-            </FlexRow>
+            </FlexWithDirection>
             <List>
               {results.listItems.map((item, idx) => (
                 <ListItem key={idx}>{item.text}</ListItem>
@@ -375,7 +375,7 @@ export const IndexPageTemplate = ({
             `}
           >
             <CallToActionTitle>What our clients say about us</CallToActionTitle>
-            <FlexRow>
+            <FlexWithDirection>
               {testimonialSection.testimonials.map((testimonial, idx) => (
                 <TestimonialCard key={idx}>
                   <Paragraph>{testimonial.text1}</Paragraph>
@@ -389,7 +389,7 @@ export const IndexPageTemplate = ({
                   </Paragraph>
                 </TestimonialCard>
               ))}
-            </FlexRow>
+            </FlexWithDirection>
           </InnerWrapper>
         </BackgroundWrapper>
       </Section>

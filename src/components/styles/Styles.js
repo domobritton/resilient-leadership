@@ -42,19 +42,21 @@ export const HeroSubtitle = styled.h2`
   }
 `;
 
-export const InnerWrapper = styled.div`
+export const InnerWrapper = styled.section`
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 4rem 1rem;
 `;
 
 export const Section = styled.section`
-  padding: 4rem 0;
-  border-bottom: 1px solid #a6a6a6;
 `;
 
-export const FlexRow = styled.div`
+export const Flex = styled.div`
+  display: flex;
+`;
+
+export const FlexWithDirection = styled.div`
   display: flex;
   @media (max-width: 768px) {
     flex-direction: column;

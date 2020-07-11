@@ -8,7 +8,7 @@ import {
   HeroTitleBox,
   HeroTitle,
   Section,
-  FlexRow,
+  FlexWithDirection,
   Column,
   leftColumn,
   rightColumn,
@@ -60,7 +60,7 @@ const Service = ({
       </Hero>
       <InnerWrapper>
         <Section>
-          <FlexRow>
+          <FlexWithDirection>
             <Column css={leftColumn}>
               <Heading>
                 {heading1}
@@ -106,7 +106,7 @@ const Service = ({
                 ))}
               </List>
             </Column>
-          </FlexRow>
+          </FlexWithDirection>
           <Link to='/contact' css={linkStyle}>
             Get in touch
           </Link>

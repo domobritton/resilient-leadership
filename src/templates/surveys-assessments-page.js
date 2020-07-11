@@ -9,7 +9,7 @@ import {
   HeroTitleBox,
   HeroTitle,
   Section,
-  FlexRow,
+  FlexWithDirection,
   Column,
   leftColumn,
   rightColumn,
@@ -50,7 +50,7 @@ export const SurveysAssessmentsTemplate = ({
       <Wrapper>
         <InnerWrapper>
           <Section>
-            <FlexRow>
+            <FlexWithDirection>
               <Column css={leftColumn}>
                 <Heading>
                   {heading1}
@@ -79,7 +79,7 @@ export const SurveysAssessmentsTemplate = ({
               <Column css={rightColumn}>
                 <PageContent className='content' content={content} />
               </Column>
-            </FlexRow>
+            </FlexWithDirection>
             <Link to='/contact' css={linkStyle}>
               Get in touch
             </Link>

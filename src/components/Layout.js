@@ -6,11 +6,12 @@ import './all.sass';
 import useSiteMetadata from './SiteMetadata';
 import { withPrefix } from 'gatsby';
 import { GlobalStyles } from './styles';
+import { MediaContextProvider } from './Media';
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata();
   return (
-    <div>
+    <MediaContextProvider>
       <Helmet>
         <html lang='en' />
         <title>{title}</title>
@@ -51,9 +52,9 @@ const TemplateWrapper = ({ children }) => {
       </Helmet>
       <GlobalStyles />
       <Navbar />
-      <div>{children}</div>
+      <>{children}</>
       <Footer />
-    </div>
+    </MediaContextProvider>
   );
 };
 

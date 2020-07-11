@@ -11,10 +11,10 @@ export const StyledMenu = styled.nav`
   text-align: left;
   padding: 2rem;
   position: absolute;
-  top: 0;
+  top: 59px;
   left: 0;
-  transition: transform 0.3s ease-in-out;
-  transform: ${({ open }) => (open ? 'translateY(0)' : 'translateY(-100%)')};
+  transition: transform 500ms ease-in-out;
+  transform: ${({ open }) => (open ? 'translate3d(0, 0%, 0)' : 'translate3d(0, -120%, 0)')};
 `;
 
 const Menu = ({ open, menuItems }) => {

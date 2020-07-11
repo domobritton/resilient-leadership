@@ -1,38 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
-import { createMedia } from '@artsy/fresnel';
-import { css, keyframes } from '@emotion/core';
+import { css } from '@emotion/core';
 import styled from '@emotion/styled';
+import { Media } from './Media';
 import logo from '../img/logo.png';
 import Burger from './Burger';
 import Menu from './Menu';
 
-const { MediaContextProvider, Media } = createMedia({
-  breakpoints: {
-    sm: 0,
-    md: 769,
-    lg: 1024,
-    xl: 1192,
-  },
-});
-
-const animateMenu = keyframes`
-  0% {
-    transform: translate3d(0, -100%, 0);
-  }
-  100% {
-    transform: translate3d(0, 0%, 0);
-  }
-`;
-
-const animateOut = keyframes`
-  0% {
-    transform: translate3d(0, 0%, 0);
-  }
-  100% {
-    transform: translate3d(0, -100%, 0);
-  }
-`;
 
 const Nav = styled.nav`
   background-color: #ffffff;
@@ -78,41 +52,13 @@ const Links = styled.div`
 
 const NavBarMenu = styled.div`
   padding: 0 1em;
-  @media (max-width: 768px) {
-    // display: none;
-  }
 `;
 
-const MobileMenu = styled.div`
-  // display: none;
-  @media (max-width: 768px) {
-    width: 100%;
-    height: auto;
-    background-color: #ffffff;
-    padding: 0.5rem 0;
-    display: block;
-    position: absolute;
-    z-index: 1;
-    transform: translate3d(0, -100%, 0);
-  }
-`;
-
-const MobileMenuWrapper = styled.div`
-  // display: none;
-  @media (max-width: 768px) {
-    display: flex;
-    padding: 0 1em;
-    transform: translate3d(0, -100%, 0);
-  }
-`;
 
 const ResilientLogo = styled(Link)`
   display: flex;
   flex: 2 0 0;
   padding: 0.25rem 0;
-  @media (max-width: 768px) {
-    // display: none;
-  }
 `;
 
 const Image = styled.img`
@@ -254,16 +200,11 @@ const desktopItems = (
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
-  const animation = open ? animateMenu : animateOut;
-  const animationStyle = css`
-    animation: ${animation} forwards 750ms ease-in-out;
-  `;
-
   return (
-    <MediaContextProvider>
+    <>
       <Nav role='navigation' aria-label='main-navigation'>
         <Container>
-          <Media lessThan="md">
+          <Media lessThan='md'>
             <Wrapper>
               <Burger open={open} setOpen={setOpen} />
               <Link to='/' title='Logo' css={titleStyle}>
@@ -276,14 +217,10 @@ const Navbar = () => {
           </Media>
         </Container>
       </Nav>
-      <Media lessThan="md">
-        <MobileMenu css={animationStyle}>
-          <MobileMenuWrapper css={animationStyle}>
-            <Menu open={open} setOpen={setOpen} menuItems={menuItems} />
-          </MobileMenuWrapper>
-        </MobileMenu>
+      <Media lessThan='md'>
+        <Menu open={open} setOpen={setOpen} menuItems={menuItems} />
       </Media>
-    </MediaContextProvider>
+    </>
   );
 };
 

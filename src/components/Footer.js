@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import logo from '../img/logo.png';
 
-import { FlexRow } from './styles';
+import { FlexWithDirection } from './styles';
 
 const StyledMobileResilient = styled(Link)`
   display: flex;
@@ -17,6 +17,7 @@ const StyledMobileResilient = styled(Link)`
 
 const footerStyle = css`
   padding: 3rem 0rem 1rem;
+  box-shadow: 0 -5px 5px -5px rgba(43, 37, 35, 0.1);
 `;
 
 const Container = styled.div`
@@ -74,7 +75,7 @@ const Footer = () => {
         />
       </StyledMobileResilient>
       <Container>
-        <FlexRow>
+        <FlexWithDirection>
           <Column>
             <MenuList>
               <li>
@@ -130,7 +131,7 @@ const Footer = () => {
               <FontAwesomeIcon icon={faLinkedin} size='2x' />
             </Social>
           </Column>
-        </FlexRow>
+        </FlexWithDirection>
       </Container>
     </footer>
   );
