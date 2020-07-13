@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import { Link } from 'gatsby';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
@@ -6,7 +6,6 @@ import { Media } from './Media';
 import logo from '../img/logo.png';
 import Burger from './Burger';
 import Menu from './Menu';
-
 
 const Nav = styled.nav`
   background-color: #ffffff;
@@ -52,8 +51,10 @@ const Links = styled.div`
 
 const NavBarMenu = styled.div`
   padding: 0 1em;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
-
 
 const ResilientLogo = styled(Link)`
   display: flex;
@@ -102,7 +103,7 @@ const titleStyle = css`
   position: relative;
   display: inline-flex;
   margin: 0 auto;
-  right: 1rem;
+  right: 0.5rem;
 `;
 
 const linkStyle = css`
@@ -114,12 +115,19 @@ const linkStyle = css`
   text-decoration: none;
   display: inline-block;
   @media (max-width: 768px) {
-    padding: 0.5rem 0;
+    padding: 1rem 0;
+    font-size: 1.15em;
+  }
+  @media (max-width: 320px) {
+    font-size: 0.75em;
   }
 `;
 
 const menuItems = (
   <Links>
+    <Link to='/' css={linkStyle}>
+      Home
+    </Link>
     <Link to='/executive-coaching' css={linkStyle}>
       Executive Coaching
     </Link>
