@@ -197,6 +197,7 @@ const Break = styled.br`
 
 export const IndexPageTemplate = ({
   image,
+  mobileImage,
   title,
   subheading,
   mainpitch,
@@ -219,7 +220,7 @@ export const IndexPageTemplate = ({
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    height: 768px;
+    height: calc(100vh - 80px);
     z-index: -1;
     position: relative;
     &:after {
@@ -231,6 +232,11 @@ export const IndexPageTemplate = ({
       bottom: 0;
       background-color: rgba(144, 125, 142, 0.17);
       z-index: -1;
+    }
+    @media (max-width: 600px) {
+      background-image: url(${!!mobileImage.childImageSharp
+        ? mobileImage.childImageSharp.fluid.src
+        : mobileImage});
     }
   `;
 
@@ -433,6 +439,7 @@ export const IndexPageTemplate = ({
 
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  mobileImage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
   heading: PropTypes.string,
   subheading: PropTypes.array,
@@ -477,6 +484,7 @@ const IndexPage = ({ data }) => {
     <Layout>
       <IndexPageTemplate
         image={frontmatter.image}
+        mobileImage={frontmatter.mobileImage}
         title={frontmatter.title}
         heading={frontmatter.heading}
         subheading={frontmatter.subheading}
@@ -510,6 +518,13 @@ export const pageQuery = graphql`
         image {
           childImageSharp {
             fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        mobileImage {
+          childImageSharp {
+            fluid(maxWidth: 800, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }
