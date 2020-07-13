@@ -17,6 +17,7 @@ import {
   linkStyle,
   Paragraph,
 } from '../components/styles';
+import Hero from '../components/Hero';
 
 const InnerWrapper = styled.div`
   width: 100%;
@@ -198,7 +199,6 @@ const Break = styled.br`
 
 export const IndexPageTemplate = ({
   image,
-  mobileImage,
   title,
   subheading,
   mainpitch,
@@ -209,25 +209,6 @@ export const IndexPageTemplate = ({
   callToAction,
   testimonialSection,
 }) => {
-  const HeroWrapper = styled.section`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 100%;
-    height: 500px;
-    @media (max-width: 650px) {
-      height: calc(100vh - 80px);
-    }
-  `;
-  const Hero = styled(Img)`
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-  `;
 
   const BackgroundWrapper = styled.section`
     position: relative;
@@ -247,40 +228,39 @@ export const IndexPageTemplate = ({
     transform: translate(-50%, -50%);
     background-repeat: no-repeat;
   `;
+
+  const subtitle = () => (
+    <>
+      {subheading.map(({ heading }, idx) => (
+        <span
+          key={idx}
+          css={css`
+            @media (min-width: 681px) {
+              display: inline-flex;
+            }
+          `}
+        >
+          {`${heading} `}
+          <Break />
+          <Spacer> | </Spacer>
+        </span>
+      ))}
+    </>
+  );
+
   return (
     <Wrapper>
-      <HeroWrapper>
-        <Hero
-          fluid={image.childImageSharp.fluid}
-          title='Resilient Leadership'
-        />
-        <HeroTitleBox>
-          <HeroTitle>{title}</HeroTitle>
-          <HeroSubtitle
-            css={css`
-              > span:last-of-type > div {
-                display: none;
-              }
-            `}
-          >
-            {subheading.map(({ heading }, idx) => (
-              <span
-                key={idx}
-                css={css`
-                  @media (min-width: 681px) {
-                    display: inline-flex;
-                  }
-                `}
-              >
-                {`${heading} `}
-                <Break />
-                <Spacer> | </Spacer>
-              </span>
-            ))}
-          </HeroSubtitle>
-        </HeroTitleBox>
-      </HeroWrapper>
-      <Section css={css`padding-bottom: 0;`}>
+      <Hero
+        image={image}
+        title={title}
+        subtitle={subtitle}
+        alt='Resilient Leadership'
+      />
+      <Section
+        css={css`
+          padding-bottom: 0;
+        `}
+      >
         <InnerWrapper
           css={css`
             display: flex;
@@ -288,11 +268,8 @@ export const IndexPageTemplate = ({
             padding-bottom: 4rem;
             @media (max-width: 768px) {
               border-bottom: none;
-              padding: 0;
-            }
-            @media (max-width: 768px) {
               flex-direction: column;
-              padding-top: 4rem;
+              padding: 0;
             }
           `}
         >
@@ -433,7 +410,6 @@ export const IndexPageTemplate = ({
 
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  mobileImage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
   heading: PropTypes.string,
   subheading: PropTypes.array,
@@ -478,7 +454,6 @@ const IndexPage = ({ data }) => {
     <Layout>
       <IndexPageTemplate
         image={frontmatter.image}
-        mobileImage={frontmatter.mobileImage}
         title={frontmatter.title}
         heading={frontmatter.heading}
         subheading={frontmatter.subheading}
@@ -512,13 +487,6 @@ export const pageQuery = graphql`
         image {
           childImageSharp {
             fluid(maxWidth: 2048, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        mobileImage {
-          childImageSharp {
-            fluid(maxWidth: 800, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }

@@ -2,7 +2,6 @@
 templateKey: index-page
 title: Taking your leadership to the next level
 image: /img/home-jumbotron.jpg
-mobileImage: /img/home-mobile-jumbotron.jpg
 heading: hello
 subheading:
   - heading: Executive Coaching
