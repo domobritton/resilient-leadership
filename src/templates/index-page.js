@@ -28,6 +28,7 @@ const InnerWrapper = styled.div`
 const Section = styled.section`
   display: flex;
   padding: 4rem 1rem;
+  background-color: #ffffff;
 `;
 
 const MainPitchColumn = styled.div`
@@ -208,36 +209,24 @@ export const IndexPageTemplate = ({
   callToAction,
   testimonialSection,
 }) => {
-  const Hero = styled.section`
+  const HeroWrapper = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(${!!image.childImageSharp
-      ? image.childImageSharp.fluid.src
-      : image});
-    background-position: center center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: calc(100vh - 80px);
-    z-index: -1;
     position: relative;
-    &:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(144, 125, 142, 0.17);
-      z-index: -1;
+    width: 100%;
+    height: 500px;
+    @media (max-width: 650px) {
+      height: calc(100vh - 80px);
     }
-    @media (max-width: 600px) {
-      background-image: url(${!!mobileImage.childImageSharp
-        ? mobileImage.childImageSharp.fluid.src
-        : mobileImage});
-    }
+  `;
+  const Hero = styled(Img)`
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
   `;
 
   const BackgroundWrapper = styled.section`
@@ -257,11 +246,14 @@ export const IndexPageTemplate = ({
     object-fit: cover;
     transform: translate(-50%, -50%);
     background-repeat: no-repeat;
-    z-index: -1;
   `;
   return (
     <Wrapper>
-      <Hero>
+      <HeroWrapper>
+        <Hero
+          fluid={image.childImageSharp.fluid}
+          title='Resilient Leadership'
+        />
         <HeroTitleBox>
           <HeroTitle>{title}</HeroTitle>
           <HeroSubtitle
@@ -287,11 +279,13 @@ export const IndexPageTemplate = ({
             ))}
           </HeroSubtitle>
         </HeroTitleBox>
-      </Hero>
-      <InnerWrapper>
-        <Section
+      </HeroWrapper>
+      <Section css={css`padding-bottom: 0;`}>
+        <InnerWrapper
           css={css`
+            display: flex;
             border-bottom: 1px solid #4c3b4d;
+            padding-bottom: 4rem;
             @media (max-width: 768px) {
               border-bottom: none;
               padding: 0;
@@ -313,13 +307,10 @@ export const IndexPageTemplate = ({
             fluid={mainpitch.image.childImageSharp.fluid}
             css={mainImageStyle}
           />
-        </Section>
-        <Section
-          css={css`
-            display: flex;
-            flex-direction: column;
-          `}
-        >
+        </InnerWrapper>
+      </Section>
+      <Section>
+        <InnerWrapper>
           <PhiloTitle>{philosophy.title}</PhiloTitle>
           <Paragraph>{philosophy.paragraph1}</Paragraph>
           <Paragraph>{philosophy.paragraph2}</Paragraph>
@@ -330,8 +321,10 @@ export const IndexPageTemplate = ({
               css={philoImage}
             />
           </PhiloImageBox>
-        </Section>
-        <Section>
+        </InnerWrapper>
+      </Section>
+      <Section>
+        <InnerWrapper>
           <ResultsColumn>
             <FlexWithDirection
               css={css`
@@ -357,8 +350,8 @@ export const IndexPageTemplate = ({
               ))}
             </List>
           </ResultsColumn>
-        </Section>
-      </InnerWrapper>
+        </InnerWrapper>
+      </Section>
       <Services services={services.blurbs} />
       <Section
         css={css`
@@ -405,6 +398,7 @@ export const IndexPageTemplate = ({
         css={css`
           flex-direction: column;
           padding: 0;
+          background-color: transparent;
         `}
       >
         <BackgroundWrapper>

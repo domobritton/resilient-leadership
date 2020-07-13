@@ -18,6 +18,7 @@ const StyledMobileResilient = styled(Link)`
 const footerStyle = css`
   padding: 3rem 0rem 1rem;
   box-shadow: 0 -5px 5px -5px rgba(43, 37, 35, 0.1);
+  background-color: #ffffff;
 `;
 
 const Container = styled.div`
