@@ -3,7 +3,10 @@ templateKey: index-page
 title: Taking your leadership to the next level
 image: /img/home-jumbotron.jpg
 heading: hello
-subheading: Executive Coaching | Team Coaching | Organization Development
+subheading:
+  - heading: Executive Coaching
+  - heading: Team Coaching
+  - heading: Organization Development
 description: >
   It is our aim to support you in gaining deeper insights and knowledge —for you to thrive, inspire and live out the contribution that is excited to emerge.
 mainpitch:

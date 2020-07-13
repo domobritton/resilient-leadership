@@ -182,6 +182,19 @@ const TestimonialCard = styled.div`
   }
 `;
 
+const Spacer = styled.div`
+  margin: 0 0.5rem;
+  @media (max-width: 680px) {
+    display: none;
+  }
+`;
+
+const Break = styled.br`
+  @media (min-width: 681px) {
+    display: none;
+  }
+`;
+
 export const IndexPageTemplate = ({
   image,
   title,
@@ -245,13 +258,34 @@ export const IndexPageTemplate = ({
       <Hero>
         <HeroTitleBox>
           <HeroTitle>{title}</HeroTitle>
-          <HeroSubtitle>{subheading}</HeroSubtitle>
+          <HeroSubtitle
+            css={css`
+              > span:last-of-type > div {
+                display: none;
+              }
+            `}
+          >
+            {subheading.map(({ heading }, idx) => (
+              <span
+                key={idx}
+                css={css`
+                  @media (min-width: 681px) {
+                    display: inline-flex;
+                  }
+                `}
+              >
+                {`${heading} `}
+                <Break />
+                <Spacer> | </Spacer>
+              </span>
+            ))}
+          </HeroSubtitle>
         </HeroTitleBox>
       </Hero>
       <InnerWrapper>
         <Section
           css={css`
-            border-bottom: 1px solid #4C3B4D;
+            border-bottom: 1px solid #4c3b4d;
             @media (max-width: 768px) {
               border-bottom: none;
               padding: 0;
@@ -401,7 +435,7 @@ IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
   heading: PropTypes.string,
-  subheading: PropTypes.string,
+  subheading: PropTypes.array,
   mainpitch: PropTypes.shape({
     title: PropTypes.string,
     description: PropTypes.string,
@@ -481,7 +515,9 @@ export const pageQuery = graphql`
           }
         }
         heading
-        subheading
+        subheading {
+          heading
+        }
         mainpitch {
           image {
             childImageSharp {

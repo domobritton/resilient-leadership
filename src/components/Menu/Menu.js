@@ -5,12 +5,11 @@ import styled from '@emotion/styled';
 export const StyledMenu = styled.nav`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   background: #ffffff;
   width: 100vw;
-  height: calc(100vh - 51px);
+  height: 100vh;
   text-align: left;
-  padding: 2rem;
+  padding: 1rem;
   position: absolute;
   top: 51px;
   left: 0;

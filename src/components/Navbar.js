@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
@@ -30,10 +30,8 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-  // display: none;
   @media (max-width: 768px) {
     display: flex;
-    // justify-content: space-between;
     padding: 0.5rem 1rem;
     align-items: center;
   }
@@ -41,7 +39,6 @@ const Wrapper = styled.div`
 
 const Links = styled.div`
   display: flex;
-  align-items: center;
   width: 100%;
   justify-content: space-between;
   @media (max-width: 768px) {
@@ -104,6 +101,9 @@ const titleStyle = css`
   display: inline-flex;
   margin: 0 auto;
   right: 0.5rem;
+  @media (max-width: 340px) {
+    right: 0;
+  }
 `;
 
 const linkStyle = css`
@@ -117,9 +117,6 @@ const linkStyle = css`
   @media (max-width: 768px) {
     padding: 1rem 0;
     font-size: 1.15em;
-  }
-  @media (max-width: 320px) {
-    font-size: 0.75em;
   }
 `;
 

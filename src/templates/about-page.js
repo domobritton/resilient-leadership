@@ -7,7 +7,6 @@ import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from '@emotion/styled';
 import Layout from '../components/Layout';
-import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import {
   Wrapper,
   InnerWrapper,
