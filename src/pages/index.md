@@ -22,8 +22,8 @@ philosophy:
   paragraph2: >
     Your success as a leader will not be measured by how well you maintained the status quo. It will be measured by the contributions you made. In order to be the biggest contribution available within you, you need to be courageous, wise and resilient.
   quote: >
-    “Do not judge me by my success, judge me by how many times I fell down and got back up again.”       
-    ~Nelson Mandela
+    “Do not judge me by my success, judge me by how many times I fell down and got back up again.”
+  quoteAuthor: ~Nelson Mandela
 results:
   image: /img/resilient-success.png
   title: We believe that you can
@@ -93,15 +93,15 @@ testimonialSection:
       text2: >
         I am now able to identify the tendencies that cause me to be overly critical of myself… My approach to both work and home life has improved tremendously."
       author: >
-        Nate Breed    
-        VP of Finance
+        Nate Breed
+      company: VP of Finance
     - text1: >
         "My coaching with Charlene has changed my life personally, professionally and socially.
       text2: >
         I was traveling through life with unrealistic expectations and carrying a sense of failure. … Charlene has an incredible way of holding me accountable with honesty and connecting me with what really matters."
       author: >
         Chad Henline   
-        Director of Operations
+      company: Director of Operations
 main:
   heading: Great coffee with no compromises
   description: >

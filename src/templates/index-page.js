@@ -144,7 +144,7 @@ const ResultsTitle = styled.h3`
 
 const CallToActionTitle = styled.h3`
   font-size: 2.25em !important;
-  color: #fba100 !important;
+  color: #ffffff;
   margin-bottom: 1.5rem;
   line-height: 1;
   @media (max-width: 768px) {
@@ -206,7 +206,6 @@ export const IndexPageTemplate = ({
   callToAction,
   testimonialSection,
 }) => {
-
   const BackgroundWrapper = styled.section`
     position: relative;
   `;
@@ -317,7 +316,7 @@ export const IndexPageTemplate = ({
                 alt='you will be a more effective leader'
                 style={{ width: 100 }}
               />
-              <ResultsTitle>{results.title}</ResultsTitle>
+              <ResultsTitle>{results.title}:</ResultsTitle>
             </FlexWithDirection>
             <List>
               {results.listItems.map((item, idx) => (
@@ -383,7 +382,7 @@ export const IndexPageTemplate = ({
               padding: 4rem 1rem;
             `}
           >
-            <CallToActionTitle>What our clients say about us</CallToActionTitle>
+            <CallToActionTitle css={css`color: #ffffff;`}>What our clients say about us</CallToActionTitle>
             <FlexWithDirection>
               {testimonialSection.testimonials.map((testimonial, idx) => (
                 <TestimonialCard key={idx}>
@@ -391,16 +390,53 @@ export const IndexPageTemplate = ({
                   <Paragraph>{testimonial.text2}</Paragraph>
                   <Paragraph
                     css={css`
-                      margin-bottom: 0;
+                      font-weight: 700;
                     `}
                   >
                     {testimonial.author}
+                  </Paragraph>
+                  <Paragraph
+                    css={css`
+                      margin-bottom: 0;
+                    `}
+                  >
+                    {testimonial.company}
                   </Paragraph>
                 </TestimonialCard>
               ))}
             </FlexWithDirection>
           </InnerWrapper>
         </BackgroundWrapper>
+      </Section>
+      <Section
+        css={css`
+          background-color: #4c3b4d;
+          padding: 4rem 0;
+        `}
+      >
+        <InnerWrapper
+          css={css`
+            padding: 0 1rem;
+          `}
+        >
+          <Paragraph
+            css={css`
+              color: #ffffff;
+              font-size: 1.5em;
+            `}
+          >
+            {philosophy.quote}
+          </Paragraph>
+          <Paragraph
+            css={css`
+              color: #ffffff;
+              font-size: 1.5em;
+              font-weight: 700;
+            `}
+          >
+            {philosophy.quoteAuthor}
+          </Paragraph>
+        </InnerWrapper>
       </Section>
     </Wrapper>
   );
@@ -421,6 +457,7 @@ IndexPageTemplate.propTypes = {
     paragraph1: PropTypes.string,
     paragraph2: PropTypes.string,
     quote: PropTypes.string,
+    quoteAuthor: PropTypes.string,
     image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   }),
   results: PropTypes.shape({
@@ -510,6 +547,7 @@ export const pageQuery = graphql`
           paragraph1
           paragraph2
           quote
+          quoteAuthor
           image {
             childImageSharp {
               fluid(maxWidth: 600, quality: 64) {
@@ -568,6 +606,7 @@ export const pageQuery = graphql`
             text1
             text2
             author
+            company
           }
         }
       }
