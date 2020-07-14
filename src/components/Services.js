@@ -115,7 +115,7 @@ const Services = ({ services }) => (
             </Link>
           </Card>
           <ImageBox>
-            <Link to={item.link}>
+            <Link to={item.link} aria-label={`${item.linkText} with image`}>
               <PreviewCompatibleImage imageInfo={item} />
             </Link>
           </ImageBox>
