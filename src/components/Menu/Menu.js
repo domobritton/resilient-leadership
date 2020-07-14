@@ -2,7 +2,7 @@ import React, { useLayoutEffect } from 'react';
 import PropTypes, { bool } from 'prop-types';
 import styled from '@emotion/styled';
 
-export const StyledMenu = styled.nav`
+export const StyledMenu = styled.div`
   display: flex;
   flex-direction: column;
   background: #ffffff;

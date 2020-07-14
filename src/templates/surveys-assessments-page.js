@@ -1,13 +1,10 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
 import Layout from '../components/Layout';
-import Content, { HTMLContent } from '../components/Content';
 import {
   Wrapper,
   InnerWrapper,
-  HeroTitleBox,
-  HeroTitle,
   Section,
   FlexWithDirection,
   Column,
@@ -15,7 +12,10 @@ import {
   rightColumn,
   Heading,
   linkStyle,
+  Title,
+  Paragraph,
 } from '../components/styles';
+import Hero from '../components/Hero';
 
 export const SurveysAssessmentsTemplate = ({
   title,
@@ -25,68 +25,72 @@ export const SurveysAssessmentsTemplate = ({
   heading3,
   audience,
   objectives,
+  overview,
   content,
-  contentComponent,
 }) => {
-  const PageContent = contentComponent || Content;
-
   return (
-    <>
-      <div
-        className='full-width-image margin-top-0'
-        style={{
-          backgroundImage: `url(${
-            !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-          })`,
-          backgroundPosition: `center center`,
-          backgroundAttachment: `fixed`,
-          height: 500,
-        }}
-      >
-        <HeroTitleBox>
-          <HeroTitle>{title}</HeroTitle>
-        </HeroTitleBox>
-      </div>
-      <Wrapper>
+    <Wrapper>
+      <Hero image={image} title={title} alt={title} />
+      <Section>
         <InnerWrapper>
-          <Section>
-            <FlexWithDirection>
-              <Column css={leftColumn}>
-                <Heading>
-                  {heading1}
-                  {heading2 && (
-                    <>
-                      <br />
-                      {heading2}
-                    </>
-                  )}
-                  {heading3 && (
-                    <>
-                      <br />
-                      {heading3}
-                    </>
-                  )}
-                </Heading>
-                <p>
-                  <b>Audience</b>
-                </p>
-                <p>{audience}</p>
-                <p>
-                  <b>Objectives</b>
-                </p>
-                <p>{objectives}</p>
-              </Column>
-              <Column css={rightColumn}>
-                <PageContent className='content' content={content} />
-              </Column>
-            </FlexWithDirection>
-            <Link to='/contact' css={linkStyle}>
-              Get in touch
-            </Link>
-          </Section>
+          <FlexWithDirection>
+            <Column css={leftColumn}>
+              <Heading>
+                {heading1}
+                {heading2 && (
+                  <>
+                    <br />
+                    {heading2}
+                  </>
+                )}
+                {heading3 && (
+                  <>
+                    <br />
+                    {heading3}
+                  </>
+                )}
+              </Heading>
+              <p>
+                <b>Audience</b>
+              </p>
+              <p>{audience}</p>
+              <p>
+                <b>Objectives</b>
+              </p>
+              <p>{objectives}</p>
+            </Column>
+            <Column css={rightColumn}>
+              <>
+                {overview.map(({ bold, text }, idx) => (
+                  <Fragment key={idx}>
+                    <Paragraph>
+                      <b>{bold}: </b>
+                      {text}
+                    </Paragraph>
+                  </Fragment>
+                ))}
+                {content.map(({ title, paragraphs }, idx) => (
+                  <Fragment key={idx}>
+                    <Title>{title}</Title>
+                    {paragraphs.map(({ bold, text }, idx) => (
+                      <Fragment key={idx}>
+                        <Paragraph>
+                          <b>{bold}: </b>
+                          {text}
+                        </Paragraph>
+                      </Fragment>
+                    ))}
+                  </Fragment>
+                ))}
+              </>
+            </Column>
+          </FlexWithDirection>
+          <Link to='/contact' css={linkStyle}>
+            Get in touch
+          </Link>
         </InnerWrapper>
-      </Wrapper>
-    </>
+      </Section>
+    </Wrapper>
   );
 };
 
@@ -98,25 +102,24 @@ SurveysAssessmentsTemplate.propTypes = {
   heading3: PropTypes.string,
   audience: PropTypes.string,
   objectives: PropTypes.string,
-  content: PropTypes.string,
-  contentComponent: PropTypes.func,
+  overview: PropTypes.array,
+  content: PropTypes.array,
 };
 
 const SurveysAssessments = ({ data }) => {
   const { markdownRemark: post } = data;
-
   return (
     <Layout>
       <SurveysAssessmentsTemplate
-        contentComponent={HTMLContent}
         title={post.frontmatter.title}
         image={post.frontmatter.image}
-        content={post.html}
         heading1={post.frontmatter.heading1}
         heading2={post.frontmatter.heading2}
         heading3={post.frontmatter.heading3}
         audience={post.frontmatter.audience}
         objectives={post.frontmatter.objectives}
+        overview={post.frontmatter.overview}
+        content={post.frontmatter.content}
       />
     </Layout>
   );
@@ -131,7 +134,6 @@ export default SurveysAssessments;
 export const surveysAssessmentsQuery = graphql`
   query SurveysAssessments($id: String!) {
     markdownRemark(id: { eq: $id }) {
-      html
       frontmatter {
         title
         image {
@@ -146,6 +148,17 @@ export const surveysAssessmentsQuery = graphql`
         heading3
         audience
         objectives
+        overview {
+          bold
+          text
+        }
+        content {
+          title
+          paragraphs {
+            bold
+            text
+          }
+        }
       }
     }
   }

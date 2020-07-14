@@ -175,41 +175,48 @@ const desktopItems = (
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  
-  const handleClose = useCallback(() => {
-    setOpen(!open);
-  }, [open]);
+
+  const handleClose = useCallback(
+    (e) => {
+      const path = e.target.pathname;
+      const client = typeof window !== 'undefined';
+      if (client && path && path === window.location.pathname) {
+        setOpen(!open);
+      }
+    },
+    [open]
+  );
 
   const menuItems = (
     <Links>
-      <Link to='/' css={linkStyle} onClick={handleClose}>
+      <Link to='/' css={linkStyle} onClick={(e) => handleClose(e)}>
         Home
       </Link>
-      <Link to='/executive-coaching' css={linkStyle}>
+      <Link to='/executive-coaching' css={linkStyle} onClick={(e) => handleClose(e)}>
         Executive Coaching
       </Link>
-      <Link to='/team-coaching' css={linkStyle}>
+      <Link to='/team-coaching' css={linkStyle} onClick={(e) => handleClose(e)}>
         Team Coaching
       </Link>
-      <Link to='/organization-development' css={linkStyle}>
+      <Link to='/organization-development' css={linkStyle} onClick={(e) => handleClose(e)}>
         Change Management
       </Link>
-      <Link to='/360-feedback' css={linkStyle}>
+      <Link to='/360-feedback' css={linkStyle} onClick={(e) => handleClose(e)}>
         360˚ Feedback
       </Link>
-      <Link to='/surveys-assessments' css={linkStyle}>
+      <Link to='/surveys-assessments' css={linkStyle} onClick={(e) => handleClose(e)}>
         Surveys & Assessments
       </Link>
-      <Link to='/about' css={linkStyle}>
+      <Link to='/about' css={linkStyle} onClick={(e) => handleClose(e)}>
         About
       </Link>
-      <Link to='/contact' css={linkStyle}>
+      <Link to='/contact' css={linkStyle} onClick={(e) => handleClose(e)}>
         Contact
       </Link>
     </Links>
   );
   return (
-    <>
+    <header>
       <Nav role='navigation' aria-label='main-navigation'>
         <Container>
           <Media lessThan='md'>
@@ -228,7 +235,7 @@ const Navbar = () => {
       <Media lessThan='md'>
         <Menu open={open} setOpen={setOpen} menuItems={menuItems} />
       </Media>
-    </>
+    </header>
   );
 };
 

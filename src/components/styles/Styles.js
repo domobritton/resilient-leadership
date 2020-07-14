@@ -42,7 +42,7 @@ export const HeroSubtitle = styled.h2`
   }
 `;
 
-export const InnerWrapper = styled.section`
+export const InnerWrapper = styled.div`
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
@@ -50,6 +50,7 @@ export const InnerWrapper = styled.section`
 `;
 
 export const Section = styled.section`
+  background-color: #ffffff;
 `;
 
 export const Flex = styled.div`

@@ -49,7 +49,8 @@ collections:
           - {label: Heading3, name: heading3, widget: string}
           - {label: Audience, name: audience, widget: string}
           - {label: Objectives, name: objectives, widget: string}
-          - {label: "Body", name: "body", widget: "markdown"}
+          - {label: Overview, name: overview, widget: list, fields: [{label: Bold, name: bold, widget: string }, {label: Text, name: text, widget: string}]}
+          - {label: Content, name: content, widget: list, fields: [{label: Title, name: title, widget: string }, {label: Paragraphs, name: paragraphs, widget: list, fields: [{label: Bold, name: bold, widget: string}, {label: Text, name: text, widget: string}]}]}
       - file: "src/pages/360-feedback/index.md"
         label: "360 Feedback"
         name: "360 Feedback"

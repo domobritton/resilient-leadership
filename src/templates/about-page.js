@@ -10,11 +10,10 @@ import Layout from '../components/Layout';
 import {
   Wrapper,
   InnerWrapper,
-  HeroTitleBox,
-  HeroTitle,
   FlexWithDirection,
   Heading,
   Paragraph,
+  Section,
 } from '../components/styles';
 import Form from '../components/Form';
 import Hero from '../components/Hero';
@@ -91,74 +90,83 @@ export const AboutPageTemplate = ({
   callToActionImg,
   bios,
 }) => {
-  const CallToActionBackground = styled.section`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url(${!!callToActionImg.childImageSharp
-      ? callToActionImg.childImageSharp.fluid.src
-      : callToActionImg});
-    background-position: center center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 500px;
-    @media (max-width: 768px) {
-      height: auto;
-    }
-  `;
 
   return (
     <Wrapper>
       <Hero image={heroImage} title={title} alt='About page' />
-      <InnerWrapper>
-        <FlexWithDirection>
-          {bios.map((bio, idx) => {
-            const { name, text, socialLinks } = bio;
-            return (
-              <Column key={idx}>
-                <ImageBox>
-                  <Img
-                    fluid={bio.image.childImageSharp.fluid}
-                    css={css`
-                      width: 250px;
-                      height: 250px;
-                      @media (max-width: 650px) {
-                        width: 100%;
-                        height: 100%;
-                      }
-                    `}
-                  />
-                </ImageBox>
-                <Heading>{name}</Heading>
-                {text.map(({ paragraph }, idx) => (
-                  <Fragment key={idx}>
-                    <Paragraph>{paragraph}</Paragraph>
-                  </Fragment>
-                ))}
-                {socialLinks.map(({ href }, idx) => (
-                  <Fragment key={idx}>
-                    <Social
-                      href={href}
-                      target='__blank'
-                      rel='noopener noreferrer'
-                    >
-                      {idx === 0 && (
-                        <FontAwesomeIcon icon={faFacebook} size='2x' />
-                      )}
-                      {idx === 1 && (
-                        <FontAwesomeIcon icon={faLinkedin} size='2x' />
-                      )}
-                    </Social>
-                  </Fragment>
-                ))}
-              </Column>
-            );
-          })}
-        </FlexWithDirection>
-      </InnerWrapper>
-      <CallToActionBackground>
+      <Section>
+        <InnerWrapper>
+          <FlexWithDirection>
+            {bios.map((bio, idx) => {
+              const { name, text, socialLinks } = bio;
+              return (
+                <Column key={idx}>
+                  <ImageBox>
+                    <Img
+                      fluid={bio.image.childImageSharp.fluid}
+                      css={css`
+                        width: 250px;
+                        height: 250px;
+                        @media (max-width: 650px) {
+                          width: 100%;
+                          height: 100%;
+                        }
+                      `}
+                    />
+                  </ImageBox>
+                  <Heading>{name}</Heading>
+                  {text.map(({ paragraph }, idx) => (
+                    <Fragment key={idx}>
+                      <Paragraph>{paragraph}</Paragraph>
+                    </Fragment>
+                  ))}
+                  {socialLinks.map(({ href }, idx) => (
+                    <Fragment key={idx}>
+                      <Social
+                        href={href}
+                        target='__blank'
+                        rel='noopener noreferrer'
+                      >
+                        {idx === 0 && (
+                          <FontAwesomeIcon icon={faFacebook} size='2x' />
+                        )}
+                        {idx === 1 && (
+                          <FontAwesomeIcon icon={faLinkedin} size='2x' />
+                        )}
+                      </Social>
+                    </Fragment>
+                  ))}
+                </Column>
+              );
+            })}
+          </FlexWithDirection>
+        </InnerWrapper>
+      </Section>
+      <Section
+        css={css`
+          background-color: transparent;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 500px;
+          position: relative;
+          @media (max-width: 768px) {
+            height: auto;
+          }
+        `}
+      >
+        <Img
+          fluid={callToActionImg.childImageSharp.fluid}
+          style={{
+            position: 'absolute',
+          }}
+          css={css`
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+          `}
+        />
         <InnerWrapper
           css={css`
             border-bottom: none;
@@ -187,7 +195,7 @@ export const AboutPageTemplate = ({
             </ContactBox>
           </FlexWithDirection>
         </InnerWrapper>
-      </CallToActionBackground>
+      </Section>
     </Wrapper>
   );
 };

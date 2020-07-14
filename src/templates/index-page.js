@@ -10,9 +10,6 @@ import Services from '../components/Services';
 import leadership from '../img/leadership.svg';
 import {
   Wrapper,
-  HeroTitleBox,
-  HeroTitle,
-  HeroSubtitle,
   FlexWithDirection,
   linkStyle,
   Paragraph,

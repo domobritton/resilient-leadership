@@ -1,12 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 import {
   Wrapper,
   InnerWrapper,
-  HeroTitleBox,
-  HeroTitle,
   Section,
   FlexWithDirection,
   Column,
@@ -38,12 +35,11 @@ const Service = ({
   outcomesTitle,
   outcomes,
 }) => {
-
   return (
     <Wrapper>
       <Hero image={image} title={title} alt={title} />
-      <InnerWrapper>
-        <Section>
+      <Section>
+        <InnerWrapper>
           <FlexWithDirection>
             <Column css={leftColumn}>
               <Heading>
@@ -94,8 +90,8 @@ const Service = ({
           <Link to='/contact' css={linkStyle}>
             Get in touch
           </Link>
-        </Section>
-      </InnerWrapper>
+        </InnerWrapper>
+      </Section>
     </Wrapper>
   );
 };
