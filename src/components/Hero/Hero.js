@@ -31,7 +31,7 @@ const Hero = ({ image, title, subtitle, alt, homepage = false }) => {
     align-items: center;
     position: relative;
     width: 100vw;
-    overflow-x: hidden;
+    overflow: hidden;
     height: 500px;
     ${homepage &&
     css`

@@ -30,6 +30,7 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
+  display: none;
   @media (max-width: 768px) {
     display: flex;
     padding: 0.5rem 1rem;
