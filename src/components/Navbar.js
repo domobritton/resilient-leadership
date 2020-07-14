@@ -55,8 +55,8 @@ const NavBarMenu = styled.div`
 
 const ResilientLogo = styled(Link)`
   display: flex;
-  flex: 2 0 0;
   padding: 0.25rem 0;
+  max-width: 320px;
 `;
 
 const Image = styled.img`
@@ -71,8 +71,9 @@ const DesktopWrapper = styled.ul`
   justify-content: space-between;
   line-height: 51px;
   align-items: center;
-  flex: 1 0 0;
   min-width: 375px;
+  max-width: 490px;
+  flex: 1 0 0;
   li:hover {
     background-color: #dce0d9;
   }
