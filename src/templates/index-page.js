@@ -143,8 +143,8 @@ const ResultsTitle = styled.h3`
 `;
 
 const CallToActionTitle = styled.h3`
-  font-size: 2.25em !important;
-  color: #ffffff;
+  font-size: 2.25em;
+  color: #fba100;
   margin-bottom: 1.5rem;
   line-height: 1;
   @media (max-width: 768px) {
@@ -194,6 +194,10 @@ const Break = styled.br`
   }
 `;
 
+const BackgroundWrapper = styled.section`
+  position: relative;
+`;
+
 export const IndexPageTemplate = ({
   image,
   title,
@@ -206,24 +210,6 @@ export const IndexPageTemplate = ({
   callToAction,
   testimonialSection,
 }) => {
-  const BackgroundWrapper = styled.section`
-    position: relative;
-  `;
-  const TestimonialBackground = styled.div`
-    background-image: url(${!!testimonialSection.image.childImageSharp
-      ? testimonialSection.image.childImageSharp.fluid.src
-      : testimonialSection.image});
-    position: absolute;
-    width: auto;
-    min-width: 100%;
-    min-height: 100%;
-    height: auto;
-    top: 50%;
-    left: 50%;
-    object-fit: cover;
-    transform: translate(-50%, -50%);
-    background-repeat: no-repeat;
-  `;
 
   const subtitle = () => (
     <>
@@ -376,13 +362,24 @@ export const IndexPageTemplate = ({
         `}
       >
         <BackgroundWrapper>
-          <TestimonialBackground />
+          <Img
+            fluid={testimonialSection.image.childImageSharp.fluid}
+            style={{ position: 'absolute' }}
+            alt='testimonials'
+            css={css`
+              width: 100%;
+              height: 100%;
+              z-index: -2;
+            `}
+          />
           <InnerWrapper
             css={css`
               padding: 4rem 1rem;
             `}
           >
-            <CallToActionTitle css={css`color: #ffffff;`}>What our clients say about us</CallToActionTitle>
+            <CallToActionTitle>
+              What our clients say about us
+            </CallToActionTitle>
             <FlexWithDirection>
               {testimonialSection.testimonials.map((testimonial, idx) => (
                 <TestimonialCard key={idx}>

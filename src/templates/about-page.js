@@ -167,11 +167,7 @@ export const AboutPageTemplate = ({
             z-index: -2;
           `}
         />
-        <InnerWrapper
-          css={css`
-            border-bottom: none;
-          `}
-        >
+        <InnerWrapper>
           <FlexWithDirection
             css={css`
               align-items: center;

@@ -30,7 +30,8 @@ const Hero = ({ image, title, subtitle, alt, homepage = false }) => {
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 100%;
+    width: 100vw;
+    overflow-x: hidden;
     height: 500px;
     ${homepage &&
     css`
