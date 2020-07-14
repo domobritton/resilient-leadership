@@ -1,21 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Img from 'gatsby-image';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { css, keyframes } from '@emotion/core';
 
 import { HeroTitleBox, HeroTitle, HeroSubtitle } from '../styles';
-
-const HeroWrapper = styled.section`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  width: 100%;
-  height: 500px;
-  @media (max-width: 650px) {
-    height: calc(100vh - 80px);
-  }
-`;
 
 const Overlay = styled.div`
   position: fixed;
@@ -27,45 +15,30 @@ const Overlay = styled.div`
   background: rgba(76, 59, 77, 0.1);
 `;
 
-const Hero = ({ image, title, subtitle, alt }) => {
-  const [minwidth, setMinWidth] = useState(0);
-  const handleZoom = () => {
-    let scroll = window.scrollY;
-    const e = document.getElementsByClassName('hero')[0];
-    if (e && window.innerWidth > 650) {
-      const elementTop = e.offsetTop;
-      console.log(elementTop, scroll);
-      if (scroll > elementTop && scroll < 500) {
-        e.style.width = `${
-          window.innerWidth * (1 + (scroll - elementTop) / window.innerWidth)
-        }px`;
-      }
-      if (scroll <= elementTop) {
-        e.style.width = window.innerWidth;
-      }
-    }
-  };
-
-  useEffect(() => {
-    const isClient = typeof window !== 'undefined';
-    if (isClient) {
-      window.addEventListener('scroll', handleZoom);
-    }
-    return () => window.removeEventListener('scroll', handleZoom);
-  }, []);
-
-  const handleResize = () => {
-    setMinWidth(window.innerWidth)
+const kenburns = keyframes`
+  0% {
+    transform: scale3d(1, 1, 1) translate3d(0%, 0%, 0%);
   }
+  100% {
+    transform: scale3d(1.5, 1.5, 1.5) translate3d(-10%, 10%, 0);
+  }
+`;
 
-  useEffect(() => {
-    const isClient = typeof window !== 'undefined';
-    if (isClient) {
-      window.addEventListener('resize', handleResize);
-      return () => window.removeEventListener('resize', handleResize)
-    }
-  }, [minwidth]);
-
+const Hero = ({ image, title, subtitle, alt, homepage = false }) => {
+  const HeroWrapper = styled.section`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 500px;
+    ${homepage &&
+    css`
+      @media (max-width: 650px) {
+        height: calc(100vh - 80px);
+      }
+    `}
+  `;
   return (
     <HeroWrapper>
       <Overlay />
@@ -79,18 +52,21 @@ const Hero = ({ image, title, subtitle, alt }) => {
         alt={alt}
         css={css`
           width: 100%;
-          ${minwidth > 0 && `min-width: ${minwidth}px;`}
           height: 500px;
           z-index: -2;
           transition: height 9999999s;
-          @media (max-width: 650px) {
-            min-height: 100%;
-          }
+          ${homepage &&
+          css`
+            animation: ${kenburns} 40s ease-out forwards;
+            @media (max-width: 650px) {
+              min-height: 100%;
+            }
+          `}
         `}
       />
       <HeroTitleBox>
         <HeroTitle>{title}</HeroTitle>
-        {subtitle && (
+        {subtitle && homepage && (
           <HeroSubtitle
             css={css`
               > span:last-of-type > div {

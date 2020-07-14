@@ -117,7 +117,7 @@ const Footer = () => {
           <Column>
             <Social
               title='facebook'
-              href='https://facebook.com'
+              href='https://www.facebook.com/resilientleadershipcoaching'
               target='__blank'
               rel='noopener noreferrer'
             >
@@ -125,7 +125,7 @@ const Footer = () => {
             </Social>
             <Social
               title='linkedIn'
-              href='https://twitter.com'
+              href='https://www.linkedin.com/in/charlene-e-wilson-m-a-acc-8114283/'
               target='__blank'
               rel='noopener noreferrer'
             >

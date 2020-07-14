@@ -17,6 +17,7 @@ import {
   Paragraph,
 } from '../components/styles';
 import Form from '../components/Form';
+import Hero from '../components/Hero';
 
 const Column = styled.div`
   width: 50%;
@@ -90,20 +91,6 @@ export const AboutPageTemplate = ({
   callToActionImg,
   bios,
 }) => {
-  const Hero = styled.section`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url(${!!heroImage.childImageSharp
-      ? heroImage.childImageSharp.fluid.src
-      : heroImage});
-    background-position: center center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 500px;
-  `;
   const CallToActionBackground = styled.section`
     display: flex;
     justify-content: center;
@@ -124,11 +111,7 @@ export const AboutPageTemplate = ({
 
   return (
     <Wrapper>
-      <Hero>
-        <HeroTitleBox>
-          <HeroTitle>{title}</HeroTitle>
-        </HeroTitleBox>
-      </Hero>
+      <Hero image={heroImage} title={title} alt='About page' />
       <InnerWrapper>
         <FlexWithDirection>
           {bios.map((bio, idx) => {

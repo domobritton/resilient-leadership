@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Link } from 'gatsby';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
@@ -120,35 +120,6 @@ const linkStyle = css`
   }
 `;
 
-const menuItems = (
-  <Links>
-    <Link to='/' css={linkStyle}>
-      Home
-    </Link>
-    <Link to='/executive-coaching' css={linkStyle}>
-      Executive Coaching
-    </Link>
-    <Link to='/team-coaching' css={linkStyle}>
-      Team Coaching
-    </Link>
-    <Link to='/organization-development' css={linkStyle}>
-      Change Management
-    </Link>
-    <Link to='/360-feedback' css={linkStyle}>
-      360˚ Feedback
-    </Link>
-    <Link to='/surveys-assessments' css={linkStyle}>
-      Surveys & Assessments
-    </Link>
-    <Link to='/about' css={linkStyle}>
-      About
-    </Link>
-    <Link to='/contact' css={linkStyle}>
-      Contact
-    </Link>
-  </Links>
-);
-
 const desktopItems = (
   <Links>
     <ResilientLogo to='/' title='Resilient Leadership'>
@@ -204,7 +175,39 @@ const desktopItems = (
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  
+  const handleClose = useCallback(() => {
+    setOpen(!open);
+  }, [open]);
 
+  const menuItems = (
+    <Links>
+      <Link to='/' css={linkStyle} onClick={handleClose}>
+        Home
+      </Link>
+      <Link to='/executive-coaching' css={linkStyle}>
+        Executive Coaching
+      </Link>
+      <Link to='/team-coaching' css={linkStyle}>
+        Team Coaching
+      </Link>
+      <Link to='/organization-development' css={linkStyle}>
+        Change Management
+      </Link>
+      <Link to='/360-feedback' css={linkStyle}>
+        360˚ Feedback
+      </Link>
+      <Link to='/surveys-assessments' css={linkStyle}>
+        Surveys & Assessments
+      </Link>
+      <Link to='/about' css={linkStyle}>
+        About
+      </Link>
+      <Link to='/contact' css={linkStyle}>
+        Contact
+      </Link>
+    </Links>
+  );
   return (
     <>
       <Nav role='navigation' aria-label='main-navigation'>

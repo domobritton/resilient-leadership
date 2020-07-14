@@ -19,6 +19,7 @@ import {
   ListItem,
   linkStyle,
 } from './styles';
+import Hero from './Hero';
 
 const Service = ({
   title,
@@ -37,27 +38,10 @@ const Service = ({
   outcomesTitle,
   outcomes,
 }) => {
-  const Hero = styled.section`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url(${!!image.childImageSharp
-      ? image.childImageSharp.fluid.src
-      : image});
-    background-position: center center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 500px;
-  `;
+
   return (
     <Wrapper>
-      <Hero>
-        <HeroTitleBox>
-          <HeroTitle>{title}</HeroTitle>
-        </HeroTitleBox>
-      </Hero>
+      <Hero image={image} title={title} alt={title} />
       <InnerWrapper>
         <Section>
           <FlexWithDirection>

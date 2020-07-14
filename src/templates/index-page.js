@@ -255,6 +255,7 @@ export const IndexPageTemplate = ({
         title={title}
         subtitle={subtitle}
         alt='Resilient Leadership'
+        homepage
       />
       <Section
         css={css`
