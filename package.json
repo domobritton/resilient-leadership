@@ -36,6 +36,8 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-helmet": "^6.0.0",
+    "react-reveal": "^1.2.2",
+    "react-transition-group": "^4.4.1",
     "uuid": "^7.0.0"
   },
   "keywords": [

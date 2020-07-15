@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
+import Fade from 'react-reveal/Fade';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
@@ -16,6 +17,9 @@ const Section = styled.section`
     rgba(101, 115, 125, 1) 0%,
     rgba(58, 48, 66, 1) 100%
   );
+  > div:not(:last-of-type) {
+    margin-bottom: 3rem;
+  }
 `;
 
 const Box = styled.div`
@@ -24,9 +28,6 @@ const Box = styled.div`
   width: 100%;
   max-width: 1100px;
   background-color: #dfdfdf;
-  &:not(:last-of-type) {
-    margin-bottom: 3rem;
-  }
   @media (max-width: 768px) {
     flex-direction: column;
     padding: 2rem 1rem;
@@ -103,7 +104,7 @@ const linkStyle = css`
 const Services = ({ services }) => (
   <Section>
     {services.map((item) => (
-      <React.Fragment key={item.text}>
+      <Fade up distance='50px' key={item.text}>
         <Box>
           <Card>
             <div>
@@ -120,7 +121,7 @@ const Services = ({ services }) => (
             </Link>
           </ImageBox>
         </Box>
-      </React.Fragment>
+      </Fade>
     ))}
   </Section>
 );

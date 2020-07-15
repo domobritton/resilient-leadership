@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import Slide from 'react-reveal/Slide';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
@@ -106,6 +107,9 @@ const ResultsColumn = styled.div`
 
 const List = styled.ul`
   padding-left: 6.25rem;
+  > div:not(:last-of-type) {
+    margin-bottom: 1rem;
+  }
   @media (max-width: 768px) {
     padding-left: 0;
   }
@@ -116,9 +120,6 @@ const ListItem = styled.li`
   padding: 1rem 1.25rem;
   background-color: #808f85;
   color: #ffffff;
-  :not(:last-of-type) {
-    margin-bottom: 1rem;
-  }
 `;
 
 const ResultsTitle = styled.h3`
@@ -239,42 +240,41 @@ export const IndexPageTemplate = ({
         alt='Resilient Leadership'
         homepage
       />
-      <Section
-        css={css`
-          padding-bottom: 0;
-        `}
-      >
-        <InnerWrapper
+        <Section
           css={css`
-            display: flex;
-            border-bottom: 1px solid #4c3b4d;
-            padding-bottom: 4rem;
-            @media (max-width: 768px) {
-              border-bottom: none;
-              flex-direction: column;
-              padding: 0;
-            }
+            padding-bottom: 0;
           `}
         >
-          <MainPitchColumn>
-            <h3 css={mainPitchTitleStyle}>{mainpitch.title}</h3>
-            <MainPitchBox>
-              <Paragraph>{mainpitch.description}</Paragraph>
-              <Paragraph>{description}</Paragraph>
-            </MainPitchBox>
-          </MainPitchColumn>
-          <Img
-            fluid={mainpitch.image.childImageSharp.fluid}
-            css={mainImageStyle}
-          />
-        </InnerWrapper>
-      </Section>
+          <InnerWrapper
+            css={css`
+              display: flex;
+              border-bottom: 1px solid #4c3b4d;
+              padding-bottom: 4rem;
+              @media (max-width: 768px) {
+                border-bottom: none;
+                flex-direction: column;
+                padding: 0;
+              }
+            `}
+          >
+            <MainPitchColumn>
+              <h3 css={mainPitchTitleStyle}>{mainpitch.title}</h3>
+              <MainPitchBox>
+                <Paragraph>{mainpitch.description}</Paragraph>
+                <Paragraph>{description}</Paragraph>
+              </MainPitchBox>
+            </MainPitchColumn>
+            <Img
+              fluid={mainpitch.image.childImageSharp.fluid}
+              css={mainImageStyle}
+            />
+          </InnerWrapper>
+        </Section>
       <Section>
         <InnerWrapper>
           <PhiloTitle>{philosophy.title}</PhiloTitle>
           <Paragraph>{philosophy.paragraph1}</Paragraph>
           <Paragraph>{philosophy.paragraph2}</Paragraph>
-          {/* <QuoteBox>{philosophy.quote}</QuoteBox> */}
           <PhiloImageBox>
             <Img
               fluid={philosophy.image.childImageSharp.fluid}
@@ -306,7 +306,9 @@ export const IndexPageTemplate = ({
             </FlexWithDirection>
             <List>
               {results.listItems.map((item, idx) => (
-                <ListItem key={idx}>{item.text}</ListItem>
+                <Slide up key={idx}>
+                  <ListItem>{item.text}</ListItem>
+                </Slide>
               ))}
             </List>
           </ResultsColumn>
@@ -377,9 +379,7 @@ export const IndexPageTemplate = ({
               padding: 4rem 1rem;
             `}
           >
-            <CallToActionTitle>
-              What our clients say about us
-            </CallToActionTitle>
+            <CallToActionTitle>What our clients say about us</CallToActionTitle>
             <FlexWithDirection>
               {testimonialSection.testimonials.map((testimonial, idx) => (
                 <TestimonialCard key={idx}>
