@@ -79,13 +79,17 @@ const mainPitchTitleStyle = css`
 
 const PhiloImageBox = styled.div`
   padding: 3rem 0 0;
+  position: relative;
 `;
 
 const philoImage = css`
   width: 65%;
   margin: 0 auto;
+  left: 0;
+  right: 0;
   @media (max-width: 768px) {
     width: 100%;
+    height: calc(100vw - 4rem);
   }
 `;
 
@@ -138,8 +142,11 @@ const ResultsTitle = styled.h3`
     border-bottom: none;
     margin-left: 0;
     padding-left: 0;
-    width: 75%;
     text-align: center;
+  }
+  @media (max-width: 420px) {
+    width: 75%;
+    line-height: 1.2;
   }
 `;
 
@@ -211,7 +218,7 @@ export const IndexPageTemplate = ({
   callToAction,
   testimonialSection,
 }) => {
-
+  
   const subtitle = () => (
     <>
       {subheading.map(({ heading }, idx) => (
@@ -240,46 +247,83 @@ export const IndexPageTemplate = ({
         alt='Resilient Leadership'
         homepage
       />
-        <Section
+      <Section
+        css={css`
+          padding-bottom: 0;
+        `}
+      >
+        <InnerWrapper
           css={css`
-            padding-bottom: 0;
+            display: flex;
+            border-bottom: 1px solid #4c3b4d;
+            padding-bottom: 4rem;
+            @media (max-width: 768px) {
+              border-bottom: none;
+              flex-direction: column;
+              padding: 0;
+            }
           `}
         >
-          <InnerWrapper
-            css={css`
-              display: flex;
-              border-bottom: 1px solid #4c3b4d;
-              padding-bottom: 4rem;
-              @media (max-width: 768px) {
-                border-bottom: none;
-                flex-direction: column;
-                padding: 0;
-              }
-            `}
-          >
-            <MainPitchColumn>
-              <h3 css={mainPitchTitleStyle}>{mainpitch.title}</h3>
-              <MainPitchBox>
-                <Paragraph>{mainpitch.description}</Paragraph>
-                <Paragraph>{description}</Paragraph>
-              </MainPitchBox>
-            </MainPitchColumn>
-            <Img
-              fluid={mainpitch.image.childImageSharp.fluid}
-              css={mainImageStyle}
-            />
-          </InnerWrapper>
-        </Section>
-      <Section>
+          <MainPitchColumn>
+            <h3 css={mainPitchTitleStyle}>{mainpitch.title}</h3>
+            <MainPitchBox>
+              <Paragraph>{mainpitch.description}</Paragraph>
+              <Paragraph>{description}</Paragraph>
+            </MainPitchBox>
+          </MainPitchColumn>
+          <Img
+            fluid={mainpitch.image.childImageSharp.fluid}
+            css={mainImageStyle}
+          />
+        </InnerWrapper>
+      </Section>
+      <Section
+        css={css`
+          padding-bottom: 0;
+        `}
+      >
         <InnerWrapper>
           <PhiloTitle>{philosophy.title}</PhiloTitle>
           <Paragraph>{philosophy.paragraph1}</Paragraph>
           <Paragraph>{philosophy.paragraph2}</Paragraph>
-          <PhiloImageBox>
-            <Img
-              fluid={philosophy.image.childImageSharp.fluid}
-              css={philoImage}
-            />
+          <PhiloImageBox
+            css={css`
+              height: 60vw;
+              max-height: 664px;
+              margin-top: 4rem;
+              padding: 0;
+              @media (max-width: 768px) {
+                height: 90vw;
+              }
+              @media (max-width: 540px) {
+                height: 85vw;
+              }
+            `}
+          >
+            <div css={[philoImage, { position: 'absolute' }]}>
+              <Slide up>
+                <Img
+                  fluid={philosophy.purple.childImageSharp.fluid}
+                  style={{
+                    zIndex: 2,
+                  }}
+                />
+              </Slide>
+            </div>
+            <Slide left>
+              <Img
+                fluid={philosophy.green.childImageSharp.fluid}
+                style={{ position: 'absolute', zIndex: 1 }}
+                css={philoImage}
+              />
+            </Slide>
+            <Slide right>
+              <Img
+                fluid={philosophy.yellow.childImageSharp.fluid}
+                style={{ position: 'absolute' }}
+                css={philoImage}
+              />
+            </Slide>
           </PhiloImageBox>
         </InnerWrapper>
       </Section>
@@ -306,7 +350,7 @@ export const IndexPageTemplate = ({
             </FlexWithDirection>
             <List>
               {results.listItems.map((item, idx) => (
-                <Slide up key={idx}>
+                <Slide up cascade key={idx}>
                   <ListItem>{item.text}</ListItem>
                 </Slide>
               ))}
@@ -456,6 +500,9 @@ IndexPageTemplate.propTypes = {
     quote: PropTypes.string,
     quoteAuthor: PropTypes.string,
     image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+    purple: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+    green: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+    yellow: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   }),
   results: PropTypes.shape({
     image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
@@ -548,6 +595,27 @@ export const pageQuery = graphql`
           image {
             childImageSharp {
               fluid(maxWidth: 600, quality: 64) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          purple {
+            childImageSharp {
+              fluid(maxWidth: 400, quality: 64) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          green {
+            childImageSharp {
+              fluid(maxWidth: 400, quality: 64) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          yellow {
+            childImageSharp {
+              fluid(maxWidth: 400, quality: 64) {
                 ...GatsbyImageSharpFluid
               }
             }

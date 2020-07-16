@@ -16,6 +16,9 @@ mainpitch:
     Our Mission is to support leaders, teams, and organizations to embody the skills necessary to consistently reach higher goals, quickly recover from setbacks, and face new challenges with wisdom and perseverance.
 philosophy:
   image: /img/coaching-soma-onto.png
+  purple: /img/purple.png
+  green: /img/green.png
+  yellow: /img/yellow.png
   title: Our core philosophy
   paragraph1: >
     At Resilient Leadership, we believe that you are here to do more than survive. You are a leader, and as such, you will be challenged, you will be put in uncomfortable circumstances and you will upset the status quo. But the question is, who are you being while you are leading?
