@@ -84,8 +84,8 @@ export const rightColumn = css`
 `;
 
 export const Heading = styled.h2`
-  font-size: 2em !important;
-  color: #fba100 !important;
+  font-size: 2em;
+  color: #fba100;
   margin-bottom: 1.5rem;
 `;
 

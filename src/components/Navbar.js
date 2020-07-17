@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { Media } from './Media';
-import logo from '../img/logo.png';
+import resilientLogoDark from '../img/resilient_logo_purple.png';
 import Burger from './Burger';
 import Menu from './Menu';
 
@@ -111,7 +111,7 @@ const titleStyle = css`
 const linkStyle = css`
   font-size: 1em;
   font-weight: 700;
-  color: #4a4a4a;
+  color: #4C3B4D;
   cursor: pointer;
   letter-spacing: 0.25rem;
   text-decoration: none;
@@ -125,7 +125,7 @@ const linkStyle = css`
 const desktopItems = (
   <Links>
     <ResilientLogo to='/' title='Resilient Leadership'>
-      <Image src={logo} alt='Resilient Leadership' />
+      <Image src={resilientLogoDark} alt='Resilient Leadership' />
     </ResilientLogo>
     <DesktopWrapper>
       <ListItem
@@ -225,7 +225,7 @@ const Navbar = () => {
             <Wrapper>
               <Burger open={open} setOpen={setOpen} />
               <Link to='/' title='Logo' css={titleStyle}>
-                <Image src={logo} alt='Resilient Leadership' />
+                <Image src={resilientLogoDark} alt='Resilient Leadership' />
               </Link>
             </Wrapper>
           </Media>

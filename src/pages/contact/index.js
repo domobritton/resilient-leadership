@@ -11,8 +11,8 @@ import {
 import Form from '../../components/Form';
 
 const Title = styled.h1`
-  font-size: 2.5em !important;
-  color: #fba100 !important;
+  font-size: 2.5em;
+  color: #fba100;
   margin-bottom: 1.5rem;
 `;
 

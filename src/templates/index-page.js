@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import Slide from 'react-reveal/Slide';
+import Fade from 'react-reveal/Fade';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
@@ -67,8 +68,8 @@ const mainImageStyle = css`
 `;
 
 const mainPitchTitleStyle = css`
-  font-size: 2.25em !important;
-  color: #fba100 !important;
+  font-size: 2.25em;
+  color: #fba100;
   margin-bottom: 1.5rem;
   line-height: 1;
   @media (max-width: 768px) {
@@ -89,13 +90,12 @@ const philoImage = css`
   right: 0;
   @media (max-width: 768px) {
     width: 100%;
-    height: calc(100vw - 4rem);
   }
 `;
 
 const PhiloTitle = styled.h3`
-  font-size: 2.25em !important;
-  color: #fba100 !important;
+  font-size: 2.25em;
+  color: #fba100;
   margin-bottom: 1.5rem;
   line-height: 1;
   @media (max-width: 768px) {
@@ -127,8 +127,8 @@ const ListItem = styled.li`
 `;
 
 const ResultsTitle = styled.h3`
-  font-size: 2.25em !important;
-  color: #fba100 !important;
+  font-size: 2.25em;
+  color: #fba100;
   border-bottom: 3px solid #fba100;
   padding: 0 0 7px;
   display: inline-table;
@@ -218,7 +218,6 @@ export const IndexPageTemplate = ({
   callToAction,
   testimonialSection,
 }) => {
-  
   const subtitle = () => (
     <>
       {subheading.map(({ heading }, idx) => (
@@ -292,6 +291,7 @@ export const IndexPageTemplate = ({
               max-height: 664px;
               margin-top: 4rem;
               padding: 0;
+              overflow: hidden;
               @media (max-width: 768px) {
                 height: 90vw;
               }
@@ -300,6 +300,21 @@ export const IndexPageTemplate = ({
               }
             `}
           >
+            <div css={[philoImage, { position: 'absolute', zIndex: 3 }]}>
+              <Fade delay={1000}>
+                <Img fluid={philosophy.purpleFade.childImageSharp.fluid} />
+              </Fade>
+            </div>
+            <div css={[philoImage, { position: 'absolute', zIndex: 3 }]}>
+              <Fade delay={1000}>
+                <Img fluid={philosophy.greenFade.childImageSharp.fluid} />
+              </Fade>
+            </div>
+            <div css={[philoImage, { position: 'absolute', zIndex: 3 }]}>
+              <Fade delay={1000}>
+                <Img fluid={philosophy.yellowFade.childImageSharp.fluid} />
+              </Fade>
+            </div>
             <div css={[philoImage, { position: 'absolute' }]}>
               <Slide up>
                 <Img
@@ -503,6 +518,9 @@ IndexPageTemplate.propTypes = {
     purple: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
     green: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
     yellow: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+    purpleFade: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+    greenFade: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+    yellowFade: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   }),
   results: PropTypes.shape({
     image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
@@ -614,6 +632,27 @@ export const pageQuery = graphql`
             }
           }
           yellow {
+            childImageSharp {
+              fluid(maxWidth: 400, quality: 64) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          purpleFade {
+            childImageSharp {
+              fluid(maxWidth: 400, quality: 64) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          greenFade {
+            childImageSharp {
+              fluid(maxWidth: 400, quality: 64) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          yellowFade {
             childImageSharp {
               fluid(maxWidth: 400, quality: 64) {
                 ...GatsbyImageSharpFluid

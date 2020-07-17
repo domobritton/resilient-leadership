@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import logo from '../img/logo.png';
+import resilientLogoDark from '../img/resilient_logo_purple.png';
 
 import { FlexWithDirection } from './styles';
 
@@ -54,7 +54,7 @@ const MenuList = styled.ul`
   text-align: left;
   a {
     border-radius: 2px;
-    color: #252525;
+    color: #4C3B4D;
     display: block;
     padding: 0.5em 0.75em;
     cursor: pointer;
@@ -70,7 +70,7 @@ const Footer = () => {
     <footer css={footerStyle}>
       <StyledMobileResilient to='/' title='Resilient Leadership'>
         <img
-          src={logo}
+          src={resilientLogoDark}
           alt='Resilient Leadership'
           style={{ width: 300, height: 43 }}
         />

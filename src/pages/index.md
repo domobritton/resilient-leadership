@@ -19,6 +19,9 @@ philosophy:
   purple: /img/purple.png
   green: /img/green.png
   yellow: /img/yellow.png
+  purpleFade: /img/soma_aware.png
+  greenFade: /img/ego_coaching.png
+  yellowFade: /img/ont_design.png
   title: Our core philosophy
   paragraph1: >
     At Resilient Leadership, we believe that you are here to do more than survive. You are a leader, and as such, you will be challenged, you will be put in uncomfortable circumstances and you will upset the status quo. But the question is, who are you being while you are leading?
@@ -92,16 +95,16 @@ testimonialSection:
   image: /img/testimonialsBackground.jpg
   testimonials:  
     - text1: >
-        "Before meeting Charlene, I lived in a perpetual state of self-imposed high expectation and self-criticism. The ability to live in the moment was beyond me. She helped me realize that significant events from my past shaped how I deal with life today.
+        “Before meeting Charlene, I lived in a perpetual state of self-imposed high expectation and self-criticism. The ability to live in the moment was beyond me. She helped me realize that significant events from my past shaped how I deal with life today.
       text2: >
-        I am now able to identify the tendencies that cause me to be overly critical of myself… My approach to both work and home life has improved tremendously."
+        I am now able to identify the tendencies that cause me to be overly critical of myself… My approach to both work and home life has improved tremendously.”
       author: >
         Nate Breed
       company: VP of Finance
     - text1: >
-        "My coaching with Charlene has changed my life personally, professionally and socially.
+        “My coaching with Charlene has changed my life personally, professionally and socially.
       text2: >
-        I was traveling through life with unrealistic expectations and carrying a sense of failure. … Charlene has an incredible way of holding me accountable with honesty and connecting me with what really matters."
+        I was traveling through life with unrealistic expectations and carrying a sense of failure. … Charlene has an incredible way of holding me accountable with honesty and connecting me with what really matters.”
       author: >
         Chad Henline   
       company: Director of Operations

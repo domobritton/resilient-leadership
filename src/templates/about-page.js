@@ -90,7 +90,6 @@ export const AboutPageTemplate = ({
   callToActionImg,
   bios,
 }) => {
-
   return (
     <Wrapper>
       <Hero image={heroImage} title={title} alt='About page' />
@@ -114,12 +113,30 @@ export const AboutPageTemplate = ({
                       `}
                     />
                   </ImageBox>
-                  <Heading>{name}</Heading>
-                  {text.map(({ paragraph }, idx) => (
-                    <Fragment key={idx}>
-                      <Paragraph>{paragraph}</Paragraph>
-                    </Fragment>
-                  ))}
+                  <Heading
+                    css={css`
+                      line-height: 2.25;
+                      border-bottom: 2px solid;
+                      margin-bottom: 0;
+                      max-width: 300px;
+                      @media (max-width: 420px) {
+                        max-width: initial;
+                      }
+                    `}
+                  >
+                    {name}
+                  </Heading>
+                  <div
+                    css={css`
+                      padding-top: 2rem;
+                    `}
+                  >
+                    {text.map(({ paragraph }, idx) => (
+                      <Fragment key={idx}>
+                        <Paragraph>{paragraph}</Paragraph>
+                      </Fragment>
+                    ))}
+                  </div>
                   {socialLinks.map(({ href }, idx) => (
                     <Fragment key={idx}>
                       <Social
