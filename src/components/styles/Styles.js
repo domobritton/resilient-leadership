@@ -79,7 +79,6 @@ export const rightColumn = css`
   flex: 2;
   @media (max-width: 768px) {
     padding-left: 0;
-    padding-top: 4rem;
   }
 `;
 
