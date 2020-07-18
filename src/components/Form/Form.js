@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import Fade from 'react-reveal/Fade';
 import { linkStyle, Column } from '../styles';
 
 const Field = styled.div`
@@ -140,67 +141,75 @@ export default class Form extends React.Component {
               <input name='bot-field' onChange={this.handleChange} />
             </label>
           </div>
-          <Field>
-            <Label htmlFor='name'>
-              <Input
-                type='text'
-                name='name'
-                onChange={this.handleChange}
-                id='name'
-                placeholder='name'
-                required
-              />
-              <span
-                css={css`
-                  display: none;
-                `}
-              >
-                Name
-              </span>
-            </Label>
-          </Field>
-          <Field>
-            <Label htmlFor='email'>
-              <Input
-                type='email'
-                name='email'
-                onChange={this.handleChange}
-                id='email'
-                placeholder='email address'
-                required
-              />
-              <span
-                css={css`
-                  display: none;
-                `}
-              >
-                Email
-              </span>
-            </Label>
-          </Field>
-          <Field>
-            <Label htmlFor='message'>
-              <TextArea
-                name='message'
-                onChange={this.handleChange}
-                id='message'
-                placeholder='message'
-                required
-              />
-              <span
-                css={css`
-                  display: none;
-                `}
-              >
-                Message
-              </span>
-            </Label>
-          </Field>
-          <Column>
-            <Button type='submit' css={linkStyle}>
-              Send
-            </Button>
-          </Column>
+          <Fade up>
+            <Field>
+              <Label htmlFor='name'>
+                <Input
+                  type='text'
+                  name='name'
+                  onChange={this.handleChange}
+                  id='name'
+                  placeholder='name'
+                  required
+                />
+                <span
+                  css={css`
+                    display: none;
+                  `}
+                >
+                  Name
+                </span>
+              </Label>
+            </Field>
+          </Fade>
+          <Fade up>
+            <Field>
+              <Label htmlFor='email'>
+                <Input
+                  type='email'
+                  name='email'
+                  onChange={this.handleChange}
+                  id='email'
+                  placeholder='email address'
+                  required
+                />
+                <span
+                  css={css`
+                    display: none;
+                  `}
+                >
+                  Email
+                </span>
+              </Label>
+            </Field>
+          </Fade>
+          <Fade up>
+            <Field>
+              <Label htmlFor='message'>
+                <TextArea
+                  name='message'
+                  onChange={this.handleChange}
+                  id='message'
+                  placeholder='message'
+                  required
+                />
+                <span
+                  css={css`
+                    display: none;
+                  `}
+                >
+                  Message
+                </span>
+              </Label>
+            </Field>
+          </Fade>
+          <Fade up>
+            <Column>
+              <Button type='submit' css={linkStyle}>
+                Send
+              </Button>
+            </Column>
+          </Fade>
         </form>
         {isComplete && (
           <ThankyouBox>

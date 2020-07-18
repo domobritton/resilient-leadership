@@ -15,7 +15,7 @@ const Overlay = styled.div`
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: rgba(76, 59, 77, 0.1);
+  background: rgba(76, 59, 77, 0.25);
 `;
 
 const kenburns = keyframes`
@@ -41,7 +41,6 @@ const DesktopWrapper = styled.ul`
   display: inline-flex;
   justify-content: space-between;
   align-items: center;
-  width: 550px;
   @media (max-width: 768px) {
     display: none;
   }
@@ -55,12 +54,6 @@ const DesktopWrapper = styled.ul`
     left: 0;
   }
   li {
-    :nth-of-type(1) {
-      margin-right: 3rem;
-    }
-    :nth-of-type(3) {
-      margin-left: 3rem;
-    }
     a {
       position: relative;
       color: #ffffff;
@@ -111,6 +104,8 @@ const UnderLine = styled.div`
 
 const Hero = ({ image, title, subtitle, alt, homepage = false }) => {
   const [isHome, setIsHome] = useState(false);
+  const [isAbout, setIsAbout] = useState(false);
+  const [isContact, setIsContact] = useState(false);
   const HeroWrapper = styled.section`
     position: relative;
     width: 100vw;
@@ -135,6 +130,12 @@ const Hero = ({ image, title, subtitle, alt, homepage = false }) => {
     const client = typeof window !== 'undefined';
     if (client && window.location.pathname === '/') {
       setIsHome(true);
+    }
+    if (client && window.location.pathname === '/about') {
+      setIsAbout(true);
+    }
+    if (client && window.location.pathname === '/contact') {
+      setIsContact(true);
     }
   }, []);
 
@@ -200,22 +201,26 @@ const Hero = ({ image, title, subtitle, alt, homepage = false }) => {
               )}
             </ListItem>
           </Slide>
-          <Slide up delay={100}>
-            <ListItem>
-              <Link to='/about' css={linkStyle}>
-                About
-              </Link>
-              <UnderLine />
-            </ListItem>
-          </Slide>
-          <Slide up delay={200}>
-            <ListItem>
-              <Link to='/contact' css={linkStyle}>
-                Contact
-              </Link>
-              <UnderLine />
-            </ListItem>
-          </Slide>
+          {!isAbout && (
+            <Slide up delay={100}>
+              <ListItem>
+                <Link to='/about' css={linkStyle}>
+                  About
+                </Link>
+                <UnderLine />
+              </ListItem>
+            </Slide>
+          )}
+          {!isContact && (
+            <Slide up delay={200}>
+              <ListItem>
+                <Link to='/contact' css={linkStyle}>
+                  Contact
+                </Link>
+                <UnderLine />
+              </ListItem>
+            </Slide>
+          )}
         </DesktopWrapper>
       </HeroTextWrapper>
     </HeroWrapper>

@@ -33,10 +33,16 @@ const GlobalStyles = () => (
         font-size: 1em;
         font-weight: 400;
         line-height: 1.5;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Junge, Heebo,
           Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
           'Segoe UI Symbol';
         text-rendering: optimizeLegibility;
+      }
+      h1,h4,p,a {
+        font-family: Heebo, sans-serif;
+      }
+      h3 {
+        font-family: Junge, serif;
       }
     `}
   />

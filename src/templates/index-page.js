@@ -191,13 +191,13 @@ const TestimonialCard = styled.div`
 
 const Spacer = styled.div`
   margin: 0 0.5rem;
-  @media (max-width: 680px) {
+  @media (max-width: 910px) {
     display: none;
   }
 `;
 
 const Break = styled.br`
-  @media (min-width: 681px) {
+  @media (min-width: 911px) {
     display: none;
   }
 `;
@@ -224,7 +224,7 @@ export const IndexPageTemplate = ({
         <span
           key={idx}
           css={css`
-            @media (min-width: 681px) {
+            @media (min-width: 911px) {
               display: inline-flex;
             }
           `}

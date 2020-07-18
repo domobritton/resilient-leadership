@@ -20,7 +20,7 @@ export const HeroTitle = styled.h1`
   font-size: 3em;
   font-weight: 700;
   text-align: center;
-  @media (max-width: 768px) {
+  @media (max-width: 910px) {
     font-size: 2em;
   }
   @media (max-width: 420px) {
@@ -33,11 +33,12 @@ export const HeroSubtitle = styled.h2`
   background-color: #fba100;
   color: white;
   line-height: 1;
+  letter-spacing: 2px;
   padding: 0.25em;
   text-align: center;
   font-weight: 700;
   font-size: 1.5em;
-  @media (max-width: 768px) {
+  @media (max-width: 910px) {
     font-size: 1.25em;
   }
 `;
@@ -83,6 +84,7 @@ export const rightColumn = css`
 `;
 
 export const Heading = styled.h2`
+  font-family: Junge, serif;
   font-size: 2em;
   color: #fba100;
   margin-bottom: 1.5rem;

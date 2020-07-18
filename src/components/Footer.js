@@ -4,7 +4,6 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import resilientLogoDark from '../img/resilient_logo_purple.png';
 import logo from '../img/logo.png';
 
 import { FlexWithDirection } from './styles';
