@@ -102,7 +102,7 @@ const linkStyle = css`
 `;
 
 const Services = ({ services }) => (
-  <Section>
+  <Section id="services">
     {services.map((item) => (
       <Fade up distance='50px' key={item.text}>
         <Box>

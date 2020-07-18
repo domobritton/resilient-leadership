@@ -3,16 +3,16 @@ import { Link } from 'gatsby';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { Media } from './Media';
-import resilientLogoDark from '../img/resilient_logo_purple.png';
+import logo from '../img/logo.png';
 import Burger from './Burger';
 import Menu from './Menu';
 
 const Nav = styled.nav`
-  background-color: #ffffff;
+  padding-top: 3rem;
   position: relative;
-  z-index: 30;
-  box-shadow: 0 8px 16px rgba(43, 37, 35, 0.1);
+  z-index: 10;
   @media (min-width: 1025px) {
+    padding-top: 4rem;
     display: flex;
     align-items: stretch;
   }
@@ -33,17 +33,21 @@ const Wrapper = styled.div`
   display: none;
   @media (max-width: 768px) {
     display: flex;
-    padding: 0.5rem 1rem;
+    padding: 0 1rem;
     align-items: center;
+    justify-content: space-between;
   }
 `;
 
 const Links = styled.div`
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: center;
   @media (max-width: 768px) {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
   }
 `;
 
@@ -57,61 +61,27 @@ const NavBarMenu = styled.div`
 const ResilientLogo = styled(Link)`
   display: flex;
   padding: 0.25rem 0;
-  max-width: 320px;
 `;
 
 const Image = styled.img`
-  height: 43px;
-  @media (max-width: 420px) {
-    height: 35px;
+  height: 4rem;
+  @media (max-width: 650px) {
+    height: 2.5rem;
   }
-`;
-
-const DesktopWrapper = styled.ul`
-  display: inline-flex;
-  justify-content: space-between;
-  line-height: 51px;
-  align-items: center;
-  min-width: 375px;
-  max-width: 490px;
-  flex: 1 0 0;
-  li:hover {
-    background-color: #dce0d9;
+  @media (max-width: 340px) {
+    height: 2rem;
   }
-  li.drop-down:hover {
-    > ul {
-      display: inline-block;
-    }
-  }
-`;
-
-const ListItem = styled.li`
-  padding: 0 1rem;
-`;
-
-const DropDown = styled.ul`
-  display: none;
-  position: absolute;
-  top: 51px;
-  right: 0;
-  white-space: nowrap;
-  background-color: #ffffff;
 `;
 
 const titleStyle = css`
   position: relative;
   display: inline-flex;
-  margin: 0 auto;
-  right: 0.5rem;
-  @media (max-width: 340px) {
-    right: 0;
-  }
 `;
 
 const linkStyle = css`
   font-size: 1em;
   font-weight: 700;
-  color: #4C3B4D;
+  color: #4c3b4d;
   cursor: pointer;
   letter-spacing: 0.25rem;
   text-decoration: none;
@@ -125,53 +95,8 @@ const linkStyle = css`
 const desktopItems = (
   <Links>
     <ResilientLogo to='/' title='Resilient Leadership'>
-      <Image src={resilientLogoDark} alt='Resilient Leadership' />
+      <Image src={logo} alt='Resilient Leadership' />
     </ResilientLogo>
-    <DesktopWrapper>
-      <ListItem
-        className='drop-down'
-        css={[linkStyle, { position: 'relative' }]}
-      >
-        Services +
-        <DropDown>
-          <ListItem>
-            <Link to='/executive-coaching' css={linkStyle}>
-              Executive Coaching
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link to='/team-coaching' css={linkStyle}>
-              Team Coaching
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link to='/organization-development' css={linkStyle}>
-              Change Management
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link to='/360-feedback' css={linkStyle}>
-              360˚ Feedback
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link to='/surveys-assessments' css={linkStyle}>
-              Surveys & Assessments
-            </Link>
-          </ListItem>
-        </DropDown>
-      </ListItem>
-      <ListItem>
-        <Link to='/about' css={linkStyle}>
-          About
-        </Link>
-      </ListItem>
-      <ListItem>
-        <Link to='/contact' css={linkStyle}>
-          Contact
-        </Link>
-      </ListItem>
-    </DesktopWrapper>
   </Links>
 );
 
@@ -191,22 +116,31 @@ const Navbar = () => {
 
   const menuItems = (
     <Links>
-      <Link to='/' css={linkStyle} onClick={(e) => handleClose(e)}>
-        Home
-      </Link>
-      <Link to='/executive-coaching' css={linkStyle} onClick={(e) => handleClose(e)}>
+      <Link
+        to='/executive-coaching'
+        css={linkStyle}
+        onClick={(e) => handleClose(e)}
+      >
         Executive Coaching
       </Link>
       <Link to='/team-coaching' css={linkStyle} onClick={(e) => handleClose(e)}>
         Team Coaching
       </Link>
-      <Link to='/organization-development' css={linkStyle} onClick={(e) => handleClose(e)}>
+      <Link
+        to='/organization-development'
+        css={linkStyle}
+        onClick={(e) => handleClose(e)}
+      >
         Change Management
       </Link>
       <Link to='/360-feedback' css={linkStyle} onClick={(e) => handleClose(e)}>
         360˚ Feedback
       </Link>
-      <Link to='/surveys-assessments' css={linkStyle} onClick={(e) => handleClose(e)}>
+      <Link
+        to='/surveys-assessments'
+        css={linkStyle}
+        onClick={(e) => handleClose(e)}
+      >
         Surveys & Assessments
       </Link>
       <Link to='/about' css={linkStyle} onClick={(e) => handleClose(e)}>
@@ -225,7 +159,7 @@ const Navbar = () => {
             <Wrapper>
               <Burger open={open} setOpen={setOpen} />
               <Link to='/' title='Logo' css={titleStyle}>
-                <Image src={resilientLogoDark} alt='Resilient Leadership' />
+                <Image src={logo} alt='Resilient Leadership' />
               </Link>
             </Wrapper>
           </Media>

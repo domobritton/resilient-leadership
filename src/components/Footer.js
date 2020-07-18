@@ -5,6 +5,7 @@ import { css } from '@emotion/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import resilientLogoDark from '../img/resilient_logo_purple.png';
+import logo from '../img/logo.png';
 
 import { FlexWithDirection } from './styles';
 
@@ -70,7 +71,7 @@ const Footer = () => {
     <footer css={footerStyle}>
       <StyledMobileResilient to='/' title='Resilient Leadership'>
         <img
-          src={resilientLogoDark}
+          src={logo}
           alt='Resilient Leadership'
           style={{ width: 300, height: 43 }}
         />

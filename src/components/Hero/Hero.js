@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Img from 'gatsby-image';
+import { Link } from 'gatsby';
+import Slide from 'react-reveal/Slide';
 import styled from '@emotion/styled';
 import { css, keyframes } from '@emotion/core';
 
 import { HeroTitleBox, HeroTitle, HeroSubtitle } from '../styles';
+import Navbar from '../Navbar';
 
 const Overlay = styled.div`
   position: fixed;
@@ -24,15 +27,95 @@ const kenburns = keyframes`
   }
 `;
 
+const HeroTextWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  padding-top: 6.25rem;
+  width: 100%;
+`;
+
+const DesktopWrapper = styled.ul`
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 550px;
+  @media (max-width: 768px) {
+    display: none;
+  }
+  li > a:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: #808f85;
+    top: 100%;
+    left: 0;
+  }
+  li {
+    :nth-of-type(1) {
+      margin-right: 3rem;
+    }
+    :nth-of-type(3) {
+      margin-left: 3rem;
+    }
+    a {
+      position: relative;
+      color: #ffffff;
+    }
+  }
+  li:hover {
+    > a {
+      color: #ffffff;
+    }
+    > div {
+      width: 100%;
+    }
+    :after {
+      background-color: #fba100;
+    }
+  }
+`;
+
+const ListItem = styled.li`
+  padding: 0 1rem;
+`;
+
+const linkStyle = css`
+  font-size: 1.75em;
+  font-weight: 700;
+  color: #ffffff;
+  cursor: pointer;
+  letter-spacing: 0.25rem;
+  text-decoration: none;
+  display: inline-block;
+  @media (max-width: 768px) {
+    padding: 1rem 0;
+    font-size: 1.15em;
+  }
+  &:hover {
+    color: #ffffff;
+  }
+`;
+
+const UnderLine = styled.div`
+  height: 4px;
+  width: 0%;
+  will-change: width;
+  background-color: #fba100;
+  position: relative;
+  transition: all 400ms;
+`;
+
 const Hero = ({ image, title, subtitle, alt, homepage = false }) => {
+  const [isHome, setIsHome] = useState(false);
   const HeroWrapper = styled.section`
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: relative;
     width: 100vw;
     overflow: hidden;
-    height: 500px;
+    height: 700px;
     ${homepage &&
     css`
       @media (max-width: 650px) {
@@ -40,21 +123,38 @@ const Hero = ({ image, title, subtitle, alt, homepage = false }) => {
       }
     `}
   `;
+
+  const handleClick = () => {
+    document.documentElement.style.scrollBehavior = 'smooth';
+    setTimeout(() => {
+      document.documentElement.style.scrollBehavior = null;
+    }, 100);
+  };
+
+  useEffect(() => {
+    const client = typeof window !== 'undefined';
+    if (client && window.location.pathname === '/') {
+      setIsHome(true);
+    }
+  }, []);
+
   return (
     <HeroWrapper>
       <Overlay />
+      <Navbar />
       <Img
         id='hero'
         style={{
           position: 'absolute',
         }}
-        className='vh-57 center hero'
         fluid={image.childImageSharp.fluid}
         alt={alt}
         css={css`
           width: 100%;
-          height: 500px;
+          height: 751px;
           z-index: -2;
+          top: 0;
+          left: 0;
           transition: height 9999999s;
           ${homepage &&
           css`
@@ -65,20 +165,59 @@ const Hero = ({ image, title, subtitle, alt, homepage = false }) => {
           `}
         `}
       />
-      <HeroTitleBox>
-        <HeroTitle>{title}</HeroTitle>
-        {subtitle && homepage && (
-          <HeroSubtitle
-            css={css`
-              > span:last-of-type > div {
-                display: none;
-              }
-            `}
-          >
-            {subtitle()}
-          </HeroSubtitle>
-        )}
-      </HeroTitleBox>
+      <HeroTextWrapper>
+        <HeroTitleBox>
+          <HeroTitle>{title}</HeroTitle>
+          {subtitle && homepage && (
+            <HeroSubtitle
+              css={css`
+                > span:last-of-type > div {
+                  display: none;
+                }
+              `}
+            >
+              {subtitle()}
+            </HeroSubtitle>
+          )}
+        </HeroTitleBox>
+        <DesktopWrapper>
+          <Slide up>
+            <ListItem onClick={handleClick}>
+              {isHome ? (
+                <>
+                  <a href='#services' css={linkStyle}>
+                    Services
+                  </a>
+                  <UnderLine />
+                </>
+              ) : (
+                <>
+                  <Link to='/#services' css={linkStyle}>
+                    Services
+                  </Link>
+                  <UnderLine />
+                </>
+              )}
+            </ListItem>
+          </Slide>
+          <Slide up delay={100}>
+            <ListItem>
+              <Link to='/about' css={linkStyle}>
+                About
+              </Link>
+              <UnderLine />
+            </ListItem>
+          </Slide>
+          <Slide up delay={200}>
+            <ListItem>
+              <Link to='/contact' css={linkStyle}>
+                Contact
+              </Link>
+              <UnderLine />
+            </ListItem>
+          </Slide>
+        </DesktopWrapper>
+      </HeroTextWrapper>
     </HeroWrapper>
   );
 };

@@ -21,7 +21,7 @@ const StyledBurger = styled.button`
   div {
     width: 24px;
     height: 2px;
-    background: #000000;
+    background: #fba100;
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;
@@ -30,8 +30,9 @@ const StyledBurger = styled.button`
     :nth-of-type(1) {
       transform: ${({ open }) => open ? 'rotate(45deg)' : 'rotate(0)'};
     }
-
+    
     :nth-of-type(2) {
+      width: 32px;
       opacity: ${({ open }) => open ? '0' : '1'};
       transform: ${({ open }) => open ? 'translateX(20px)' : 'translateX(0)'};
     }

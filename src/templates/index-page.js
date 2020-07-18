@@ -294,6 +294,7 @@ export const IndexPageTemplate = ({
               overflow: hidden;
               @media (max-width: 768px) {
                 height: 90vw;
+                max-height: initial;
               }
               @media (max-width: 540px) {
                 height: 85vw;
