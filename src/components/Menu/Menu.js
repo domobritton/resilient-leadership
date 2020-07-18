@@ -27,7 +27,7 @@ const opacityOut = keyframes`
   }
 `;
 
-export const StyledMenu = styled.div`
+export const StyledMenu = styled.nav`
   display: flex;
   flex-direction: column;
   background: #ffffff;
@@ -65,7 +65,7 @@ const useLockBodyScroll = (open) => {
 
 const Menu = ({ open, menuItems }) => {
   useLockBodyScroll(open);
-  return <StyledMenu open={open}>{menuItems}</StyledMenu>;
+  return <StyledMenu open={open} role='navigation' aria-label='main-navigation'>{menuItems}</StyledMenu>;
 };
 
 Menu.propTypes = {

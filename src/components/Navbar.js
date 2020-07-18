@@ -7,7 +7,7 @@ import logo from '../img/logo.png';
 import Burger from './Burger';
 import Menu from './Menu';
 
-const Nav = styled.nav`
+const NavWrapper = styled.div`
   padding-top: 3rem;
   position: relative;
   z-index: 10;
@@ -51,13 +51,6 @@ const Links = styled.div`
   }
 `;
 
-const NavBarMenu = styled.div`
-  padding: 0 1em;
-  @media (max-width: 768px) {
-    display: none;
-  }
-`;
-
 const ResilientLogo = styled(Link)`
   display: flex;
   padding: 0.25rem 0;
@@ -91,14 +84,6 @@ const linkStyle = css`
     font-size: 1.15em;
   }
 `;
-
-const desktopItems = (
-  <Links>
-    <ResilientLogo to='/' title='Resilient Leadership'>
-      <Image src={logo} alt='Resilient Leadership' />
-    </ResilientLogo>
-  </Links>
-);
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -153,7 +138,7 @@ const Navbar = () => {
   );
   return (
     <header>
-      <Nav role='navigation' aria-label='main-navigation'>
+      <NavWrapper>
         <Container>
           <Media lessThan='md'>
             <Wrapper>
@@ -164,10 +149,14 @@ const Navbar = () => {
             </Wrapper>
           </Media>
           <Media greaterThanOrEqual='md'>
-            <NavBarMenu>{desktopItems}</NavBarMenu>
+            <Links>
+              <ResilientLogo to='/' title='Resilient Leadership'>
+                <Image src={logo} alt='Resilient Leadership' />
+              </ResilientLogo>
+            </Links>
           </Media>
         </Container>
-      </Nav>
+      </NavWrapper>
       <Media lessThan='md'>
         <Menu open={open} setOpen={setOpen} menuItems={menuItems} />
       </Media>

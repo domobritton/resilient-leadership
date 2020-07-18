@@ -37,7 +37,9 @@ const HeroTextWrapper = styled.div`
   width: 100%;
 `;
 
-const DesktopWrapper = styled.ul`
+const Nav = styled.nav``;
+
+const DesktopMenuList = styled.ul`
   display: inline-flex;
   justify-content: space-between;
   align-items: center;
@@ -181,47 +183,49 @@ const Hero = ({ image, title, subtitle, alt, homepage = false }) => {
             </HeroSubtitle>
           )}
         </HeroTitleBox>
-        <DesktopWrapper>
-          <Slide up>
-            <ListItem onClick={handleClick}>
-              {isHome ? (
-                <>
-                  <a href='#services' css={linkStyle}>
-                    Services
-                  </a>
-                  <UnderLine />
-                </>
-              ) : (
-                <>
-                  <Link to='/#services' css={linkStyle}>
-                    Services
+        <Nav role='navigation' aria-label='main-navigation'>
+          <DesktopMenuList>
+            <Slide up>
+              <ListItem onClick={handleClick}>
+                {isHome ? (
+                  <>
+                    <a href='#services' css={linkStyle}>
+                      Services
+                    </a>
+                    <UnderLine />
+                  </>
+                ) : (
+                  <>
+                    <Link to='/#services' css={linkStyle}>
+                      Services
+                    </Link>
+                    <UnderLine />
+                  </>
+                )}
+              </ListItem>
+            </Slide>
+            {!isAbout && (
+              <Slide up delay={100}>
+                <ListItem>
+                  <Link to='/about' css={linkStyle}>
+                    About
                   </Link>
                   <UnderLine />
-                </>
-              )}
-            </ListItem>
-          </Slide>
-          {!isAbout && (
-            <Slide up delay={100}>
-              <ListItem>
-                <Link to='/about' css={linkStyle}>
-                  About
-                </Link>
-                <UnderLine />
-              </ListItem>
-            </Slide>
-          )}
-          {!isContact && (
-            <Slide up delay={200}>
-              <ListItem>
-                <Link to='/contact' css={linkStyle}>
-                  Contact
-                </Link>
-                <UnderLine />
-              </ListItem>
-            </Slide>
-          )}
-        </DesktopWrapper>
+                </ListItem>
+              </Slide>
+            )}
+            {!isContact && (
+              <Slide up delay={200}>
+                <ListItem>
+                  <Link to='/contact' css={linkStyle}>
+                    Contact
+                  </Link>
+                  <UnderLine />
+                </ListItem>
+              </Slide>
+            )}
+          </DesktopMenuList>
+        </Nav>
       </HeroTextWrapper>
     </HeroWrapper>
   );

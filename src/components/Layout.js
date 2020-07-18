@@ -1,21 +1,23 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import Footer from '../components/Footer';
-import './all.sass';
 import useSiteMetadata from './SiteMetadata';
 import { withPrefix } from 'gatsby';
 import { GlobalStyles } from './styles';
-import { MediaContextProvider } from './Media';
+import { MediaContextProvider, mediaStyles } from './Media';
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata();
   return (
-    <MediaContextProvider>
+    <>
       <Helmet>
         <html lang='en' />
         <title>{title}</title>
         <meta name='description' content={description} />
-        <link href="https://fonts.googleapis.com/css2?family=Heebo&family=Junge&display=swap" rel="stylesheet" />
+        <link
+          href='https://fonts.googleapis.com/css2?family=Heebo&family=Junge&display=swap'
+          rel='stylesheet'
+        />
         <link
           rel='apple-touch-icon'
           sizes='180x180'
@@ -48,11 +50,14 @@ const TemplateWrapper = ({ children }) => {
           property='og:image'
           content={`${withPrefix('/')}img/og-image.jpg`}
         />
+        <style>{mediaStyles}</style>
       </Helmet>
-      <GlobalStyles />
-      <>{children}</>
-      <Footer />
-    </MediaContextProvider>
+      <MediaContextProvider>
+        <GlobalStyles />
+        <>{children}</>
+        <Footer />
+      </MediaContextProvider>
+    </>
   );
 };
 

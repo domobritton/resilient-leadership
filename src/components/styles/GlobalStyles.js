@@ -19,7 +19,17 @@ const GlobalStyles = () => (
         box-sizing: border-box;
       }
       html,
-      body {
+      body,
+      p,
+      ul,
+      li,
+      textarea,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
         margin: 0;
         padding: 0;
       }
@@ -38,11 +48,25 @@ const GlobalStyles = () => (
           'Segoe UI Symbol';
         text-rendering: optimizeLegibility;
       }
-      h1,h4,p,a {
+      h1,
+      h4,
+      p,
+      a {
         font-family: Heebo, sans-serif;
       }
       h3 {
         font-family: Junge, serif;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: normal;
+      }
+      a {
+        text-decoration: none;
       }
     `}
   />

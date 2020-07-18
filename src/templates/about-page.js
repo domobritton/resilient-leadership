@@ -185,11 +185,7 @@ export const AboutPageTemplate = ({
           `}
         />
         <InnerWrapper>
-          <FlexWithDirection
-            css={css`
-              align-items: center;
-            `}
-          >
+          <FlexWithDirection>
             <ContactText>
               <Title>Based in Marin, California</Title>
               <Paragraph
