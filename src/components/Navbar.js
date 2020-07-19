@@ -52,8 +52,7 @@ const Links = styled.div`
 `;
 
 const ResilientLogo = styled(Link)`
-  display: flex;
-  padding: 0.25rem 0;
+  padding-left: 4vw;
 `;
 
 const Image = styled.img`

@@ -9,14 +9,16 @@ export const HeroTitleBox = styled.div`
   line-height: 1;
   justify-content: space-around;
   flex-direction: column;
-  padding: 0 1rem;
+  @media (max-width: 420px) {
+    width: 100%;
+  }
 `;
 
 export const HeroTitle = styled.h1`
   background-color: #fba100;
   color: #ffffff;
   line-height: 1;
-  padding: 0.25em 0.5em;
+  padding: 0.25em 1rem;
   font-size: 3em;
   font-weight: 700;
   text-align: center;
@@ -24,8 +26,7 @@ export const HeroTitle = styled.h1`
     font-size: 2em;
   }
   @media (max-width: 420px) {
-    padding: 1em;
-    text-align: center;
+    text-align: left;
   }
 `;
 
@@ -34,12 +35,15 @@ export const HeroSubtitle = styled.h2`
   color: white;
   line-height: 1;
   letter-spacing: 2px;
-  padding: 0.25em;
+  padding: 0.25rem 1rem;
   text-align: center;
   font-weight: 700;
   font-size: 1.5em;
   @media (max-width: 910px) {
     font-size: 1.25em;
+  }
+  @media (max-width: 420px) {
+    text-align: left;
   }
 `;
 
