@@ -1,115 +1,141 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React from 'react';
+import { Link } from 'gatsby';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import logo from '../img/logo.png';
 
-import logo from '../img/logo.svg'
-import facebook from '../img/social/facebook.svg'
-import instagram from '../img/social/instagram.svg'
-import twitter from '../img/social/twitter.svg'
-import vimeo from '../img/social/vimeo.svg'
+import { FlexWithDirection } from './styles';
 
-const Footer = class extends React.Component {
-  render() {
-    return (
-      <footer className="footer has-background-black has-text-white-ter">
-        <div className="content has-text-centered">
-          <img
-            src={logo}
-            alt="Kaldi"
-            style={{ width: '14em', height: '10em' }}
-          />
-        </div>
-        <div className="content has-text-centered has-background-black has-text-white-ter">
-          <div className="container has-background-black has-text-white-ter">
-            <div style={{ maxWidth: '100vw' }} className="columns">
-              <div className="column is-4">
-                <section className="menu">
-                  <ul className="menu-list">
-                    <li>
-                      <Link to="/" className="navbar-item">
-                        Home
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/about">
-                        About
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/products">
-                        Products
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/contact/examples">
-                        Form Examples
-                      </Link>
-                    </li>
-                    <li>
-                      <a
-                        className="navbar-item"
-                        href="/admin/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Admin
-                      </a>
-                    </li>
-                  </ul>
-                </section>
-              </div>
-              <div className="column is-4">
-                <section>
-                  <ul className="menu-list">
-                    <li>
-                      <Link className="navbar-item" to="/blog">
-                        Latest Stories
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/contact">
-                        Contact
-                      </Link>
-                    </li>
-                  </ul>
-                </section>
-              </div>
-              <div className="column is-4 social">
-                <a title="facebook" href="https://facebook.com">
-                  <img
-                    src={facebook}
-                    alt="Facebook"
-                    style={{ width: '1em', height: '1em' }}
-                  />
-                </a>
-                <a title="twitter" href="https://twitter.com">
-                  <img
-                    className="fas fa-lg"
-                    src={twitter}
-                    alt="Twitter"
-                    style={{ width: '1em', height: '1em' }}
-                  />
-                </a>
-                <a title="instagram" href="https://instagram.com">
-                  <img
-                    src={instagram}
-                    alt="Instagram"
-                    style={{ width: '1em', height: '1em' }}
-                  />
-                </a>
-                <a title="vimeo" href="https://vimeo.com">
-                  <img
-                    src={vimeo}
-                    alt="Vimeo"
-                    style={{ width: '1em', height: '1em' }}
-                  />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
-    )
+const StyledMobileResilient = styled(Link)`
+  display: flex;
+  height: 65px;
+  justify-content: center;
+  align-items: center;
+`;
+
+const footerStyle = css`
+  padding: 3rem 0rem 1rem;
+  box-shadow: 0 -5px 5px -5px rgba(43, 37, 35, 0.1);
+  background-color: #ffffff;
+`;
+
+const Container = styled.div`
+  flex-grow: 1;
+  margin: 0 auto;
+  position: relative;
+  width: auto;
+  text-align: center;
+`;
+
+const Column = styled.div`
+  width: 33%;
+  padding: 0.75rem;
+  @media (max-width: 768px) {
+    width: 100%;
   }
-}
+`;
 
-export default Footer
+const Social = styled.a`
+  border-radius: 1em;
+  margin: 0.5em;
+  display: inline;
+  > svg > path {
+    fill: #fba100;
+  }
+`;
+
+const MenuList = styled.ul`
+  font-size: 1em;
+  line-height: 1.25;
+  list-style: none;
+  width: 100%;
+  text-align: left;
+  a {
+    border-radius: 2px;
+    color: #4C3B4D;
+    display: block;
+    padding: 0.5em 0.75em;
+    cursor: pointer;
+    line-height: 1.5;
+    &:hover {
+      background-color: #dce0d9;
+    }
+  }
+`;
+
+const Footer = () => {
+  return (
+    <footer css={footerStyle}>
+      <StyledMobileResilient to='/' title='Resilient Leadership'>
+        <img
+          src={logo}
+          alt='Resilient Leadership'
+          style={{ width: 300, height: 43 }}
+        />
+      </StyledMobileResilient>
+      <Container>
+        <FlexWithDirection>
+          <Column>
+            <MenuList>
+              <li>
+                <Link to='/executive-coaching'>Executive Coaching</Link>
+              </li>
+              <li>
+                <Link to='/team-coaching'>Team Coaching</Link>
+              </li>
+              <li>
+                <Link to='/360-feedback'>360◦ Feedback</Link>
+              </li>
+              <li>
+                <Link to='/organization-development'>Change Management</Link>
+              </li>
+              <li>
+                <Link to='/surveys-assessments'>Surveys & Assessments</Link>
+              </li>
+            </MenuList>
+          </Column>
+          <Column>
+            <MenuList>
+              <li>
+                <Link to='/'>Home</Link>
+              </li>
+              <li>
+                <Link to='/about'>About</Link>
+              </li>
+              <li>
+                <Link to='/contact'>Contact</Link>
+              </li>
+              {/* <li>
+                <a href='/admin/' target='_blank' rel='noopener noreferrer'>
+                  Admin
+                </a>
+              </li> */}
+            </MenuList>
+          </Column>
+          <Column>
+            <Social
+              title='facebook'
+              href='https://www.facebook.com/resilientleadershipcoaching'
+              target='__blank'
+              rel='noopener noreferrer'
+            >
+              <FontAwesomeIcon icon={faFacebook} size='2x' />
+            </Social>
+            <Social
+              title='linkedIn'
+              href='https://www.linkedin.com/in/charlene-e-wilson-m-a-acc-8114283/'
+              target='__blank'
+              rel='noopener noreferrer'
+            >
+              <FontAwesomeIcon icon={faLinkedin} size='2x' />
+            </Social>
+          </Column>
+        </FlexWithDirection>
+      </Container>
+    </footer>
+  );
+};
+
+export default Footer;

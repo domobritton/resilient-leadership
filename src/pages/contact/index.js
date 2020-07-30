@@ -1,115 +1,100 @@
-import React from 'react'
-import { navigate } from 'gatsby-link'
-import Layout from '../../components/Layout'
+import React from 'react';
+import { graphql } from 'gatsby';
+import { css } from '@emotion/core';
+import styled from '@emotion/styled';
+import Layout from '../../components/Layout';
+import {
+  Paragraph,
+  Section,
+  InnerWrapper,
+  Flex,
+} from '../../components/styles';
+import Form from '../../components/Form';
+import Hero from '../../components/Hero';
 
-function encode(data) {
-  return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&')
-}
+const Title = styled.h3`
+  font-size: 2.5em;
+  color: #fba100;
+  margin-bottom: 1.5rem;
+`;
 
-export default class Index extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { isValidated: false }
+const Subtitle = styled.h2`
+  font-size: 1.75em;
+  margin-bottom: 0.6rem;
+`;
+
+const Index = ({ data }) => {
+  return (
+    <Layout>
+      <Hero image={data.file} title='Contact us' alt='contact' />
+      <Section>
+        <InnerWrapper>
+          <Title>Get in touch</Title>
+          <Subtitle>We'd love to hear from you!</Subtitle>
+          <Paragraph>
+            Let's have a conversation about how <b>Resilient Leadership</b> can
+            help you.
+          </Paragraph>
+          <Paragraph>
+            <b>Phone:</b> 415.521.4153
+          </Paragraph>
+          <Paragraph>
+            <b>Email:</b> wilsoncoaching <em>at</em> gmail.com
+          </Paragraph>
+          <Form />
+        </InnerWrapper>
+        <InnerWrapper
+          css={css`
+            background-color: #4c3b4d;
+            max-width: initial;
+            padding: 4rem 0;
+          `}
+        >
+          <Flex
+            css={css`
+              justify-content: center;
+              flex-direction: column;
+              max-width: 1100px;
+              margin: 0 auto;
+              padding: 0 1rem;
+            `}
+          >
+            <Paragraph
+              css={css`
+                color: #ffffff;
+                font-size: 1.5em;
+              `}
+            >
+              “In order to succeed, people need a sense of self-efficacy, to
+              struggle together with resilience to meet the inevitable obstacles
+              and inequities of life.”
+            </Paragraph>
+            <Paragraph
+              css={css`
+                color: #ffffff;
+                font-size: 1.5em;
+                font-weight: 700;
+              `}
+            >
+              Albert Bandura (1977). Social Learning Theory.
+            </Paragraph>
+          </Flex>
+        </InnerWrapper>
+      </Section>
+    </Layout>
+  );
+};
+
+export const query = graphql`
+  query {
+    file(relativePath: { eq: "contact/resilient-leadership-contact.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 2048, quality: 100) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
   }
+`;
 
-  handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value })
-  }
-
-  handleSubmit = (e) => {
-    e.preventDefault()
-    const form = e.target
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({
-        'form-name': form.getAttribute('name'),
-        ...this.state,
-      }),
-    })
-      .then(() => navigate(form.getAttribute('action')))
-      .catch((error) => alert(error))
-  }
-
-  render() {
-    return (
-      <Layout>
-        <section className="section">
-          <div className="container">
-            <div className="content">
-              <h1>Contact</h1>
-              <form
-                name="contact"
-                method="post"
-                action="/contact/thanks/"
-                data-netlify="true"
-                data-netlify-honeypot="bot-field"
-                onSubmit={this.handleSubmit}
-              >
-                {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
-                <input type="hidden" name="form-name" value="contact" />
-                <div hidden>
-                  <label>
-                    Don’t fill this out:{' '}
-                    <input name="bot-field" onChange={this.handleChange} />
-                  </label>
-                </div>
-                <div className="field">
-                  <label className="label" htmlFor={'name'}>
-                    Your name
-                  </label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      type={'text'}
-                      name={'name'}
-                      onChange={this.handleChange}
-                      id={'name'}
-                      required={true}
-                    />
-                  </div>
-                </div>
-                <div className="field">
-                  <label className="label" htmlFor={'email'}>
-                    Email
-                  </label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      type={'email'}
-                      name={'email'}
-                      onChange={this.handleChange}
-                      id={'email'}
-                      required={true}
-                    />
-                  </div>
-                </div>
-                <div className="field">
-                  <label className="label" htmlFor={'message'}>
-                    Message
-                  </label>
-                  <div className="control">
-                    <textarea
-                      className="textarea"
-                      name={'message'}
-                      onChange={this.handleChange}
-                      id={'message'}
-                      required={true}
-                    />
-                  </div>
-                </div>
-                <div className="field">
-                  <button className="button is-link" type="submit">
-                    Send
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </section>
-      </Layout>
-    )
-  }
-}
+export default Index;

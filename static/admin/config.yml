@@ -12,21 +12,6 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "src/pages/blog"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Featured Post", name: "featuredpost", widget: "boolean"}
-      - {label: "Featured Image", name: "featuredimage", widget: image}
-      - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Tags", name: "tags", widget: "list"}
-
   - name: "pages"
     label: "Pages"
     files:
@@ -38,29 +23,98 @@ collections:
           - {label: Title, name: title, widget: string}
           - {label: Image, name: image, widget: image}
           - {label: Heading, name: heading, widget: string}
-          - {label: Subheading, name: subheading, widget: string}
-          - {label: Mainpitch, name: mainpitch, widget: object, fields: [{label: Title, name: title, widget: string}, {label: Description, name: description, widget: text}]}
+          - {label: Subheading, name: subheading, widget: list, fields: [{label: Heading, name: heading, widget: string }]}
+          - {label: Mainpitch, name: mainpitch, widget: object, fields: [{label: Title, name: title, widget: string}, {label: Description, name: description, widget: text}, {label: Image, name: image, widget: image}]}
           - {label: Description, name: description, widget: string}
-          - {label: Intro, name: intro, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Blurbs, name: blurbs, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}]}
-          - {label: Main, name: main, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Image1, name: image1, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image2, name: image2, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image3, name: image3, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}]}
+          - {label: Philosophy, name: philosophy, widget: list, fields: [{label: Title, name: title, widget: string}, {label: Paragraph1, name: paragraph1, widget: string}, {label: Paragraph2, name: paragraph2, widget: string}, {label: Quote, name: quote, widget: string}, {label: QuoteAuthor, name: quoteAuthor, widget: string}, {label: Image, name: image, widget: image}]}
+          - {label: Results, name: results, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Title, name: title, widget: string}, {label: ListItems, name: listItems, widget: list, fields: [{label: Text, name: text, widget: string}]}]}
+          - {label: Services, name: services, widget: list, fields: [{label: Blurbs, name: blurbs, widget: list, fields: [{label: Image, name: image, widget: image}]}, {label: Title, name: title, widget: string}, {label: Text, name: text, widget: string}, {label: Link, name: link, widget: text}, {label: LinkText, name: linkText, widget: string}], {label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: string}}
+          - {label: CallToAction, name: callToAction, widget: list, fields: [{label: Title, name: title, widget: string}, {label: Paragraph1, name: paragraph1, widget: string}, {label: Paragraph2, name: paragraph2, widget: string}, {label: Paragraph3, name: paragraph3, widget: string}, {label: Paragraph4, name: paragraph4, widget: string}, {label: Paragraph5, name: paragraph5, widget: string}]}
+          - {label: TestimonialsSection, name: testimonialsSection, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Testimonials, name: testimonials, widget: list, fields: [{label: Text1, name: text1, widget: string}, {label: Text2, name: text2, widget: string}, {label: Author, name: author, widget: string}, {label: Company, name: company, widget: string}]}]}
       - file: "src/pages/about/index.md"
         label: "About"
         name: "about"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
           - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
-      - file: "src/pages/products/index.md"
-        label: "Products Page"
-        name: "products"
+          - {label: "HeroImage", name: "heroImage", widget: image}
+          - {label: "CallToActionImg", name: "callToActionImg", widget: image}
+          - {label: "Bios", name: "bios", width: list, fields: [{label: Image, name: image, widget: image}, {label: Name, name: name, widget: string}, {label: Text, name: text, widget: list, fields: [{label: Paragraph, name: paragraph, widget: string}]}, {label: SocialLinks, name: socialLinks, widget: list, fields: [{label: Href, name: href, widget: string}]}]}
+      - file: "src/pages/surveys-assessments/index.md"
+        label: "Surveys and Assessments"
+        name: "Surveys & Assessments"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "product-page"}
-          - {label: Title, name: title, widget: string}
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "surveys-assessments-page"}
+          - {label: "Title", name: "title", widget: "string"}
           - {label: Image, name: image, widget: image}
-          - {label: Heading, name: heading, widget: string}
-          - {label: Description, name: description, widget: string}
-          - {label: Intro, name: intro, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Blurbs, name: blurbs, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}]}
-          - {label: Main, name: main, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Image1, name: image1, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image2, name: image2, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image3, name: image3, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}]}
-          - {label: Testimonials, name: testimonials, widget: list, fields: [{label: Quote, name: quote, widget: string}, {label: Author, name: author, widget: string}]}
-          - {label: Full_image, name: full_image, widget: image}
-          - {label: Pricing, name: pricing, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: string}, {label: Plans, name: plans, widget: list, fields: [{label: Plan, name: plan, widget: string}, {label: Price, name: price, widget: string}, {label: Description, name: description, widget: string}, {label: Items, name: items, widget: list}]}]}
+          - {label: Heading1, name: heading1, widget: string}
+          - {label: Heading2, name: heading2, widget: string}
+          - {label: Heading3, name: heading3, widget: string}
+          - {label: Audience, name: audience, widget: string}
+          - {label: Objectives, name: objectives, widget: string}
+          - {label: Overview, name: overview, widget: list, fields: [{label: Bold, name: bold, widget: string }, {label: Text, name: text, widget: string}]}
+          - {label: Content, name: content, widget: list, fields: [{label: Title, name: title, widget: string }, {label: Paragraphs, name: paragraphs, widget: list, fields: [{label: Bold, name: bold, widget: string}, {label: Text, name: text, widget: string}]}]}
+      - file: "src/pages/360-feedback/index.md"
+        label: "360 Feedback"
+        name: "360 Feedback"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "360-feedback-page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: Image, name: image, widget: image}
+          - {label: Heading1, name: heading1, widget: string}
+          - {label: Heading2, name: heading2, widget: string}
+          - {label: Heading3, name: heading3, widget: string}
+          - {label: Audience, name: audience, widget: string}
+          - {label: Objectives, name: objectives, widget: string}
+          - {label: Summary, name: summary, widget: string}
+          - {label: ProcessTitle, name: processTitle, widget: string}
+          - {label: Process, name: process, widget: string}
+          - {label: OutcomesTitle, name: outcomesTitle, widget: string}
+          - {label: Outcomes, name: outcomes, widget: list, fields: [{label: Text, name: text, widget: string}]}
+      - file: "src/pages/executive-coaching/index.md"
+        label: "Executive Coaching"
+        name: "Executive Coaching"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "executive-coaching-page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: Image, name: image, widget: image}
+          - {label: Heading1, name: heading1, widget: string}
+          - {label: Audience, name: audience, widget: string}
+          - {label: Summary1, name: summary1, widget: string}
+          - {label: Summary2, name: summary2, widget: string}
+          - {label: ProcessTitle, name: processTitle, widget: string}
+          - {label: Process, name: process, widget: string}
+          - {label: OutcomesTitle, name: outcomesTitle, widget: string}
+          - {label: Outcomes, name: outcomes, widget: list, fields: [{label: Text, name: text, widget: string}]}
+      - file: "src/pages/team-coaching/index.md"
+        label: "Team Coaching"
+        name: "Team Coaching"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "team-coaching-page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: Image, name: image, widget: image}
+          - {label: Heading1, name: heading1, widget: string}
+          - {label: Audience, name: audience, widget: string}
+          - {label: Summary1, name: summary1, widget: string}
+          - {label: Summary2, name: summary2, widget: string}
+          - {label: ProcessTitle, name: processTitle, widget: string}
+          - {label: ProcessBold, name: processBold, widget: string}
+          - {label: Process1, name: process1, widget: string}
+          - {label: Process2, name: process2, widget: string}
+          - {label: OutcomesTitle, name: outcomesTitle, widget: string}
+          - {label: Outcomes, name: outcomes, widget: list, fields: [{label: Text, name: text, widget: string}]}
+      - file: "src/pages/organization-development/index.md"
+        label: "Organization Development"
+        name: "Organization Development"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "organization-development-page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: Image, name: image, widget: image}
+          - {label: Heading1, name: heading1, widget: string}
+          - {label: Audience, name: audience, widget: string}
+          - {label: Summary1, name: summary1, widget: string}
+          - {label: Summary2, name: summary2, widget: string}
+          - {label: ProcessTitle, name: processTitle, widget: string}
+          - {label: Process, name: process, widget: string}
+          - {label: OutcomesTitle, name: outcomesTitle, widget: string}
+          - {label: Outcomes, name: outcomes, widget: list, fields: [{label: Text, name: text, widget: string}]}

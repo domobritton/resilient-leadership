@@ -1,13 +1,23 @@
-import React from 'react'
+import React from 'react';
+import { navigateTo } from 'gatsby-link';
+import { css } from '@emotion/core';
 
-import Layout from '../../components/Layout'
-import BlogRoll from '../../components/BlogRoll'
+import Layout from '../../components/Layout';
+// import BlogRoll from '../../components/BlogRoll'
 
 export default class BlogIndexPage extends React.Component {
+  componentDidMount() {
+    navigateTo('/');
+  }
   render() {
     return (
       <Layout>
         <div
+          css={css`
+            height: 100vh;
+          `}
+        />
+        {/* <div
           className="full-width-image-container margin-top-0"
           style={{
             backgroundImage: `url('/img/blog-index.jpg')`,
@@ -31,8 +41,8 @@ export default class BlogIndexPage extends React.Component {
               <BlogRoll />
             </div>
           </div>
-        </section>
+        </section> */}
       </Layout>
-    )
+    );
   }
 }
