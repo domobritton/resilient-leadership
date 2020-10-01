@@ -52,16 +52,15 @@ const Links = styled.div`
 `;
 
 const ResilientLogo = styled(Link)`
-  padding-left: 4vw;
 `;
 
 const Image = styled.img`
-  height: 4rem;
-  @media (max-width: 650px) {
-    height: 2.5rem;
-  }
-  @media (max-width: 340px) {
-    height: 2rem;
+  width: 100%;
+  max-width: 450px;
+
+  @media (max-width: 1024px) {
+    width: 70vw;
+    max-width: 300px;
   }
 `;
 

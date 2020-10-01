@@ -98,6 +98,7 @@ export const Title = styled.h3`
   font-size: 1.75em;
   font-weight: 700;
   color: #65737d;
+  margin-bottom: 1rem;
 `;
 
 export const Paragraph = styled.p`

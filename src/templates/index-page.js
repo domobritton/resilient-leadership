@@ -41,7 +41,8 @@ const MainPitchColumn = styled.div`
   @media (max-width: 768px) {
     position: relative;
     width: 100%;
-    padding: 0 1rem 1rem;
+    min-width: auto;
+    padding: 4rem 1rem 2rem;
   }
 `;
 
@@ -122,6 +123,7 @@ const List = styled.ul`
 const ListItem = styled.li`
   font-size: 1.375em;
   padding: 1rem 1.25rem;
+  list-style: none;
   background-color: #808f85;
   color: #ffffff;
 `;
@@ -213,6 +215,7 @@ export const IndexPageTemplate = ({
   mainpitch,
   description,
   philosophy,
+  approach,
   results,
   services,
   callToAction,
@@ -249,6 +252,9 @@ export const IndexPageTemplate = ({
       <Section
         css={css`
           padding-bottom: 0;
+          @media (max-width: 768px) {
+            padding: 0;
+          }
         `}
       >
         <InnerWrapper
@@ -285,11 +291,21 @@ export const IndexPageTemplate = ({
           <PhiloTitle>{philosophy.title}</PhiloTitle>
           <Paragraph>{philosophy.paragraph1}</Paragraph>
           <Paragraph>{philosophy.paragraph2}</Paragraph>
+        </InnerWrapper>
+      </Section>
+      <Section
+        css={css`
+          padding-bottom: 0;
+        `}
+      >
+        <InnerWrapper>
+          <PhiloTitle>{approach.title}</PhiloTitle>
+          <Paragraph>{approach.paragraph}</Paragraph>
           <PhiloImageBox
             css={css`
               height: 60vw;
               max-height: 664px;
-              margin-top: 4rem;
+              margin-top: 2rem;
               padding: 0;
               overflow: hidden;
               @media (max-width: 768px) {
@@ -297,29 +313,29 @@ export const IndexPageTemplate = ({
                 max-height: initial;
               }
               @media (max-width: 540px) {
-                height: 85vw;
+                height: 90vw;
               }
             `}
           >
             <div css={[philoImage, { position: 'absolute', zIndex: 3 }]}>
               <Fade delay={1000}>
-                <Img fluid={philosophy.purpleFade.childImageSharp.fluid} />
+                <Img fluid={approach.purpleFade.childImageSharp.fluid} />
               </Fade>
             </div>
             <div css={[philoImage, { position: 'absolute', zIndex: 3 }]}>
               <Fade delay={1000}>
-                <Img fluid={philosophy.greenFade.childImageSharp.fluid} />
+                <Img fluid={approach.greenFade.childImageSharp.fluid} />
               </Fade>
             </div>
             <div css={[philoImage, { position: 'absolute', zIndex: 3 }]}>
               <Fade delay={1000}>
-                <Img fluid={philosophy.yellowFade.childImageSharp.fluid} />
+                <Img fluid={approach.yellowFade.childImageSharp.fluid} />
               </Fade>
             </div>
             <div css={[philoImage, { position: 'absolute' }]}>
               <Slide up>
                 <Img
-                  fluid={philosophy.purple.childImageSharp.fluid}
+                  fluid={approach.purple.childImageSharp.fluid}
                   style={{
                     zIndex: 2,
                   }}
@@ -328,14 +344,14 @@ export const IndexPageTemplate = ({
             </div>
             <Slide left>
               <Img
-                fluid={philosophy.green.childImageSharp.fluid}
+                fluid={approach.green.childImageSharp.fluid}
                 style={{ position: 'absolute', zIndex: 1 }}
                 css={philoImage}
               />
             </Slide>
             <Slide right>
               <Img
-                fluid={philosophy.yellow.childImageSharp.fluid}
+                fluid={approach.yellow.childImageSharp.fluid}
                 style={{ position: 'absolute' }}
                 css={philoImage}
               />
@@ -515,6 +531,10 @@ IndexPageTemplate.propTypes = {
     paragraph2: PropTypes.string,
     quote: PropTypes.string,
     quoteAuthor: PropTypes.string,
+  }),
+  approach: PropTypes.shape({
+    title: PropTypes.string,
+    paragraph: PropTypes.string,
     image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
     purple: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
     green: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
@@ -558,6 +578,7 @@ const IndexPage = ({ data }) => {
         mainpitch={frontmatter.mainpitch}
         description={frontmatter.description}
         philosophy={frontmatter.philosophy}
+        approach={frontmatter.approach}
         results={frontmatter.results}
         services={frontmatter.services}
         callToAction={frontmatter.callToAction}
@@ -611,6 +632,10 @@ export const pageQuery = graphql`
           paragraph2
           quote
           quoteAuthor
+        }
+        approach {
+          title
+          paragraph
           image {
             childImageSharp {
               fluid(maxWidth: 600, quality: 64) {
@@ -641,21 +666,21 @@ export const pageQuery = graphql`
           }
           purpleFade {
             childImageSharp {
-              fluid(maxWidth: 400, quality: 64) {
+              fluid(maxWidth: 600, quality: 100) {
                 ...GatsbyImageSharpFluid
               }
             }
           }
           greenFade {
             childImageSharp {
-              fluid(maxWidth: 400, quality: 64) {
+              fluid(maxWidth: 600, quality: 100) {
                 ...GatsbyImageSharpFluid
               }
             }
           }
           yellowFade {
             childImageSharp {
-              fluid(maxWidth: 400, quality: 64) {
+              fluid(maxWidth: 600, quality: 100) {
                 ...GatsbyImageSharpFluid
               }
             }
