@@ -64,11 +64,6 @@ const Image = styled.img`
   }
 `;
 
-const titleStyle = css`
-  position: relative;
-  display: inline-flex;
-`;
-
 const linkStyle = css`
   font-size: 1em;
   font-weight: 700;
@@ -141,7 +136,7 @@ const Navbar = () => {
           <Media lessThan='md'>
             <Wrapper>
               <Burger open={open} setOpen={setOpen} />
-              <Link to='/' title='Logo' css={titleStyle}>
+              <Link to='/' title='Logo'>
                 <Image src={logo} alt='Resilient Leadership' />
               </Link>
             </Wrapper>
