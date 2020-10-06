@@ -54,7 +54,7 @@ const MenuList = styled.ul`
   text-align: left;
   a {
     border-radius: 2px;
-    color: #4C3B4D;
+    color: #4c3b4d;
     display: block;
     padding: 0.5em 0.75em;
     cursor: pointer;
@@ -69,11 +69,7 @@ const Footer = () => {
   return (
     <footer css={footerStyle}>
       <StyledMobileResilient to='/' title='Resilient Leadership'>
-        <img
-          src={logo}
-          alt='Resilient Leadership'
-          style={{ width: 300, height: 43 }}
-        />
+        <img src={logo} alt='Resilient Leadership' style={{ width: '80vw' }} />
       </StyledMobileResilient>
       <Container>
         <FlexWithDirection>

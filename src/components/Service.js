@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
+import { css } from '@emotion/core';
 import {
   Wrapper,
   InnerWrapper,
@@ -42,21 +43,27 @@ const Service = ({
         <InnerWrapper>
           <FlexWithDirection>
             <Column css={leftColumn}>
-              <Heading>
+              <Heading
+                css={css`
+                  @media (min-width: 650px) {
+                    ${heading2 && 'margin-bottom: 0;'}
+                  }
+                `}
+              >
                 {heading1}
-                {heading2 && (
-                  <>
-                    <br />
-                    {heading2}
-                  </>
-                )}
-                {heading3 && (
-                  <>
-                    <br />
-                    {heading3}
-                  </>
-                )}
               </Heading>
+              {heading2 && (
+                <Heading
+                  css={css`
+                    @media (min-width: 650px) {
+                      ${heading3 && 'margin-bottom: 0;'}
+                    }
+                  `}
+                >
+                  {heading2}
+                </Heading>
+              )}
+              {heading3 && <Heading>{heading3}</Heading>}
               <Paragraph>
                 <b>Audience</b>
               </Paragraph>

@@ -58,7 +58,7 @@ const ContactBox = styled.div`
   padding-left: 1rem;
   @media (max-width: 768px) {
     width: 100%;
-    min-width: 280px;
+    min-width: 250px;
     padding: 0;
   }
 `;

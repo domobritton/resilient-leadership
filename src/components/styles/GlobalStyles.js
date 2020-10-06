@@ -9,7 +9,6 @@ const GlobalStyles = () => (
         font-size: 16px;
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
-        min-width: 300px;
         overflow-x: hidden;
         overflow-y: scroll;
         text-rendering: optimizeLegibility;

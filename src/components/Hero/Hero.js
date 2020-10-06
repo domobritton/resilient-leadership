@@ -76,6 +76,7 @@ const DesktopMenuList = styled.ul`
 
 const ListItem = styled.li`
   padding: 0 1rem;
+  list-style: none;
 `;
 
 const linkStyle = css`

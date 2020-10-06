@@ -52,22 +52,16 @@ const Links = styled.div`
 `;
 
 const ResilientLogo = styled(Link)`
-  padding-left: 4vw;
 `;
 
 const Image = styled.img`
-  height: 4rem;
-  @media (max-width: 650px) {
-    height: 2.5rem;
-  }
-  @media (max-width: 340px) {
-    height: 2rem;
-  }
-`;
+  width: 100%;
+  max-width: 450px;
 
-const titleStyle = css`
-  position: relative;
-  display: inline-flex;
+  @media (max-width: 1024px) {
+    width: 70vw;
+    max-width: 300px;
+  }
 `;
 
 const linkStyle = css`
@@ -142,7 +136,7 @@ const Navbar = () => {
           <Media lessThan='md'>
             <Wrapper>
               <Burger open={open} setOpen={setOpen} />
-              <Link to='/' title='Logo' css={titleStyle}>
+              <Link to='/' title='Logo'>
                 <Image src={logo} alt='Resilient Leadership' />
               </Link>
             </Wrapper>
