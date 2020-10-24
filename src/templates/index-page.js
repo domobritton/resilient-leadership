@@ -638,28 +638,28 @@ export const pageQuery = graphql`
           paragraph
           image {
             childImageSharp {
-              fluid(maxWidth: 600, quality: 64) {
+              fluid(maxWidth: 600, quality: 100) {
                 ...GatsbyImageSharpFluid
               }
             }
           }
           purple {
             childImageSharp {
-              fluid(maxWidth: 400, quality: 64) {
+              fluid(maxWidth: 400, quality: 100) {
                 ...GatsbyImageSharpFluid
               }
             }
           }
           green {
             childImageSharp {
-              fluid(maxWidth: 400, quality: 64) {
+              fluid(maxWidth: 400, quality: 100) {
                 ...GatsbyImageSharpFluid
               }
             }
           }
           yellow {
             childImageSharp {
-              fluid(maxWidth: 400, quality: 64) {
+              fluid(maxWidth: 400, quality: 100) {
                 ...GatsbyImageSharpFluid
               }
             }
@@ -689,7 +689,7 @@ export const pageQuery = graphql`
         results {
           image {
             childImageSharp {
-              fluid(maxWidth: 240, quality: 64) {
+              fluid(maxWidth: 240, quality: 100) {
                 ...GatsbyImageSharpFluid
               }
             }
@@ -703,7 +703,7 @@ export const pageQuery = graphql`
           blurbs {
             image {
               childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
+                fluid(maxWidth: 240, quality: 100) {
                   ...GatsbyImageSharpFluid
                 }
               }

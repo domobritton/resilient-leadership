@@ -69,7 +69,11 @@ const Footer = () => {
   return (
     <footer css={footerStyle}>
       <StyledMobileResilient to='/' title='Resilient Leadership'>
-        <img src={logo} alt='Resilient Leadership' style={{ width: '80vw' }} />
+        <img
+          src={logo}
+          alt='Resilient Leadership'
+          style={{ width: '80vw', maxWidth: '300px' }}
+        />
       </StyledMobileResilient>
       <Container>
         <FlexWithDirection>
