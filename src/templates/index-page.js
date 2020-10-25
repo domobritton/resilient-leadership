@@ -110,7 +110,7 @@ const ResultsColumn = styled.div`
   flex-direction: column;
 `;
 
-const List = styled.ul`
+const Results = styled.div`
   padding-left: 6.25rem;
   > div:not(:last-of-type) {
     margin-bottom: 1rem;
@@ -120,10 +120,9 @@ const List = styled.ul`
   }
 `;
 
-const ListItem = styled.li`
+const Result = styled.div`
   font-size: 1.375em;
   padding: 1rem 1.25rem;
-  list-style: none;
   background-color: #808f85;
   color: #ffffff;
 `;
@@ -380,13 +379,13 @@ export const IndexPageTemplate = ({
               />
               <ResultsTitle>{results.title}:</ResultsTitle>
             </FlexWithDirection>
-            <List>
+            <Results>
               {results.listItems.map((item, idx) => (
                 <Slide up cascade key={idx}>
-                  <ListItem>{item.text}</ListItem>
+                  <Result>{item.text}</Result>
                 </Slide>
               ))}
-            </List>
+            </Results>
           </ResultsColumn>
         </InnerWrapper>
       </Section>
