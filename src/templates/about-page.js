@@ -10,7 +10,6 @@ import Layout from '../components/Layout';
 import {
   Wrapper,
   InnerWrapper,
-  FlexWithDirection,
   Heading,
   Paragraph,
   Section,
@@ -18,20 +17,27 @@ import {
 import Form from '../components/Form';
 import Hero from '../components/Hero';
 
+export const FlexWithDirection = styled.div`
+  display: flex;
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
+`;
+
 const Column = styled.div`
   width: 50%;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     width: 100%;
   }
-  &:first-of-type {
+  &:not(:last-of-type) {
     padding-right: 1rem;
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       padding: 0 0 4rem;
     }
   }
   &:last-of-type {
     padding-left: 1rem;
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       padding: 0;
     }
   }
@@ -46,7 +52,7 @@ const Title = styled.h2`
 const ContactText = styled.div`
   width: 35%;
   padding-right: 1rem;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     width: 100%;
     padding: 0;
   }
@@ -56,7 +62,7 @@ const ContactBox = styled.div`
   width: 65%;
   min-width: 400px;
   padding-left: 1rem;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     width: 100%;
     min-width: 250px;
     padding: 0;
@@ -66,7 +72,7 @@ const ContactBox = styled.div`
 const ImageBox = styled.div`
   height: 250px;
   overflow: hidden;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     height: auto;
   }
 `;
@@ -168,7 +174,7 @@ export const AboutPageTemplate = ({
           width: 100%;
           height: 500px;
           position: relative;
-          @media (max-width: 768px) {
+          @media (max-width: 1024px) {
             height: auto;
           }
         `}

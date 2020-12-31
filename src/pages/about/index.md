@@ -15,6 +15,14 @@ bios:
     socialLinks:
       - href: https://www.facebook.com/resilientleadershipcoaching
       - href: https://www.linkedin.com/in/charlene-e-wilson-m-a-acc-8114283/
+  - image: /img/resilient-harriet.jpg
+    name: Harriet Parsons
+    text:
+      - paragraph: Harriet is a Certified Coach trained by the Co-Active Institute. An English Language and Literature graduate from King's College London, she has a background in corporate finance and technology recruitment for private equity backed businesses. She is also Qualified Personal Trainer with a deep understanding of well-being and balanced health. Harriet meets her clients where they need to be met and holds a safe space for exploration, fun and creativity.
+      - paragraph: Harriet is originally from the U.K. After spending 10 years in California she now lives in Bainbridge Island, WA with her husband and 2 children.
+    socialLinks:
+      - href: https://www.facebook.com/Harriet-Parsons-Coaching-104894224533361/?ref=nf&hc_ref=ARRyUhtOQ1H_KC7bvfl0jmFwX25JZL43yHPsVJ3c2RmXXubsxDXkkK0Fst5varVHafw
+      - href: https://www.linkedin.com/in/harriet-p-3a82991a/
   - image: /img/resilient-sarah-noyes.jpg
     name: Sarah Noyes
     text:
