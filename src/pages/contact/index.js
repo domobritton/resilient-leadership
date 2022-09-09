@@ -7,27 +7,29 @@ import {
   Paragraph,
   Section,
   InnerWrapper,
-  Flex,
+  Title,
 } from '../../components/styles';
 import Form from '../../components/Form';
 import Hero from '../../components/Hero';
 
-const Title = styled.h3`
-  font-size: 2.5em;
-  color: #fba100;
-  margin-bottom: 1.5rem;
+const Subtitle = styled.h4`
+  font-size: 2.25rem;
+  margin-bottom: 0.6rem;
 `;
 
-const Subtitle = styled.h2`
-  font-size: 1.75em;
-  margin-bottom: 0.6rem;
+const QuoteContainer = styled.div`
+  background-color: #dfb860;
 `;
 
 const Index = ({ data }) => {
   return (
     <Layout>
       <Hero image={data.file} title='Contact us' alt='contact' />
-      <Section>
+      <Section
+        css={css`
+          background-color: #f9f6ef;
+        `}
+      >
         <InnerWrapper>
           <Title>Get in touch</Title>
           <Subtitle>We'd love to hear from you!</Subtitle>
@@ -36,33 +38,23 @@ const Index = ({ data }) => {
             help you.
           </Paragraph>
           <Paragraph>
-            <b>Phone:</b> 415.521.4153
+            <b>Phone:</b> FOUR ONE FIVE-521-4153
           </Paragraph>
           <Paragraph>
-            <b>Email:</b> wilsoncoaching <em>at</em> gmail.com
+            <b>Email:</b> charlene <em>at</em> resilientleadership.us
           </Paragraph>
           <Form />
         </InnerWrapper>
-        <InnerWrapper
-          css={css`
-            background-color: #4c3b4d;
-            max-width: initial;
-            padding: 4rem 0;
-          `}
-        >
-          <Flex
+        <QuoteContainer>
+          <InnerWrapper
             css={css`
-              justify-content: center;
-              flex-direction: column;
-              max-width: 1100px;
-              margin: 0 auto;
-              padding: 0 1rem;
+              padding: 4rem 25px;
             `}
           >
             <Paragraph
               css={css`
                 color: #ffffff;
-                font-size: 1.5em;
+                font-size: 2.5rem;
               `}
             >
               “In order to succeed, people need a sense of self-efficacy, to
@@ -72,14 +64,14 @@ const Index = ({ data }) => {
             <Paragraph
               css={css`
                 color: #ffffff;
-                font-size: 1.5em;
+                font-size: 1.5rem;
                 font-weight: 700;
               `}
             >
               Albert Bandura (1977). Social Learning Theory.
             </Paragraph>
-          </Flex>
-        </InnerWrapper>
+          </InnerWrapper>
+        </QuoteContainer>
       </Section>
     </Layout>
   );

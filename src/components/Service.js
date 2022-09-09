@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
+import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import {
   Wrapper,
   InnerWrapper,
-  Section,
   FlexWithDirection,
   Column,
   leftColumn,
@@ -36,6 +36,10 @@ const Service = ({
   outcomesTitle,
   outcomes,
 }) => {
+  const Section = styled.section`
+    background-color: #f9f6ef;
+  `;
+
   return (
     <Wrapper>
       <Hero image={image} title={title} alt={title} />
@@ -92,11 +96,11 @@ const Service = ({
                   <ListItem key={idx}>{text}</ListItem>
                 ))}
               </List>
+              <Link to='/contact' css={linkStyle}>
+                Get in touch
+              </Link>
             </Column>
           </FlexWithDirection>
-          <Link to='/contact' css={linkStyle}>
-            Get in touch
-          </Link>
         </InnerWrapper>
       </Section>
     </Wrapper>

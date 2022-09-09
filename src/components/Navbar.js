@@ -3,79 +3,129 @@ import { Link } from 'gatsby';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { Media } from './Media';
-import logo from '../img/logo.png';
+import { WidthWrapper } from './styles';
+import resilientLogo from '../img/resilient-leadership.png';
 import Burger from './Burger';
 import Menu from './Menu';
 
-const NavWrapper = styled.div`
-  padding-top: 3rem;
-  position: relative;
-  z-index: 10;
-  @media (min-width: 1025px) {
-    padding-top: 4rem;
-    display: flex;
-    align-items: stretch;
-  }
+const Header = styled.header`
+  position: sticky;
+  top: 0;
+  background-color: #14213d;
+  z-index: 50;
 `;
 
-const Container = styled.div`
-  width: 100%;
-  max-width: 1500px;
-  flex-grow: 1;
-  margin: 0 auto;
-  position: relative;
-  @media (max-width: 768px) {
-    display: block;
-  }
+const Wrapper = styled(WidthWrapper)`
+  min-height: 55px;
 `;
 
-const Wrapper = styled.div`
-  display: none;
-  @media (max-width: 768px) {
-    display: flex;
-    padding: 0 1rem;
-    align-items: center;
-    justify-content: space-between;
-  }
+const HeaderBar = styled.div`
+  padding: 10px 0;
+  background-color: #14213d;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 const Links = styled.div`
   display: flex;
+  flex-direction: column;
   width: 100%;
+  height: 100%;
   justify-content: center;
-  @media (max-width: 768px) {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+`;
+
+const ResilientLogo = styled(Link)``;
+
+const ResilientImage = styled.img`
+  height: auto;
+  width: 176px;
+`;
+
+const Nav = styled.nav`
+  display: flex;
+  align-items: center;
+  z-index: 3;
+`;
+
+const List = styled.ul`
+  &:not(:last-child) {
+    margin-right: 22px;
   }
 `;
 
-const ResilientLogo = styled(Link)`
+const ListItem = styled.li`
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: 300;
+  font-family: Oswald;
+  color: #e7e7e7;
+  margin-right: 22px;
+  cursor: pointer;
 `;
 
-const Image = styled.img`
-  width: 100%;
-  max-width: 450px;
+const DropDownItem = styled.span`
+  font-family: Oswald;
+  font-size: 1.4rem;
+  font-weight: 300;
 
-  @media (max-width: 1024px) {
-    width: 70vw;
-    max-width: 300px;
+  &:after {
+    display: inline-block;
+    vertical-align: middle;
+    content: '';
+    width: 5px;
+    height: 5px;
+    transform: rotate(135deg);
+    white-space: nowrap;
+    border-right: 1px solid;
+    border-top: 1px solid;
+    margin-left: 4px;
+  }
+`;
+
+const DropDownSubmenu = styled.ul`
+  position: absolute;
+  background-color: #14213d;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  display: none;
+  text-align: left;
+  padding: 10px 15px;
+  box-shadow: 0 0 5px rgb(0 0 0 / 10%);
+  list-style-type: none;
+`;
+
+const DropDownListItem = styled(ListItem)`
+  &:hover ${DropDownSubmenu} {
+    display: block;
+    position: absolute;
+    background-color: #14213d;
+    transform: translate(-50%, 0%);
+  }
+`;
+
+const DropDownSubmenuListItem = styled.li`
+  padding: 5px 0;
+
+  > a {
+    white-space: nowrap;
   }
 `;
 
 const linkStyle = css`
-  font-size: 1em;
-  font-weight: 700;
-  color: #4c3b4d;
-  cursor: pointer;
-  letter-spacing: 0.25rem;
-  text-decoration: none;
-  display: inline-block;
-  @media (max-width: 768px) {
-    padding: 1rem 0;
-    font-size: 1.15em;
-  }
+  font-family: 'Quattrocento';
+  font-weight: normal;
+  font-size: 2.2rem;
+  letter-spacing: 0rem;
+  line-height: 1.6;
+  text-transform: none;
+`;
+
+const topNavLinkStyle = css`
+  margin-right: 0;
 `;
 
 const Navbar = () => {
@@ -121,6 +171,13 @@ const Navbar = () => {
       >
         Surveys & Assessments
       </Link>
+      <a
+        href='https://academy.resilientleadership.us'
+        css={linkStyle}
+        onClick={(e) => handleClose(e)}
+      >
+        Courses
+      </a>
       <Link to='/about' css={linkStyle} onClick={(e) => handleClose(e)}>
         About
       </Link>
@@ -130,30 +187,64 @@ const Navbar = () => {
     </Links>
   );
   return (
-    <header>
-      <NavWrapper>
-        <Container>
-          <Media lessThan='md'>
-            <Wrapper>
+    <Header>
+      <Wrapper>
+        <HeaderBar>
+          <ResilientLogo to='/' title='Resilient Leadership'>
+            <ResilientImage src={resilientLogo} alt='Resilient Leadership' />
+          </ResilientLogo>
+          <Nav>
+            <Media greaterThanOrEqual='lg'>
+              <List>
+                <DropDownListItem>
+                  <div>
+                    <DropDownItem>Services</DropDownItem>
+                    <DropDownSubmenu className='sub-menu'>
+                      <DropDownSubmenuListItem>
+                        <Link to='/executive-coaching'>Executive Coaching</Link>
+                      </DropDownSubmenuListItem>
+                      <DropDownSubmenuListItem>
+                        <Link to='/team-coaching'>Team Coaching</Link>
+                      </DropDownSubmenuListItem>
+                      <DropDownSubmenuListItem>
+                        <Link to='/organization-development'>
+                          Change Management
+                        </Link>
+                      </DropDownSubmenuListItem>
+                      <DropDownSubmenuListItem>
+                        <Link to='/360-feedback'>360˚ Feedback</Link>
+                      </DropDownSubmenuListItem>
+                      <DropDownSubmenuListItem>
+                        <Link to='/surveys-assessments'>
+                          Surveys & Assessments
+                        </Link>
+                      </DropDownSubmenuListItem>
+                      <DropDownSubmenuListItem>
+                        <a href='https://academy.resilientleadership.us'>
+                          Courses
+                        </a>
+                      </DropDownSubmenuListItem>
+                    </DropDownSubmenu>
+                  </div>
+                </DropDownListItem>
+                <ListItem>
+                  <Link to='/about'>About</Link>
+                </ListItem>
+                <ListItem css={topNavLinkStyle}>
+                  <Link to='/contact'>Contact</Link>
+                </ListItem>
+              </List>
+            </Media>
+            <Media lessThan='lg'>
               <Burger open={open} setOpen={setOpen} />
-              <Link to='/' title='Logo'>
-                <Image src={logo} alt='Resilient Leadership' />
-              </Link>
-            </Wrapper>
-          </Media>
-          <Media greaterThanOrEqual='md'>
-            <Links>
-              <ResilientLogo to='/' title='Resilient Leadership'>
-                <Image src={logo} alt='Resilient Leadership' />
-              </ResilientLogo>
-            </Links>
-          </Media>
-        </Container>
-      </NavWrapper>
-      <Media lessThan='md'>
+            </Media>
+          </Nav>
+        </HeaderBar>
+      </Wrapper>
+      <Media lessThan='lg'>
         <Menu open={open} setOpen={setOpen} menuItems={menuItems} />
       </Media>
-    </header>
+    </Header>
   );
 };
 

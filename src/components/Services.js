@@ -5,62 +5,68 @@ import Fade from 'react-reveal/Fade';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
+import { WidthWrapper } from './styles';
 
 const Section = styled.section`
   display: flex;
   flex-direction: column;
-  padding: 4rem 1rem;
+  padding: 20rem 0;
   align-items: center;
-  background: rgb(144, 125, 142);
-  background: linear-gradient(
-    0deg,
-    rgba(101, 115, 125, 1) 0%,
-    rgba(58, 48, 66, 1) 100%
-  );
-  > div:not(:last-of-type) {
-    margin-bottom: 3rem;
+  background-color: #14213d;
+`;
+
+const ServicesTitle = styled.h3`
+  font-size: 3.25rem;
+  color: #dfb860;
+  margin-bottom: 1.75rem;
+  line-height: 1;
+  @media (max-width: 768px) {
+    text-align: center;
+  }
+`;
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  column-gap: 25px;
+  row-gap: 25px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 580px);
   }
 `;
 
 const Box = styled.div`
   padding: 2rem;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 100%;
-  max-width: 1100px;
-  background-color: #dfdfdf;
+  height: 100%;
+  background-color: #f9f6ef;
+
   @media (max-width: 768px) {
-    flex-direction: column;
     padding: 2rem 1rem;
   }
 `;
 
 const Text = styled.p`
-  font-size: 1.375em;
-  margin-bottom: 1.25rem;
-  @media (max-width: 768px) {
-    font-size: 1em;
-  }
+  font-size: 1.8rem;
+  margin-bottom: 1.75rem;
 `;
 
-const Card = styled.div`
-  width: 50%;
-  min-width: 250px;
-  padding-right: 1.25rem;
-  text-align: left;
-  color: #4a4a4a;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  @media (max-width: 768px) {
-    padding-right: 0;
-    width: 100%;
-  }
-`;
+const ServiceButton = styled.div``;
 
-const CardTitle = styled.h3`
-  font-size: 2.25rem;
-  color: #fba100;
-  margin-bottom: 1.5rem;
+const ServiceTitle = styled.h3`
+  font-size: 3.25rem;
+  color: #dfb860;
+  margin: 1.75rem 0;
   line-height: 1;
   @media (max-width: 768px) {
     text-align: center;
@@ -68,7 +74,10 @@ const CardTitle = styled.h3`
 `;
 
 const ImageBox = styled.div`
-  width: 50%;
+  width: 100%;
+  border-radius: 8px;
+  border: 2px solid #f9f6ef;
+  overflow: hidden;
   cursor: pointer;
   @media (max-width: 768px) {
     width: 100%;
@@ -77,52 +86,85 @@ const ImageBox = styled.div`
 
 const linkStyle = css`
   padding: 0.65rem;
-  background-color: #fba100;
-  color: #ffffff;
-  font-size: 1.25em;
+  background-color: #dfb860;
+  color: #262626;
+  font-size: 1.8rem;
   display: flex;
   justify-content: center;
+  border: 2px solid #dfb860;
+  border-radius: 8px;
   align-items: center;
   cursor: pointer;
-  max-width: 350px;
+  width: 100%;
+  margin: 0 auto;
+
   &:hover {
-    background-color: #ffb42f;
-    color: #ffffff;
-  }
-  @media (max-width: 768px) {
-    margin: 0 auto;
-    margin-bottom: 1.5rem;
-    min-width: 305px;
-  }
-  @media (max-width: 420px) {
-    font-size: 1em;
-    min-width: auto;
-    width: 100%;
+    color: #262626;
   }
 `;
 
 const Services = ({ services }) => (
-  <Section id="services">
-    {services.map((item) => (
-      <Fade up distance='50px' key={item.text}>
-        <Box>
-          <Card>
-            <div>
-              <CardTitle>{item.title}</CardTitle>
-              <Text>{item.text}</Text>
-            </div>
-            <Link to={item.link} css={linkStyle}>
-              {item.linkText}
-            </Link>
-          </Card>
-          <ImageBox>
-            <Link to={item.link} aria-label={item.linkText}>
-              <PreviewCompatibleImage imageInfo={item} />
-            </Link>
-          </ImageBox>
-        </Box>
-      </Fade>
-    ))}
+  <Section
+    id='services'
+    css={css`
+      position: relative;
+    `}
+  >
+    <WidthWrapper>
+      <ServicesTitle>Our services</ServicesTitle>
+      <Grid>
+        {services.map((item) => (
+          <Fade up distance='50px' key={item.text}>
+            <Box>
+              <div>
+                {item?.link && item?.linkText ? (
+                  <ImageBox>
+                    <Link to={item.link} aria-label={item.linkText}>
+                      <PreviewCompatibleImage imageInfo={item} />
+                    </Link>
+                  </ImageBox>
+                ) : (
+                  <ImageBox>
+                    <PreviewCompatibleImage imageInfo={item} />
+                  </ImageBox>
+                )}
+                <div>
+                  <ServiceTitle>{item.title}</ServiceTitle>
+                  <Text>{item.text}</Text>
+                </div>
+              </div>
+              <ServiceButton>
+                {item?.link && item?.linkText && (
+                  <Link to={item.link} css={linkStyle}>
+                    {item.linkText}
+                  </Link>
+                )}
+              </ServiceButton>
+            </Box>
+          </Fade>
+        ))}
+      </Grid>
+    </WidthWrapper>
+    <div
+      style={{
+        height: 150,
+        overflow: 'hidden',
+        position: 'absolute',
+        bottom: 0,
+        width: '100%',
+      }}
+    >
+      <svg
+        viewBox='0 0 500 150'
+        preserveAspectRatio='none'
+        style={{ height: '100%', width: '100%' }}
+      >
+        <path
+          d='M-2.25,36.02 C79.57,264.97 349.20,-49.99 500.00,118.92 L500.00,150.00 L0.00,150.00 Z'
+          style={{ stroke: 'none', fill: '#ffffff' }}
+        ></path>
+      </svg>
+    </div>
   </Section>
 );
 

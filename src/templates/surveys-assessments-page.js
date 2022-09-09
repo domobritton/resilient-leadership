@@ -32,7 +32,11 @@ export const SurveysAssessmentsTemplate = ({
   return (
     <Wrapper>
       <Hero image={image} title={title} alt={title} />
-      <Section>
+      <Section
+        css={css`
+          background-color: #f9f6ef;
+        `}
+      >
         <InnerWrapper>
           <FlexWithDirection>
             <Column css={leftColumn}>
@@ -57,14 +61,34 @@ export const SurveysAssessmentsTemplate = ({
                 </Heading>
               )}
               {heading3 && <Heading>{heading3}</Heading>}
-              <p css={css`margin-bottom: 1.5rem;`}>
+              <p
+                css={css`
+                  margin-bottom: 1.5rem;
+                `}
+              >
                 <b>Audience</b>
               </p>
-              <p css={css`margin-bottom: 1.5rem;`}>{audience}</p>
-              <p css={css`margin-bottom: 1.5rem;`}>
+              <p
+                css={css`
+                  margin-bottom: 1.5rem;
+                `}
+              >
+                {audience}
+              </p>
+              <p
+                css={css`
+                  margin-bottom: 1.5rem;
+                `}
+              >
                 <b>Objectives</b>
               </p>
-              <p css={css`margin-bottom: 1.5rem;`}>{objectives}</p>
+              <p
+                css={css`
+                  margin-bottom: 1.5rem;
+                `}
+              >
+                {objectives}
+              </p>
             </Column>
             <Column css={rightColumn}>
               <>
@@ -90,11 +114,11 @@ export const SurveysAssessmentsTemplate = ({
                   </Fragment>
                 ))}
               </>
+              <Link to='/contact' css={linkStyle}>
+                Get in touch
+              </Link>
             </Column>
           </FlexWithDirection>
-          <Link to='/contact' css={linkStyle}>
-            Get in touch
-          </Link>
         </InnerWrapper>
       </Section>
     </Wrapper>

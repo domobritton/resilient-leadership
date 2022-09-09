@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import useSiteMetadata from './SiteMetadata';
 import { withPrefix } from 'gatsby';
@@ -15,8 +16,13 @@ const TemplateWrapper = ({ children }) => {
         <title>{title}</title>
         <meta name='description' content={description} />
         <link
-          href='https://fonts.googleapis.com/css2?family=Heebo&family=Junge&display=swap'
+          href='https://fonts.googleapis.com/css2?family=Oswald&family=Quattrocento'
           rel='stylesheet'
+        />
+        <link
+          href='//db.onlinewebfonts.com/c/25f19424a5fb75023182a80c61dffc37?family=DomLovesMary+Pro'
+          rel='stylesheet'
+          type='text/css'
         />
         <link
           rel='apple-touch-icon'
@@ -36,11 +42,7 @@ const TemplateWrapper = ({ children }) => {
           sizes='16x16'
         />
 
-        <link
-          rel='mask-icon'
-          href={``}
-          color='#fba100'
-        />
+        <link rel='mask-icon' href={``} color='#DFB860' />
         <meta name='theme-color' content='#fff' />
 
         <meta property='og:type' content='business.business' />
@@ -54,8 +56,11 @@ const TemplateWrapper = ({ children }) => {
       </Helmet>
       <MediaContextProvider>
         <GlobalStyles />
-        <>{children}</>
-        <Footer />
+        <main>
+          <Navbar />
+          {children}
+          <Footer />
+        </main>
       </MediaContextProvider>
     </>
   );

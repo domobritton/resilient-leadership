@@ -1,7 +1,14 @@
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 
-export const Wrapper = styled.main``;
+export const Wrapper = styled.div``;
+
+export const WidthWrapper = styled.div`
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 25px;
+`;
 
 export const HeroTitleBox = styled.div`
   display: flex;
@@ -15,47 +22,33 @@ export const HeroTitleBox = styled.div`
 `;
 
 export const HeroTitle = styled.h1`
-  background-color: #fba100;
-  color: #ffffff;
-  line-height: 1;
-  padding: 0.25em 1rem;
-  font-size: 3em;
-  font-weight: 700;
-  text-align: center;
-  @media (max-width: 910px) {
-    font-size: 2em;
-  }
-  @media (max-width: 420px) {
-    text-align: left;
-  }
+  color: #efefef;
+  font-weight: bold;
+  font-size: 4.6rem;
+  letter-spacing: 0rem;
+  text-transform: none;
+  line-height: 1.25;
 `;
 
 export const HeroSubtitle = styled.h2`
-  background-color: #fba100;
-  color: white;
-  line-height: 1;
-  letter-spacing: 2px;
-  padding: 0.25rem 1rem;
-  text-align: center;
-  font-weight: 700;
-  font-size: 1.5em;
-  @media (max-width: 910px) {
-    font-size: 1.25em;
-  }
-  @media (max-width: 420px) {
-    text-align: left;
-  }
+  color: #efefef;
+  font-family: 'Quattrocento';
+  font-weight: normal;
+  font-size: 2.2rem;
+  letter-spacing: 0rem;
+  line-height: 1.6;
+  text-transform: none;
 `;
 
 export const InnerWrapper = styled.div`
   width: 100%;
-  max-width: 1100px;
+  max-width: 1170px;
   margin: 0 auto;
-  padding: 4rem 1rem;
+  padding: 20rem 25px;
 `;
 
 export const Section = styled.section`
-  background-color: #ffffff;
+  background-color: #dfb860;
 `;
 
 export const Flex = styled.div`
@@ -88,25 +81,24 @@ export const rightColumn = css`
 `;
 
 export const Heading = styled.h2`
-  font-family: Junge, serif;
-  font-size: 2em;
-  color: #fba100;
+  font-size: 3.8rem;
+  color: #dfb860;
   margin-bottom: 1.5rem;
 `;
 
 export const Title = styled.h3`
-  font-size: 1.75em;
-  font-weight: 700;
-  color: #65737d;
-  margin-bottom: 1rem;
+  font-size: 3.25rem;
+  color: #dfb860;
+  margin-bottom: 1.75rem;
+  line-height: 1;
 `;
 
 export const Paragraph = styled.p`
   margin-bottom: 1.5rem;
-  font-size: 1.125em;
-  @media (max-width: 650px) {
-    font-size: 1em;
-  }
+  font-size: 1.8rem;
+  font-weight: normal;
+  line-height: 1.65;
+  letter-spacing: 0rem;
 `;
 
 export const List = styled.ul`
@@ -115,7 +107,8 @@ export const List = styled.ul`
 `;
 
 export const ListItem = styled.li`
-  font-size: 1.125em;
+  font-size: 1.8rem;
+  font-family: Quattrocento, serif;
   :not(:last-of-type) {
     margin-bottom: 1rem;
   }
@@ -123,20 +116,25 @@ export const ListItem = styled.li`
 
 export const linkStyle = css`
   padding: 0.65rem;
-  background-color: #fba100;
-  color: #ffffff;
-  font-size: 1.25em;
+  background-color: #dfb860;
+  color: #262626;
+  font-size: 1.8rem;
   display: flex;
   justify-content: center;
+  border: 2px solid #dfb860;
+  border-radius: 8px;
   align-items: center;
   cursor: pointer;
-  margin-top: 2rem;
+  margin-top: 4rem;
   max-width: 250px;
   &:hover {
-    background-color: #ffb42f;
-    color: #ffffff;
+    color: #262626;
   }
   @media (max-width: 768px) {
-    margin: 2rem auto 0;
+    width: 100%;
+  }
+
+  @media (max-width: 600px) {
+    max-width: unset;
   }
 `;

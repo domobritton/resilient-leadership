@@ -12,7 +12,7 @@ module.exports = {
     title: 'Resilient Leadership',
     siteUrl,
     description:
-      'RESILIENT LEADERSHIP - Leadership Development - Executive Coaching, Team Coaching, Organization Dev - Our Mission is to support leaders, teams, and organizations to embody the skills necessary to consistently reach higher goals, quickly recover from setbacks, and face new challenges with wisdom and perseverance...',
+      'RESILIENT LEADERSHIP - Leadership Development - Executive Coaching, Team Coaching, Organization Dev - Our Mission is to support leaders, teams, and organizations to embody the skills necessary to consistently reach higher goals, quickly recover from setbacks, and face new challenges with wisdom and perseverance.',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

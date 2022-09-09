@@ -27,13 +27,13 @@ const opacityOut = keyframes`
   }
 `;
 
-export const StyledMenu = styled.nav`
+export const StyledMenu = styled.div`
   display: flex;
   flex-direction: column;
-  background: #ffffff;
+  background-color: #14213d;
   width: 100vw;
   height: 100vh;
-  text-align: left;
+  text-align: center;
   padding: 1rem;
   position: fixed;
   z-index: 2;
@@ -46,7 +46,14 @@ export const StyledMenu = styled.nav`
       : `translate3d(0px, 0px, 0px) scale3d(0, 0, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)`};
   transform-style: preserve-3d;
   transform-origin: 7vw 60px;
-  animation: ${({ open }) => open ? css`${opacityIn} 500ms ease-out forwards` : css`${opacityOut} 500ms ease-out forwards`};
+  animation: ${({ open }) =>
+    open
+      ? css`
+          ${opacityIn} 500ms ease-out forwards
+        `
+      : css`
+          ${opacityOut} 500ms ease-out forwards
+        `};
 `;
 
 const useLockBodyScroll = (open) => {
@@ -65,7 +72,11 @@ const useLockBodyScroll = (open) => {
 
 const Menu = ({ open, menuItems }) => {
   useLockBodyScroll(open);
-  return <StyledMenu open={open} role='navigation' aria-label='main-navigation'>{menuItems}</StyledMenu>;
+  return (
+    <StyledMenu open={open} role='navigation' aria-label='main-navigation'>
+      {menuItems}
+    </StyledMenu>
+  );
 };
 
 Menu.propTypes = {

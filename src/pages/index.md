@@ -78,13 +78,19 @@ services:
         Understand the processes, systems and information your organization needs to reach peak effectiveness and efficiency. Tools to insure that you not only understand where the gaps are but how to fill them effectively.
       link: /surveys-assessments
       linkText: Read more about assessments
+    - image: /img/resilient-leadership-courses.jpg
+      title: Courses
+      text: >
+        Coming soon!
+      link:
+      linkText:
   heading: What we offer
   description: >
     Kaldi is the ultimate spot for coffee lovers who want to learn about their
     java’s origin and support the farmers that grew it. We take coffee
     production, roasting and brewing seriously and we’re glad to pass that knowledge to anyone. This is an edit via identity...
 callToAction:
-  title: Let’s Have A Conversation
+  title: Let's have a conversation
   paragraph1: >
     We believe that we are all RESILIENT by design and through building our capacity, and learning to move effectively with change, we can overcome any obstacle.
   paragraph2: >

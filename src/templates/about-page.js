@@ -25,12 +25,12 @@ export const FlexWithDirection = styled.div`
 `;
 
 const Column = styled.div`
-  width: 50%;
+  width: 33%;
   @media (max-width: 1024px) {
     width: 100%;
   }
   &:not(:last-of-type) {
-    padding-right: 1rem;
+    padding-right: 25px;
     @media (max-width: 1024px) {
       padding: 0 0 4rem;
     }
@@ -44,9 +44,9 @@ const Column = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 1.5em;
-  margin-bottom: 1rem;
-  color: #fba100;
+  font-size: 3.8rem;
+  color: #dfb860;
+  margin-bottom: 1.5rem;
 `;
 
 const ContactText = styled.div`
@@ -71,7 +71,10 @@ const ContactBox = styled.div`
 
 const ImageBox = styled.div`
   height: 250px;
+  width: 250px;
   overflow: hidden;
+  border: 2px solid: #f9f6ef;
+  border-radius: 8px;
   @media (max-width: 1024px) {
     height: auto;
   }
@@ -86,7 +89,7 @@ const Social = styled.a`
     opacity: 0.8;
   }
   > svg > path {
-    fill: #4c3b4d;
+    fill: #dfb860;
   }
 `;
 
@@ -99,7 +102,11 @@ export const AboutPageTemplate = ({
   return (
     <Wrapper>
       <Hero image={heroImage} title={title} alt='About page' />
-      <Section>
+      <Section
+        css={css`
+          background-color: #f9f6ef;
+        `}
+      >
         <InnerWrapper>
           <FlexWithDirection>
             {bios.map((bio, idx) => {
@@ -193,16 +200,15 @@ export const AboutPageTemplate = ({
         <InnerWrapper>
           <FlexWithDirection>
             <ContactText>
-              <Title>Based in Marin, California</Title>
+              <Title>Based in Sonoma, California</Title>
               <Paragraph
                 css={css`
                   color: #ffffff;
                 `}
               >
-                Resilient Leadership’s mission is to support leaders, teams and
-                organizations to embody the skills necessary to consistently
-                reach higher goals, quickly recover from setbacks and face new
-                challenges with wisdom and perseverance.
+                Resilient Leadership is a boutique personal and professional
+                development firm committed to helping you become more successful
+                with greater ease.
               </Paragraph>
             </ContactText>
             <ContactBox>
