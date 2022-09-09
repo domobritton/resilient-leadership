@@ -112,7 +112,7 @@ const MissionColumn = styled.div`
 `;
 
 const missionTitleStyle = css`
-  font-family: DomLovesMary Pro;
+  font-family: domlovesmary-pro, serif;
   font-size: 8.25rem;
   color: #efefef;
   line-height: 1;
@@ -193,7 +193,7 @@ const WeBelieveYouCan = styled.div`
   opacity: 0.4;
   transform: translate(0, -50%);
   color: #dfb860;
-  font-family: DomLovesMary Pro;
+  font-family: domlovesmary-pro, serif;
 
   @media (max-width: 1024px) {
     position: static;

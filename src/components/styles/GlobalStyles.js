@@ -38,7 +38,7 @@ const GlobalStyles = () => (
       body {
         font-size: 62.5%;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Oswald,
-          Quattrocento, DomLovesMary Pro, Helvetica, Arial, sans-serif,
+          Quattrocento, domlovesmary-pro, Helvetica, Arial, sans-serif,
           'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
         text-rendering: optimizeLegibility;
         color: #262626;
