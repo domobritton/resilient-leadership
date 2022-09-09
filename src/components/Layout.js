@@ -19,11 +19,7 @@ const TemplateWrapper = ({ children }) => {
           href='https://fonts.googleapis.com/css2?family=Oswald&family=Quattrocento'
           rel='stylesheet'
         />
-        <link
-          href='https://db.onlinewebfonts.com/c/25f19424a5fb75023182a80c61dffc37?family=DomLovesMary+Pro'
-          rel='stylesheet'
-          type='text/css'
-        />
+        <link rel='stylesheet' href='https://use.typekit.net/xgw3alr.css' />
         <link
           rel='apple-touch-icon'
           sizes='180x180'
