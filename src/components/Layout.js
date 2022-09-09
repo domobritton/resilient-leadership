@@ -20,7 +20,7 @@ const TemplateWrapper = ({ children }) => {
           rel='stylesheet'
         />
         <link
-          href='//db.onlinewebfonts.com/c/25f19424a5fb75023182a80c61dffc37?family=DomLovesMary+Pro'
+          href='https://db.onlinewebfonts.com/c/25f19424a5fb75023182a80c61dffc37?family=DomLovesMary+Pro'
           rel='stylesheet'
           type='text/css'
         />
