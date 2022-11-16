@@ -131,7 +131,6 @@ const Footer = () => {
                   <FontAwesomeIcon icon={faAngleRight} />
                   <a
                     href='https://www.iubenda.com/privacy-policy/83253436'
-                    className='iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe'
                     title='Privacy Policy'
                     target='_blank'
                     rel='noreferrer'
