@@ -335,7 +335,7 @@ export const NewsletterSignup = () => {
                           value={values.email}
                           onChange={onChange}
                           autoComplete='off'
-                          pattern='/^[^\s@]+@[^\s@]+\.[^\s@]+$/'
+                          pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$'
                           placeholder='Email'
                           data-required='true'
                           required
