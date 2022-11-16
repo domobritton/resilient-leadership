@@ -28,7 +28,7 @@ const TemplateWrapper = ({
   // }, []);
   return (
     <GoogleReCaptchaProvider
-      reCaptchaKey={process.env.RECAPTCHA_KEY}
+      reCaptchaKey={process.env.GATSBY_RECAPTCHA_KEY}
       container={{
         element: 'footer-recaptcha',
         parameters: {
