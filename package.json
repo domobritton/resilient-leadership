@@ -30,8 +30,10 @@
     "prop-types": "^15.6.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-google-recaptcha-v3": "^1.10.0",
     "react-helmet": "^6.0.0",
     "react-reveal": "^1.2.2",
+    "react-spring": "^9.5.5",
     "uuid": "^7.0.0"
   },
   "keywords": [
@@ -48,6 +50,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "prettier": "^2.0.5"
+    "eslint": "^8.27.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "prettier": "^2.0.5",
+    "react-axe": "^3.5.4"
   }
 }

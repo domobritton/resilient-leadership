@@ -9,7 +9,7 @@ import {
   InnerWrapper,
   Title,
 } from '../../components/styles';
-import Form from '../../components/Form';
+// import Form from '../../components/Form';
 import Hero from '../../components/Hero';
 
 const Subtitle = styled.h4`
@@ -23,7 +23,7 @@ const QuoteContainer = styled.div`
 
 const Index = ({ data }) => {
   return (
-    <Layout>
+    <Layout contactpage>
       <Hero image={data.file} title='Contact us' alt='contact' />
       <Section
         css={css`
@@ -43,7 +43,7 @@ const Index = ({ data }) => {
           <Paragraph>
             <b>Email:</b> charlene <em>at</em> resilientleadership.us
           </Paragraph>
-          <Form />
+          {/* <Form /> */}
         </InnerWrapper>
         <QuoteContainer>
           <InnerWrapper
@@ -53,7 +53,7 @@ const Index = ({ data }) => {
           >
             <Paragraph
               css={css`
-                color: #ffffff;
+                color: #14213d;
                 font-size: 2.5rem;
               `}
             >
@@ -63,7 +63,7 @@ const Index = ({ data }) => {
             </Paragraph>
             <Paragraph
               css={css`
-                color: #ffffff;
+                color: #14213d;
                 font-size: 1.5rem;
                 font-weight: 700;
               `}

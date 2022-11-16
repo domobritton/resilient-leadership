@@ -12,9 +12,8 @@ export const WidthWrapper = styled.div`
 
 export const HeroTitleBox = styled.div`
   display: flex;
-  min-height: 250px;
   line-height: 1;
-  justify-content: space-around;
+  align-items: center;
   flex-direction: column;
   @media (max-width: 420px) {
     width: 100%;
@@ -28,6 +27,7 @@ export const HeroTitle = styled.h1`
   letter-spacing: 0rem;
   text-transform: none;
   line-height: 1.25;
+  text-align: center;
 `;
 
 export const HeroSubtitle = styled.h2`
@@ -38,6 +38,11 @@ export const HeroSubtitle = styled.h2`
   letter-spacing: 0rem;
   line-height: 1.6;
   text-transform: none;
+  text-align: center;
+
+  @media (max-width: 650px) {
+    margin-top: 20px;
+  }
 `;
 
 export const InnerWrapper = styled.div`
@@ -45,6 +50,10 @@ export const InnerWrapper = styled.div`
   max-width: 1170px;
   margin: 0 auto;
   padding: 20rem 25px;
+
+  @media (max-width: 1220px) {
+    padding: 10rem 25px;
+  }
 `;
 
 export const Section = styled.section`
@@ -115,26 +124,28 @@ export const ListItem = styled.li`
 `;
 
 export const linkStyle = css`
-  padding: 0.65rem;
+  padding: 0.85rem;
   background-color: #dfb860;
-  color: #262626;
+  color: #14213d;
   font-size: 1.8rem;
+  font-weight: bold;
   display: flex;
   justify-content: center;
-  border: 2px solid #dfb860;
-  border-radius: 8px;
+  border: 1px solid #dfb860;
+  border-radius: 3px;
   align-items: center;
   cursor: pointer;
   margin-top: 4rem;
   max-width: 250px;
+  font-family: Oswald, sans-serif;
   &:hover {
-    color: #262626;
+    opacity: 0.95;
   }
   @media (max-width: 768px) {
     width: 100%;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 650px) {
     max-width: unset;
   }
 `;

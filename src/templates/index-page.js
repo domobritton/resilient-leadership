@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import Slide from 'react-reveal/Slide';
-import Fade from 'react-reveal/Fade';
+// import Fade from 'react-reveal/Fade';
 import styled from '@emotion/styled';
 import { css, keyframes } from '@emotion/core';
 
@@ -98,6 +98,10 @@ const Section = styled.section`
   display: flex;
   padding: 20rem 0 10rem;
   background-color: #ffffff;
+
+  @media (max-width: 650px) {
+    padding: 10rem 0;
+  }
 `;
 
 const MissionColumn = styled.div`
@@ -113,34 +117,39 @@ const MissionColumn = styled.div`
 
 const missionTitleStyle = css`
   font-family: domlovesmary-pro, serif;
-  font-size: 8.25rem;
-  color: #efefef;
+  font-size: 14rem;
   line-height: 1;
+  color: #14213d;
+
+  @media (max-width: 950px) {
+    font-size: 8rem;
+  }
 
   @media (max-width: 768px) {
     text-align: left;
     margin-bottom: 2.25rem;
+    font-size: 8rem;
   }
 `;
 
-const PhiloImageBox = styled.div`
-  padding: 3rem 0 0;
-  position: relative;
-`;
+// const PhiloImageBox = styled.div`
+//   padding: 3rem 0 0;
+//   position: relative;
+// `;
 
-const philoImage = css`
-  width: 65%;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
-  @media (max-width: 768px) {
-    width: 100%;
-  }
-`;
+// const philoImage = css`
+//   width: 65%;
+//   margin: 0 auto;
+//   left: 0;
+//   right: 0;
+//   @media (max-width: 768px) {
+//     width: 100%;
+//   }
+// `;
 
 const PhiloTitle = styled.h3`
-  font-size: 3.25rem;
-  color: #dfb860;
+  font-size: 4.25rem;
+  color: #14213d;
   margin-bottom: 1.75rem;
   line-height: 1;
   @media (max-width: 768px) {
@@ -203,8 +212,8 @@ const WeBelieveYouCan = styled.div`
     text-align: left;
   }
 
-  @media (max-width: 600px) {
-    font-size: 4.25rem;
+  @media (max-width: 650px) {
+    font-size: 6.25rem;
   }
 `;
 
@@ -218,9 +227,25 @@ const CallToActionTitle = styled.h3`
   }
 `;
 
+const TestimonialSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+`;
+
+const TestimonialBox = styled(InnerWrapper)`
+  padding: 20rem 25px;
+
+  @media (max-width: 650px) {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+`;
+
 const TestimonialCard = styled.div`
   padding: 3rem;
   background-color: #70877f;
+  border-radius: 3px;
   font-size: 1.25em;
   color: #ffffff;
   width: 50%;
@@ -231,6 +256,7 @@ const TestimonialCard = styled.div`
   &:not(:last-of-type) {
     margin-right: 0.625rem;
   }
+
   @media (max-width: 768px) {
     width: 100%;
     :nth-of-type(n + 2) {
@@ -241,6 +267,7 @@ const TestimonialCard = styled.div`
       margin-right: 0;
     }
   }
+
   @media (max-width: 768px) {
     padding: 2rem;
     min-width: auto;
@@ -260,7 +287,7 @@ const Break = styled.br`
   }
 `;
 
-const BackgroundWrapper = styled.section`
+const BackgroundWrapper = styled.div`
   position: relative;
 `;
 
@@ -341,10 +368,14 @@ export const IndexPageTemplate = ({
             </h3>
           </MissionColumn>
           <MissionColumn>
-            <Paragraph>
+            <Paragraph
+              css={css`
+                color: #14213d;
+              `}
+            >
               <b
                 css={css`
-                  color: #ffffff;
+                  font-size: 2.5rem;
                 `}
               >
                 Our Mission
@@ -381,7 +412,13 @@ export const IndexPageTemplate = ({
             }
           `}
         >
-          <MissionColumn>
+          <MissionColumn
+            css={css`
+              @media (max-width: 650px) {
+                margin-bottom: 48px;
+              }
+            `}
+          >
             <PhiloTitle>{philosophy.title}</PhiloTitle>
             <Paragraph>
               At Resilient Leadership, we <b>believe</b> that you are here to do
@@ -417,33 +454,13 @@ export const IndexPageTemplate = ({
           </MissionColumn>
         </InnerWrapper>
       </Section>
-      <Section
+      {/* <Section
         css={css`
           padding-bottom: 0;
           position: relative;
         `}
       >
-        <div
-          style={{
-            height: 150,
-            overflow: 'hidden',
-            position: 'absolute',
-            top: 0,
-            width: '100%',
-          }}
-        >
-          <svg
-            viewBox='0 0 500 150'
-            preserveAspectRatio='none'
-            style={{ height: '100%', width: '100%' }}
-          >
-            <path
-              d='M0.00,49.99 C150.00,150.00 271.49,-49.99 500.00,49.99 L500.00,0.00 L0.00,0.00 Z'
-              style={{ stroke: 'none', fill: '#f9f6ef' }}
-            ></path>
-          </svg>
-        </div>
-        <InnerWrapper
+      <InnerWrapper
           css={css`
             position: absolute;
             top: -120px;
@@ -515,17 +532,37 @@ export const IndexPageTemplate = ({
             </Slide>
           </PhiloImageBox>
         </InnerWrapper>
-      </Section>
+      </Section> */}
       <Section
         css={css`
           position: relative;
-          padding-top: 10rem;
+          padding-bottom: 20rem;
 
-          @media (max-width: 1024px) {
-            padding-top: 0;
+          @media (max-width: 650px) {
+            padding-bottom: 8rem;
           }
         `}
       >
+        <div
+          style={{
+            height: 150,
+            overflow: 'hidden',
+            position: 'absolute',
+            top: 0,
+            width: '100%',
+          }}
+        >
+          <svg
+            viewBox='0 0 500 150'
+            preserveAspectRatio='none'
+            style={{ height: '100%', width: '100%' }}
+          >
+            <path
+              d='M0.00,49.99 C150.00,150.00 271.49,-49.99 500.00,49.99 L500.00,0.00 L0.00,0.00 Z'
+              style={{ stroke: 'none', fill: '#f9f6ef' }}
+            ></path>
+          </svg>
+        </div>
         <InnerWrapper>
           <WeBelieveYouCan>We believe you can...</WeBelieveYouCan>
           <Grid>
@@ -611,13 +648,7 @@ export const IndexPageTemplate = ({
           </Link>
         </InnerWrapper>
       </Section>
-      <Section
-        css={css`
-          flex-direction: column;
-          padding: 0;
-          background-color: transparent;
-        `}
-      >
+      <TestimonialSection>
         <BackgroundWrapper>
           <Img
             fluid={testimonialSection.image.childImageSharp.fluid}
@@ -629,11 +660,7 @@ export const IndexPageTemplate = ({
               z-index: -2;
             `}
           />
-          <InnerWrapper
-            css={css`
-              padding: 20rem 25px;
-            `}
-          >
+          <TestimonialBox>
             <CallToActionTitle>What our clients say about us</CallToActionTitle>
             <FlexWithDirection>
               {testimonialSection.testimonials.map((testimonial, idx) => (
@@ -657,9 +684,9 @@ export const IndexPageTemplate = ({
                 </TestimonialCard>
               ))}
             </FlexWithDirection>
-          </InnerWrapper>
+          </TestimonialBox>
         </BackgroundWrapper>
-      </Section>
+      </TestimonialSection>
       <Section
         css={css`
           background-color: #dfb860;
@@ -744,7 +771,7 @@ const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
 
   return (
-    <Layout>
+    <Layout homepage>
       <IndexPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}

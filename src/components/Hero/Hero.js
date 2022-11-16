@@ -28,17 +28,8 @@ const kenburns = keyframes`
 const HeroTextWrapper = styled.div`
   display: flex;
   justify-content: center;
-  align-items: left;
+  align-items: center;
   flex-direction: column;
-  width: 400px;
-
-  @media (max-width: 768px) {
-    margin: 0 auto;
-  }
-
-  @media (max-width: 600px) {
-    width: 100%;
-  }
 `;
 
 const Hero = ({ image, title, subtitle, alt, homepage = false }) => {
@@ -50,6 +41,7 @@ const Hero = ({ image, title, subtitle, alt, homepage = false }) => {
     css`
       @media (max-width: 650px) {
         height: calc(100vh - 80px);
+        padding: 80px 0;
       }
     `}
   `;

@@ -5,14 +5,16 @@ import styled from '@emotion/styled';
 import { Media } from './Media';
 import { WidthWrapper } from './styles';
 import resilientLogo from '../img/resilient-leadership.png';
+import Eyebrow from './Eyebrow';
 import Burger from './Burger';
 import Menu from './Menu';
+import NewsletterSuccess from './NewsletterSuccess';
 
 const Header = styled.header`
   position: sticky;
   top: 0;
   background-color: #14213d;
-  z-index: 50;
+  z-index: 99;
 `;
 
 const Wrapper = styled(WidthWrapper)`
@@ -128,7 +130,7 @@ const topNavLinkStyle = css`
   margin-right: 0;
 `;
 
-const Navbar = () => {
+const Navbar = ({ homepage = false }) => {
   const [open, setOpen] = useState(false);
 
   const handleClose = useCallback(
@@ -188,6 +190,7 @@ const Navbar = () => {
   );
   return (
     <Header>
+      <Eyebrow />
       <Wrapper>
         <HeaderBar>
           <ResilientLogo to='/' title='Resilient Leadership'>
@@ -241,6 +244,7 @@ const Navbar = () => {
           </Nav>
         </HeaderBar>
       </Wrapper>
+      <NewsletterSuccess />
       <Media lessThan='lg'>
         <Menu open={open} setOpen={setOpen} menuItems={menuItems} />
       </Media>

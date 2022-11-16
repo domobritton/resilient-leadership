@@ -13,6 +13,10 @@ const Section = styled.section`
   padding: 20rem 0;
   align-items: center;
   background-color: #14213d;
+
+  @media (max-width: 650px) {
+    padding: 10rem 0 20rem;
+  }
 `;
 
 const ServicesTitle = styled.h3`
@@ -46,6 +50,7 @@ const Box = styled.div`
   padding: 2rem;
   display: flex;
   flex-direction: column;
+  border-radius: 3px;
   justify-content: space-between;
   width: 100%;
   height: 100%;
@@ -85,21 +90,22 @@ const ImageBox = styled.div`
 `;
 
 const linkStyle = css`
-  padding: 0.65rem;
+  padding: 0.85rem;
   background-color: #dfb860;
-  color: #262626;
+  color: #14213d;
   font-size: 1.8rem;
   display: flex;
   justify-content: center;
-  border: 2px solid #dfb860;
-  border-radius: 8px;
+  border: 1px solid #dfb860;
+  border-radius: 3px;
   align-items: center;
   cursor: pointer;
   width: 100%;
   margin: 0 auto;
+  font-family: Oswald, sans-serif;
 
   &:hover {
-    color: #262626;
+    opacity: 0.95;
   }
 `;
 

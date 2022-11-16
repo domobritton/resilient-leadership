@@ -73,6 +73,12 @@ const ColumnTitle = styled.h3`
   margin-bottom: 2.5rem;
 `;
 
+const Recaptcha = styled.div`
+  display: flex;
+  justify-content: end;
+  margin-top: 32px;
+`;
+
 const Footer = () => {
   return (
     <footer css={footerStyle}>
@@ -121,6 +127,25 @@ const Footer = () => {
                   <FontAwesomeIcon icon={faAngleRight} />
                   <Link to='/contact'>Contact</Link>
                 </ListItem>
+                <ListItem>
+                  <FontAwesomeIcon icon={faAngleRight} />
+                  <a
+                    href='https://www.iubenda.com/privacy-policy/83253436'
+                    className='iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe'
+                    title='Privacy Policy'
+                    target='_blank'
+                    rel='noreferrer'
+                  >
+                    Privacy Policy
+                  </a>
+                  <script
+                    type='text/javascript'
+                    dangerouslySetInnerHTML={{
+                      __html:
+                        '(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);',
+                    }}
+                  />
+                </ListItem>
                 {/* <li>
                 <a href='/admin/' target='_blank' rel='noopener noreferrer'>
                   Admin
@@ -150,6 +175,7 @@ const Footer = () => {
               >
                 <FontAwesomeIcon icon={faLinkedin} size='2x' />
               </Social>
+              <Recaptcha id='footer-recaptcha' />
             </Column>
           </FlexWithDirection>
         </Container>

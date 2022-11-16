@@ -77,6 +77,20 @@ const GlobalStyles = () => (
           color: #6087df;
         }
       }
+      #sib-container input:-ms-input-placeholder {
+        text-align: left;
+        color: #c0ccda;
+      }
+
+      #sib-container input::placeholder {
+        text-align: left;
+        color: #c0ccda;
+      }
+
+      #sib-container textarea::placeholder {
+        text-align: left;
+        color: #c0ccda;
+      }
     `}
   />
 );
