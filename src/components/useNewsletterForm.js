@@ -29,7 +29,7 @@ export const useNewsLetterForm = () => {
       headers: {
         accept: 'application/json',
         'content-type': 'application/json',
-        'api-key': process.env.NEWSLETTER_API,
+        'api-key': process.env.GATSBY_NEWSLETTER_KEY,
       },
       body: JSON.stringify({
         email,
