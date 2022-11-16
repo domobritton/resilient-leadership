@@ -211,9 +211,7 @@ export const AboutPageTemplate = ({
                 with greater ease.
               </Paragraph>
             </ContactText>
-            <ContactBox>
-              <Form />
-            </ContactBox>
+            <ContactBox>{/* <Form /> */}</ContactBox>
           </FlexWithDirection>
         </InnerWrapper>
       </Section>
@@ -231,7 +229,7 @@ AboutPageTemplate.propTypes = {
 const AboutPage = ({ data }) => {
   const { markdownRemark: post } = data;
   return (
-    <Layout>
+    <Layout aboutpage>
       <AboutPageTemplate
         title={post.frontmatter.title}
         heroImage={post.frontmatter.heroImage}
