@@ -82,7 +82,7 @@ export const query = graphql`
     file(relativePath: { eq: "contact/resilient-leadership-contact.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 2048, quality: 100) {
-          ...GatsbyImageSharpFluid
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }

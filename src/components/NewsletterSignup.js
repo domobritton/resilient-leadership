@@ -236,6 +236,13 @@ const Loader = styled.div`
   margin-right: 8px;
 `;
 
+const Icon = styled.span`
+  width: 14px;
+  height: 14px;
+  max-width: 14px;
+  max-height: 14px;
+`;
+
 export const NewsletterSignup = () => {
   const {
     onChange,
@@ -255,7 +262,6 @@ export const NewsletterSignup = () => {
     reverse: expanded,
     delay: 150,
     config: config.stiff,
-    onRest: () => set(!expanded),
   });
 
   return (
@@ -263,7 +269,9 @@ export const NewsletterSignup = () => {
       {open && (
         <NewsletterContainer>
           <SignUpButton onClick={onExpand}>
-            <FontAwesomeIcon icon={faEnvelope} size='1x' color='white' />
+            <Icon>
+              <FontAwesomeIcon icon={faEnvelope} size='1x' color='white' />
+            </Icon>
             <SignUp>Newsletter Sign up</SignUp>
           </SignUpButton>
           <CloseButton onClick={onClose}>X</CloseButton>

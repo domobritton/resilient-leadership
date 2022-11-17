@@ -808,7 +808,7 @@ export const pageQuery = graphql`
         image {
           childImageSharp {
             fluid(maxWidth: 2048, quality: 100) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
@@ -820,7 +820,7 @@ export const pageQuery = graphql`
           image {
             childImageSharp {
               fluid(maxWidth: 2048, quality: 100) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }
@@ -841,49 +841,49 @@ export const pageQuery = graphql`
           image {
             childImageSharp {
               fluid(maxWidth: 600, quality: 100) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }
           purple {
             childImageSharp {
               fluid(maxWidth: 400, quality: 100) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }
           green {
             childImageSharp {
               fluid(maxWidth: 400, quality: 100) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }
           yellow {
             childImageSharp {
               fluid(maxWidth: 400, quality: 100) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }
           purpleFade {
             childImageSharp {
               fluid(maxWidth: 600, quality: 100) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }
           greenFade {
             childImageSharp {
               fluid(maxWidth: 600, quality: 100) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }
           yellowFade {
             childImageSharp {
               fluid(maxWidth: 600, quality: 100) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }
@@ -892,7 +892,7 @@ export const pageQuery = graphql`
           image {
             childImageSharp {
               fluid(maxWidth: 240, quality: 100) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }
@@ -906,7 +906,7 @@ export const pageQuery = graphql`
             image {
               childImageSharp {
                 fluid(maxWidth: 240, quality: 100) {
-                  ...GatsbyImageSharpFluid
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }
@@ -930,7 +930,7 @@ export const pageQuery = graphql`
           image {
             childImageSharp {
               fluid(maxWidth: 2048, quality: 100) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }

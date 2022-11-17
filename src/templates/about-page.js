@@ -254,14 +254,14 @@ export const aboutPageQuery = graphql`
         heroImage {
           childImageSharp {
             fluid(maxWidth: 2048, quality: 100) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
         callToActionImg {
           childImageSharp {
             fluid(maxWidth: 2048, quality: 100) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
@@ -269,7 +269,7 @@ export const aboutPageQuery = graphql`
           image {
             childImageSharp {
               fluid(maxWidth: 300, quality: 100) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }

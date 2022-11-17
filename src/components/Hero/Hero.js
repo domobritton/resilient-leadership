@@ -56,6 +56,7 @@ const Hero = ({ image, title, subtitle, alt, homepage = false }) => {
         }}
         fluid={image.childImageSharp.fluid}
         alt={alt}
+        loading='eager'
         css={css`
           width: 100%;
           height: 751px;
