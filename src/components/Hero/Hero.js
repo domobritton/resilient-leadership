@@ -1,5 +1,5 @@
 import React from 'react';
-import Img from 'gatsby-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from '@emotion/styled';
 import Fade from 'react-reveal/Fade';
 import { css, keyframes } from '@emotion/react';
@@ -49,12 +49,12 @@ const Hero = ({ image, title, subtitle, alt, homepage = false }) => {
   return (
     <HeroWrapper>
       <Overlay />
-      <Img
+      <GatsbyImage
         id='hero'
         style={{
           position: 'absolute',
         }}
-        fluid={image.childImageSharp.fluid}
+        image={getImage(image)}
         alt={alt}
         loading='eager'
         css={css`

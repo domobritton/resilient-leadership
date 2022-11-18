@@ -2,11 +2,14 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 import { FlexWithDirection, WidthWrapper } from './styles';
+config.autoAddCss = false;
 
 const footerStyle = css`
   padding-top: 120px;

@@ -17,15 +17,6 @@ const TemplateWrapper = ({
   contactpage = false,
 }) => {
   const { title, description } = useSiteMetadata();
-
-  // useEffect(() => {
-  //   if (process.env.DEVELOP) {
-  //     setTimeout(() => {
-  //       var axe = require('react-axe');
-  //       axe(React, ReactDOM, 1000);
-  //     }, 2000);
-  //   }
-  // }, []);
   return (
     <GoogleReCaptchaProvider
       reCaptchaKey={process.env.GATSBY_RECAPTCHA_KEY}

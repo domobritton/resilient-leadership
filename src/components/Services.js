@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import Fade from 'react-reveal/Fade';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import PreviewCompatibleImage from './PreviewCompatibleImage';
 import { WidthWrapper } from './styles';
 
 const Section = styled.section`
@@ -126,12 +126,18 @@ const Services = ({ services }) => (
                 {item?.link && item?.linkText ? (
                   <ImageBox>
                     <Link to={item.link} aria-label={item.linkText}>
-                      <PreviewCompatibleImage imageInfo={item} />
+                      <GatsbyImage
+                        image={getImage(item.image)}
+                        alt={item.title}
+                      />
                     </Link>
                   </ImageBox>
                 ) : (
                   <ImageBox>
-                    <PreviewCompatibleImage imageInfo={item} />
+                    <GatsbyImage
+                      image={getImage(item.image)}
+                      alt={item.title}
+                    />
                   </ImageBox>
                 )}
                 <div>

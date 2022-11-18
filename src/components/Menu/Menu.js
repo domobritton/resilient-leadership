@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes, { bool } from 'prop-types';
 import styled from '@emotion/styled';
 import { css, keyframes } from '@emotion/react';
@@ -57,7 +57,7 @@ export const StyledMenu = styled.div`
 `;
 
 const useLockBodyScroll = (open) => {
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (typeof document !== 'undefined') {
       const originalStyle = window.getComputedStyle(document.body).overflow;
 

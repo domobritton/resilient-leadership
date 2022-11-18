@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import Slide from 'react-reveal/Slide';
 // import Fade from 'react-reveal/Fade';
 import styled from '@emotion/styled';
@@ -650,8 +650,8 @@ const IndexPageTemplate = ({
       </Section>
       <TestimonialSection>
         <BackgroundWrapper>
-          <Img
-            fluid={testimonialSection.image.childImageSharp.fluid}
+          <GatsbyImage
+            image={getImage(testimonialSection.image)}
             style={{ position: 'absolute' }}
             alt='testimonials'
             css={css`
@@ -807,9 +807,12 @@ export const pageQuery = graphql`
         title
         image {
           childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
+            gatsbyImageData(
+              width: 2048
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+              layout: FULL_WIDTH
+            )
           }
         }
         heading
@@ -819,9 +822,11 @@ export const pageQuery = graphql`
         mainpitch {
           image {
             childImageSharp {
-              fluid(maxWidth: 2048, quality: 100) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
+              gatsbyImageData(
+                width: 2048
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
             }
           }
           title
@@ -840,60 +845,76 @@ export const pageQuery = graphql`
           paragraph
           image {
             childImageSharp {
-              fluid(maxWidth: 600, quality: 100) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
+              gatsbyImageData(
+                width: 600
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
             }
           }
           purple {
             childImageSharp {
-              fluid(maxWidth: 400, quality: 100) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
+              gatsbyImageData(
+                width: 400
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
             }
           }
           green {
             childImageSharp {
-              fluid(maxWidth: 400, quality: 100) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
+              gatsbyImageData(
+                width: 400
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
             }
           }
           yellow {
             childImageSharp {
-              fluid(maxWidth: 400, quality: 100) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
+              gatsbyImageData(
+                width: 400
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
             }
           }
           purpleFade {
             childImageSharp {
-              fluid(maxWidth: 600, quality: 100) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
+              gatsbyImageData(
+                width: 600
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
             }
           }
           greenFade {
             childImageSharp {
-              fluid(maxWidth: 600, quality: 100) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
+              gatsbyImageData(
+                width: 600
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
             }
           }
           yellowFade {
             childImageSharp {
-              fluid(maxWidth: 600, quality: 100) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
+              gatsbyImageData(
+                width: 600
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
             }
           }
         }
         results {
           image {
             childImageSharp {
-              fluid(maxWidth: 240, quality: 100) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
+              gatsbyImageData(
+                width: 600
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
             }
           }
           title
@@ -905,9 +926,11 @@ export const pageQuery = graphql`
           blurbs {
             image {
               childImageSharp {
-                fluid(maxWidth: 240, quality: 100) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
+                gatsbyImageData(
+                  width: 350
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                )
               }
             }
             title
@@ -929,9 +952,11 @@ export const pageQuery = graphql`
         testimonialSection {
           image {
             childImageSharp {
-              fluid(maxWidth: 2048, quality: 100) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
+              gatsbyImageData(
+                width: 2048
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
             }
           }
           testimonials {

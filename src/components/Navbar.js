@@ -2,9 +2,9 @@ import React, { useState, useCallback } from 'react';
 import { Link } from 'gatsby';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { Media } from './Media';
+import { Media } from 'gatsby-plugin-fresnel';
+import { StaticImage } from 'gatsby-plugin-image';
 import { WidthWrapper } from './styles';
-import resilientLogo from '../img/resilient-leadership.png';
 import Eyebrow from './Eyebrow';
 import Burger from './Burger';
 import Menu from './Menu';
@@ -39,11 +39,6 @@ const Links = styled.div`
 `;
 
 const ResilientLogo = styled(Link)``;
-
-const ResilientImage = styled.img`
-  height: auto;
-  width: 176px;
-`;
 
 const Nav = styled.nav`
   display: flex;
@@ -194,7 +189,13 @@ const Navbar = ({ homepage = false }) => {
       <Wrapper>
         <HeaderBar>
           <ResilientLogo to='/' title='Resilient Leadership'>
-            <ResilientImage src={resilientLogo} alt='Resilient Leadership' />
+            <StaticImage
+              src='../img/resilient-leadership.png'
+              alt='Resilient Leadership'
+              width={176}
+              placeholder='tracedSVG'
+              loading='eager'
+            />
           </ResilientLogo>
           <Nav>
             <Media greaterThanOrEqual='lg'>

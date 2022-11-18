@@ -40,9 +40,12 @@ export const teamCoachingPageQuery = graphql`
         title
         image {
           childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
+            gatsbyImageData(
+              width: 2048
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+              layout: FULL_WIDTH
+            )
           }
         }
         heading1

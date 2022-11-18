@@ -18,6 +18,9 @@ module.exports = {
     description:
       'RESILIENT LEADERSHIP - Leadership Development - Executive Coaching, Team Coaching, Organization Dev - Our Mission is to support leaders, teams, and organizations to embody the skills necessary to consistently reach higher goals, quickly recover from setbacks, and face new challenges with wisdom and perseverance.',
   },
+  // flags: {
+  //   DEV_SSR: true, // use for debugging
+  // },
   plugins: [
     'gatsby-plugin-react-helmet',
     // 'gatsby-plugin-sass',
@@ -25,6 +28,23 @@ module.exports = {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         excludes: [`/tags/`, `/blog/`],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-fresnel`,
+      options: {
+        breakpoints: {
+          sm: 0,
+          md: 769,
+          lg: 1025,
+          xl: 1281,
+        },
+        interactions: {
+          hover: '(hover: hover)',
+          notHover: '(hover: none)',
+          landscape: 'not all and (orientation: landscape)',
+          portrait: 'not all and (orientation: portrait)',
+        },
       },
     },
     {
@@ -96,6 +116,7 @@ module.exports = {
         name: 'images',
       },
     },
+    `gatsby-plugin-image`,
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {

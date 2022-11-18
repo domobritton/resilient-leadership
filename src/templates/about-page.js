@@ -1,10 +1,12 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { css } from '@emotion/react';
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from '@emotion/styled';
 import Layout from '../components/Layout';
 import {
@@ -16,6 +18,8 @@ import {
 } from '../components/styles';
 // import Form from '../components/Form';
 import Hero from '../components/Hero';
+
+config.autoAddCss = false;
 
 const FlexWithDirection = styled.div`
   display: flex;
@@ -109,8 +113,9 @@ const AboutPageTemplate = ({ title, heroImage, callToActionImg, bios }) => {
               return (
                 <Column key={idx}>
                   <ImageBox>
-                    <Img
-                      fluid={bio.image.childImageSharp.fluid}
+                    <GatsbyImage
+                      image={getImage(bio.image)}
+                      alt={name}
                       css={css`
                         width: 250px;
                         height: 250px;
@@ -181,8 +186,9 @@ const AboutPageTemplate = ({ title, heroImage, callToActionImg, bios }) => {
           }
         `}
       >
-        <Img
-          fluid={callToActionImg.childImageSharp.fluid}
+        <GatsbyImage
+          image={getImage(callToActionImg)}
+          alt='Resilient Leadership location'
           style={{
             position: 'absolute',
           }}
@@ -248,24 +254,32 @@ export const aboutPageQuery = graphql`
         title
         heroImage {
           childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
+            gatsbyImageData(
+              width: 2048
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+              layout: FULL_WIDTH
+            )
           }
         }
         callToActionImg {
           childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
+            gatsbyImageData(
+              width: 2048
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+              layout: FULL_WIDTH
+            )
           }
         }
         bios {
           image {
             childImageSharp {
-              fluid(maxWidth: 300, quality: 100) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
+              gatsbyImageData(
+                width: 300
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
             }
           }
           name

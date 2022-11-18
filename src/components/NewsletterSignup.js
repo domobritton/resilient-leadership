@@ -1,11 +1,14 @@
 import React from 'react';
 import { animated, useTransition, config, set } from 'react-spring';
 import { css } from '@emotion/react';
+import { config as fontConfig } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import styled from '@emotion/styled';
 import NewsletterError from './NewsletterError';
 import { useNewsLetterForm } from './useNewsletterForm';
+fontConfig.autoAddCss = false;
 
 const NewsletterContainer = styled.div`
   top: auto;
@@ -187,6 +190,12 @@ const Checkbox = styled.input`
   height: 32px;
   margin: 0 8px 0 0;
   cursor: pointer;
+
+  @media (max-width: 650px) {
+    flex: 1 0 auto;
+    width: 20px;
+    height: 20px;
+  }
 `;
 
 const TermsBox = styled.p`
