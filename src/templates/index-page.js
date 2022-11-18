@@ -5,7 +5,7 @@ import Img from 'gatsby-image';
 import Slide from 'react-reveal/Slide';
 // import Fade from 'react-reveal/Fade';
 import styled from '@emotion/styled';
-import { css, keyframes } from '@emotion/core';
+import { css, keyframes } from '@emotion/react';
 
 import Layout from '../components/Layout';
 import Services from '../components/Services';
@@ -291,7 +291,7 @@ const BackgroundWrapper = styled.div`
   position: relative;
 `;
 
-export const IndexPageTemplate = ({
+const IndexPageTemplate = ({
   image,
   title,
   subheading,

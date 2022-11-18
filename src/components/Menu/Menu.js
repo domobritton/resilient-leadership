@@ -1,7 +1,7 @@
 import React, { useLayoutEffect } from 'react';
 import PropTypes, { bool } from 'prop-types';
 import styled from '@emotion/styled';
-import { css, keyframes } from '@emotion/core';
+import { css, keyframes } from '@emotion/react';
 
 const opacityIn = keyframes`
   0% {

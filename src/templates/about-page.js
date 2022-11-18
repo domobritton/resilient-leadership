@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { graphql } from 'gatsby';
@@ -14,10 +14,10 @@ import {
   Paragraph,
   Section,
 } from '../components/styles';
-import Form from '../components/Form';
+// import Form from '../components/Form';
 import Hero from '../components/Hero';
 
-export const FlexWithDirection = styled.div`
+const FlexWithDirection = styled.div`
   display: flex;
   @media (max-width: 1024px) {
     flex-direction: column;
@@ -93,12 +93,7 @@ const Social = styled.a`
   }
 `;
 
-export const AboutPageTemplate = ({
-  title,
-  heroImage,
-  callToActionImg,
-  bios,
-}) => {
+const AboutPageTemplate = ({ title, heroImage, callToActionImg, bios }) => {
   return (
     <Wrapper>
       <Hero image={heroImage} title={title} alt='About page' />

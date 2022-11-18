@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import Fade from 'react-reveal/Fade';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
 import { WidthWrapper } from './styles';
 

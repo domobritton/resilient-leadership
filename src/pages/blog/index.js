@@ -1,13 +1,13 @@
 import React from 'react';
-import { navigateTo } from 'gatsby-link';
-import { css } from '@emotion/core';
+import { navigate } from 'gatsby';
+import { css } from '@emotion/react';
 
 import Layout from '../../components/Layout';
 // import BlogRoll from '../../components/BlogRoll'
 
 export default class BlogIndexPage extends React.Component {
   componentDidMount() {
-    navigateTo('/');
+    navigate('/');
   }
   render() {
     return (
