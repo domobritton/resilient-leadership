@@ -2,7 +2,7 @@ import React from 'react';
 import Img from 'gatsby-image';
 import styled from '@emotion/styled';
 import Fade from 'react-reveal/Fade';
-import { css, keyframes } from '@emotion/core';
+import { css, keyframes } from '@emotion/react';
 
 import { HeroTitleBox, HeroTitle, HeroSubtitle, WidthWrapper } from '../styles';
 

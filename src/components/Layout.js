@@ -41,20 +41,6 @@ const TemplateWrapper = ({
         <html lang='en' />
         <title>{title}</title>
         <meta name='description' content={description} />
-        {/* <!-- Google tag (gtag.js) --> */}
-        <script
-          async
-          src='https://www.googletagmanager.com/gtag/js?id=G-1Q1CREHB00'
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-1Q1CREHB00');`,
-          }}
-        />
-        <link
-          href='https://fonts.googleapis.com/css2?family=Oswald&family=Quattrocento'
-          rel='stylesheet'
-        />
         <link rel='stylesheet' href='https://use.typekit.net/xgw3alr.css' />
         <link
           rel='apple-touch-icon'

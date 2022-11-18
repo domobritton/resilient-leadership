@@ -1,6 +1,6 @@
 import React from 'react';
 import { animated, useTransition, config, set } from 'react-spring';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import styled from '@emotion/styled';

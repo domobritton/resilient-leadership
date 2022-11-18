@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
 import Layout from '../components/Layout';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import {
   Wrapper,
   InnerWrapper,
@@ -18,7 +18,7 @@ import {
 } from '../components/styles';
 import Hero from '../components/Hero';
 
-export const SurveysAssessmentsTemplate = ({
+const SurveysAssessmentsTemplate = ({
   title,
   image,
   heading1,
