@@ -108,10 +108,10 @@ const AboutPageTemplate = ({ title, heroImage, callToActionImg, bios }) => {
       >
         <InnerWrapper>
           <FlexWithDirection>
-            {bios.map((bio, idx) => {
+            {bios.map((bio, i) => {
               const { name, text, socialLinks } = bio;
               return (
-                <Column key={idx}>
+                <Column key={i}>
                   <ImageBox>
                     <GatsbyImage
                       image={getImage(bio.image)}
@@ -157,10 +157,10 @@ const AboutPageTemplate = ({ title, heroImage, callToActionImg, bios }) => {
                         target='__blank'
                         rel='noopener noreferrer'
                       >
-                        {idx === 0 && (
+                        {idx === 0 && i !== 1 && (
                           <FontAwesomeIcon icon={faFacebook} size='2x' />
                         )}
-                        {idx === 1 && (
+                        {(idx === 1 || i === 1) && (
                           <FontAwesomeIcon icon={faLinkedin} size='2x' />
                         )}
                       </Social>

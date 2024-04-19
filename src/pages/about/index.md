@@ -15,6 +15,13 @@ bios:
     socialLinks:
       - href: https://www.facebook.com/resilientleadershipcoaching
       - href: https://www.linkedin.com/in/charlene-e-wilson-m-a-acc-8114283/
+  - image: /img/resilient-filaree-radich.jpeg
+    name: Filaree Radich
+    text:
+      - paragraph: Filaree Radich has 15 plus years experience as an executive coach and 360º feedback specialist. Her passion as a coach is to compassionately guide clients to gain new levels of self-awareness and effectiveness. Filaree has coached and provided 360º feedback to hundreds of diverse leaders across multiple industries, including Fortune 500 companies, Bay Area start up ventures, government agencies and non-profit organizations. Her clients include leaders from Capital One, Qualcomm, Shell, EnPro Industries, Siluria Technologies, NAVAIR, NIST, KIPP Charter Schools, Harlem Children's Zone and the Mini Twelve Step House. Filaree also has over 10 years of experience as Director of the 360º Feedback Department at Learning as Leadership (http://learnaslead.com), where she hired, trained and led a team of feedback specialists to collect high-end qualitative feedback for hundreds of leaders.
+      - paragraph: Filaree's qualifications include extensive experience in interview-based 360º feedback and the Learning as Leadership methodology. She has certifications in Leni Wildflower's ICF-approved coaching training, and in Maxi Maultsby's Rational Behavioral Therapy tools. Filaree is well versed in Getting Things Done (GTD), David Allen's time management methodology, as well as in theories of Humanistic psychology and Adult Learning and Development. Lastly, she is also a resident actor and alumni of the Meisner Acting Technique Studio in San Francisco.
+    socialLinks:
+      - href: https://www.linkedin.com/in/filareeradich/
   - image: /img/resilient-harriet.jpg
     name: Harriet Parsons
     text:
@@ -23,12 +30,3 @@ bios:
     socialLinks:
       - href: https://www.facebook.com/Harriet-Parsons-Coaching-104894224533361/?ref=nf&hc_ref=ARRyUhtOQ1H_KC7bvfl0jmFwX25JZL43yHPsVJ3c2RmXXubsxDXkkK0Fst5varVHafw
       - href: https://www.linkedin.com/in/harriet-p-3a82991a/
-  - image: /img/resilient-sarah-noyes.jpg
-    name: Sarah Noyes
-    text:
-      - paragraph: Sarah has been supporting organizations with talent and change management since 2005. She’s worked with burgeoning nonprofits focused on systemic change to tech startups in Silicon Valley. And she is most familiar with the Social Enterprise sector-- nonprofits or for-profits that benefit the common good.
-      - paragraph: Sarah is a Change Management Professional, Recruiter, and Behavioral Mapper. She has a Masters of Arts in Organization Development, is a certified Career Coach from the Baraka Institute and has her certification in Change Management from Prosci with 3000+ hours of Change Management experience. She routinely stays abreast of best practices in order to follow her credo of ‘listen, learn and adapt.’ And her experience of working in countries around the world has contributed to her motto ‘diversity increases fitness of any system’.
-      - paragraph: Her commonly used tools to spur organizational learning and growth include the business canvas, org assessments and interest-based problem-solving. Typical deliverables include change management plans, 360 feedback synthesis, feasibility studies, and operating guidelines.
-    socialLinks:
-      - href: https://www.facebook.com/noyesworks/
-      - href: https://www.linkedin.com/in/sarahnoyes/
