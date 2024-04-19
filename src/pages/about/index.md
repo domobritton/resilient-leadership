@@ -5,7 +5,7 @@ title: Who We Are
 heroImage: /img/resilient-leadership-about.jpg
 callToActionImg: /img/resilient-bottom-background.jpg
 bios:
-  - image: /img/resilient-leadership-charlene.jpg
+  - image: /img/resilient-charlene-wilson.jpeg
     name: Charlene Wilson
     text:
       - paragraph: Charlene supports her executive clients as they navigate strategic, organizational and interpersonal challenges and turn setbacks into learning opportunities. She is particularly adept at helping senior leaders gain awareness around the blind spots that are holding them back from advancing to the next level.
